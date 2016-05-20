@@ -227,33 +227,25 @@ body {
 .sim-row-header2-slider{
 	width: 100%;
 	float: left;
-	height: 450px;
 }
 .sim-row-header2-slider-top{
-	height: 225px;
 	float: left;
 	width: 100%;
 	text-align: center;
 }
 .sim-row-header2-slider-top-title{
-	width: 700px;
-	float: left;
-	margin-left: 50px;
+
 	font-size: 26px;
 	margin-top: 25px;
 }
 .sim-row-header2-slider-top-text{
-	float: left;
-	width: 700px;
-	margin-left: 50px;
+
 	margin-top: 15px;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 300;
 }
 .sim-row-header2-slider-top-link{
-	float: left;
-	width: 700px;
 	margin-left: 50px;
 	margin-top: 25px;
 }
@@ -282,21 +274,21 @@ body {
 	width: 100px;
 }
 .sim-row-header2-slider-bottom{
-	float: left;
 	height: 225px;
 	width: 100%;
 	overflow: hidden;
+	text-align: center;
 }
 .sim-row-header2-slider-bottom img {
 	height: auto;
 	width: 800px;
 }
 .sim-row-content1{
-	float: left;
 	width: 100%;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	background-color: rgba(255,255,255,1);
+	overflow: hidden;
 }
 .sim-row-content1-tab{
 	float: left;

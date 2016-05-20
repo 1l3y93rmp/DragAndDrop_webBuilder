@@ -3,7 +3,6 @@ body {
 	padding: 0px;
 	font-family: 'Source Sans Pro', sans-serif;
 	background: url(../images/blueprint.png);
-	overflow: hidden;
 }
 #header{
 	background-color: #3f8dbf;
@@ -95,6 +94,18 @@ body {
 	padding-right: 20px;
 	padding-left: 20px;
 }
+
+.newsletter-builder-area-center-frame-buttons-content #newsletter-preloaded-rows{
+	display: block;
+}
+.newsletter-builder-area-center-frame-buttons-content .sim-row{
+	transform: scale(0.8);
+	border:1px solid #fff;
+	display: block;
+	vertical-align: top;
+	width: 840px !important;
+}
+
 #newsletter-preloaded-rows{
 	display:none;
 	}
@@ -291,7 +302,7 @@ body {
 }
 .newsletter-builder-area-center-frame-buttons-content {
 	height: 500px;
-	width: 690px;
+	width: 870px;
 	background-color: rgba(70,70,70,1);
 	position: absolute;
 	left: 110px;
@@ -302,14 +313,13 @@ body {
 	display: none;
 }
 .newsletter-builder-area-center-frame-buttons-content-tab {
-	float: left;
+	/*float: left;
 	width: 590px;
 	margin-left: 50px;
 	margin-top: 50px;
-	position: relative;
+	position: relative;*/
 }
-.newsletter-builder-area-center-frame-buttons-content-tab:hover img{
-	opacity: 0.8;
+.newsletter-builder-area-center-frame-buttons-content-tab:hover{
 }
 .newsletter-builder-area-center-frame-buttons-content-tab:hover .newsletter-builder-area-center-frame-buttons-content-tab-add{
 	opacity: 1;
@@ -378,7 +388,6 @@ body {
 }
 #newsletter-builder-area-center-frame-content {
 	width: 100%;
-	margin-top: 40px;
 	transition: width 0.5s;
 	background-color: #fff;
 	/*padding: 0 50px;

@@ -9,8 +9,36 @@ function resize(){
 $( window ).resize(function() {resize();});
 resize();
 
-$('#all-template').load( "allTemplate.html #newsletter-preloaded-rows",function(){
-add_delete();
+$('.newsletter-builder-area-center-frame-buttons-content').load( "allTemplate.html #newsletter-preloaded-rows",function(data){
+	//載入模板 加入刪除鈕
+	
+	//載入模板 將資訊填入選單內使其可選擇 先加上Class
+	$('.newsletter-builder-area-center-frame-buttons-content').find('.sim-row').addClass('newsletter-builder-area-center-frame-buttons-content-tab')
+	//讓這個Class有用
+ $(".newsletter-builder-area-center-frame-buttons-content-tab").hover(
+  function() {
+    $(this).append('<div class="newsletter-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert</div>');
+    //放入一個++鈕
+	$('.newsletter-builder-area-center-frame-buttons-content-tab-add').click(function() {
+
+		//++鈕按下後 把模板內的東西複製加入到畫面當中
+		
+	$("#newsletter-builder-area-center-frame-content").prepend($("#newsletter-preloaded-rows .sim-row[data-id='"+$(this).parent().attr("data-id")+"']").clone());
+	$('.newsletter-builder-area-center-frame-content .newsletter-builder-area-center-frame-buttons-content-tab-add').remove()
+	add_delete();
+	
+	perform_delete();
+	perform_changeColor();
+	hover_edit();
+	
+	$("#newsletter-builder-area-center-frame-buttons-dropdown").fadeOut(200);
+		})
+  }, function() {
+    $(this).children(".newsletter-builder-area-center-frame-buttons-content-tab-add").remove();
+  }
+); 
+	
+
 });
 
 $('#all-edit-bord').load( "allEditBord.html",function(){
@@ -41,45 +69,34 @@ $("#newsletter-builder-area-center-frame-buttons-dropdown").hover(
 
 
 $("#add-column-1").hover(function() {
+
     $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-1']").show()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-2']").hide()
+    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-1'])").hide()
   });
   
 $("#add-column-2").hover(function() {
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-1']").hide()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-2']").show()
 
+    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-2']").show()
+    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-2'])").hide()
   });
   
+$("#add-column-3").hover(function() {
+
+    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-3']").show()
+    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-3'])").hide()
+  });
 
 
   
   
- $(".newsletter-builder-area-center-frame-buttons-content-tab").hover(
-  function() {
-    $(this).append('<div class="newsletter-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert</div>');
-	$('.newsletter-builder-area-center-frame-buttons-content-tab-add').click(function() {
 
-		//把模板內的東西複製加入到畫面當中
-		
-	$("#newsletter-builder-area-center-frame-content").prepend($("#newsletter-preloaded-rows .sim-row[data-id='"+$(this).parent().attr("data-id")+"']").clone());
-
-	hover_edit();
-	perform_delete();
-	perform_changeColor();
-	$("#newsletter-builder-area-center-frame-buttons-dropdown").fadeOut(200);
-		})
-  }, function() {
-    $(this).children(".newsletter-builder-area-center-frame-buttons-content-tab-add").remove();
-  }
-); 
   
   
 //Edit
 function hover_edit(){
 
 
-$(".sim-row-edit").hover(
+$("#newsletter-builder-area-center-frame-content .sim-row-edit").hover(
   function() {
     $(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
 	$(".sim-row-edit-hover").click(function(e) {e.preventDefault()})
@@ -141,16 +158,20 @@ $(".sim-row-edit").hover(
 	
 	//edit text
 	if(big_parent.attr("data-type")=='text'){
-	
-	$("#sim-edit-text .text").val(big_parent.text());
+	big_parent.find('.sim-row-edit-hover').remove()
+	console.log(big_parent)
+	$("#sim-edit-text .text").val(big_parent.html());
+	console.log(big_parent.text())
 	$("#sim-edit-text").fadeIn(500);
 	$("#sim-edit-text .sim-edit-box").slideDown(500);
 	
 	$("#sim-edit-text .sim-edit-box-buttons-save").click(function() {
 	  $(this).parent().parent().parent().fadeOut(500)
 	  $(this).parent().parent().slideUp(500)
-	   
-	    big_parent.text($("#sim-edit-text .text").val());
+
+	  var str = $("#sim-edit-text .text").val()
+
+	    big_parent.html(str);
 		
 		
 	   
@@ -185,9 +206,6 @@ hover_edit();
 
 
 
-   
-
-
 //Drag & Drop
 $("#newsletter-builder-area-center-frame-content").sortable({
   revert: true
@@ -205,10 +223,9 @@ $(".sim-row").draggable({
 
 //Delete
 function add_delete(){
-	$(".sim-row").append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入色碼" size="7";></div>');
+	$("#newsletter-builder-area-center-frame-content .sim-row").removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入色碼" size="7";></div>');
 		//執行動做移到東西載入
 	}
-
 
 
 function perform_delete(){
@@ -231,13 +248,13 @@ perform_changeColor();
 
 $('.Rwd-bottom').click(function(){
 	if ($(this).attr('id') == 'rwd-phone') {
-		$('#newsletter-builder-area-center-frame-content').css('width',320)
+		$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width',320)
 		$('#RWD-css').attr('media','all')
 	} else if($(this).attr('id') == 'rwd-pad'){
-		$('#newsletter-builder-area-center-frame-content').css('width',1024)
+		$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width',1024)
 		$('#RWD-css').attr('media','screen and (max-width: 420px)')
 	} else{
-		$('#newsletter-builder-area-center-frame-content').css('width','100%')
+		$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width','100%')
 		$('#RWD-css').attr('media','screen and (max-width: 420px)')
 	};
 
