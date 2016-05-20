@@ -1,0 +1,38 @@
+{
+  "name": "MEIERQ-Mobile",
+  "version": "1.0.0",
+  "description": "MEIER.Q Mobile Website.",
+  "scripts": {
+    "start": "set NODE_ENV=production && gulp",
+    "dev": "set NODE_ENV=dev && gulp",
+    "publish": "set NODE_ENV=publish && gulp"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "brfs"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:$"
+  },
+  "devDependencies": {
+    "brfs": "^1.4.1",
+    "browser-sync": "^2.9.3",
+    "browserify": "^11.1.0",
+    "browserify-shim": "^3.8.10",
+    "connect-route": "^0.1.5",
+    "gulp": "^3.9.0",
+    "gulp-if": "^1.2.5",
+    "gulp-notify": "^2.2.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.6",
+    "pretty-hrtime": "^1.0.0",
+    "require-dir": "^0.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}

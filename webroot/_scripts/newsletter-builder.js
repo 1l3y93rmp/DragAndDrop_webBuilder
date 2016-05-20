@@ -1,16 +1,26 @@
 $(function() { 
 // Resize	
 function resize(){
-	$('.resize-height').height(window.innerHeight - 50);
-	$('.resize-width').width(window.innerWidth - 250);
+	//$('.resize-height').height(window.innerHeight - 50);
+	//$('.resize-width').width(window.innerWidth - 250);
 	//if(window.innerWidth<=1150){$('.resize-width').css('overflow','auto');}
 	
 	}
 $( window ).resize(function() {resize();});
 resize();
 
-	
-	
+$('#all-template').load( "allTemplate.html #newsletter-preloaded-rows",function(){
+add_delete();
+});
+
+$('#all-edit-bord').load( "allEditBord.html",function(){
+//close edit
+	$(".sim-edit-box-buttons-cancel").click(function() {
+	  $(this).parent().parent().parent().fadeOut(500)
+	   $(this).parent().parent().slideUp(500)
+	});
+});
+
  
 //Add Sections
 $("#newsletter-builder-area-center-frame-buttons-add").hover(
@@ -30,24 +40,19 @@ $("#newsletter-builder-area-center-frame-buttons-dropdown").hover(
 );
 
 
-$("#add-header").hover(function() {
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='header']").show()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='content']").hide()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='footer']").hide()
+$("#add-column-1").hover(function() {
+    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-1']").show()
+	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-2']").hide()
   });
   
-$("#add-content").hover(function() {
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='header']").hide()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='content']").show()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='footer']").hide()
+$("#add-column-2").hover(function() {
+    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-1']").hide()
+	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-2']").show()
+
   });
   
-$("#add-footer").hover(function() {
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='header']").hide()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='content']").hide()
-	$(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='footer']").show()
-  });   
-  
+
+
   
   
  $(".newsletter-builder-area-center-frame-buttons-content-tab").hover(
@@ -55,7 +60,10 @@ $("#add-footer").hover(function() {
     $(this).append('<div class="newsletter-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert</div>');
 	$('.newsletter-builder-area-center-frame-buttons-content-tab-add').click(function() {
 
+		//把模板內的東西複製加入到畫面當中
+		
 	$("#newsletter-builder-area-center-frame-content").prepend($("#newsletter-preloaded-rows .sim-row[data-id='"+$(this).parent().attr("data-id")+"']").clone());
+
 	hover_edit();
 	perform_delete();
 	perform_changeColor();
@@ -90,11 +98,8 @@ $(".sim-row-edit").hover(
 	$("#sim-edit-image .sim-edit-box-buttons-save").click(function() {
 	  $(this).parent().parent().parent().fadeOut(500)
 	  $(this).parent().parent().slideUp(500)
-	  
 	  big_parent.children('img').attr("src",$("#sim-edit-image .image").val());
-
 	   });
-
 	}
 	
 	//edit link
@@ -179,11 +184,7 @@ $(".sim-row-edit").hover(
 hover_edit();
 
 
-//close edit
-$(".sim-edit-box-buttons-cancel").click(function() {
-  $(this).parent().parent().parent().fadeOut(500)
-   $(this).parent().parent().slideUp(500)
-});
+
    
 
 
@@ -205,9 +206,9 @@ $(".sim-row").draggable({
 //Delete
 function add_delete(){
 	$(".sim-row").append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入色碼" size="7";></div>');
-	
+		//執行動做移到東西載入
 	}
-add_delete();
+
 
 
 function perform_delete(){
@@ -225,6 +226,22 @@ function perform_changeColor(){
 	});
 }
 perform_changeColor();
+
+//改變可視大小
+
+$('.Rwd-bottom').click(function(){
+	if ($(this).attr('id') == 'rwd-phone') {
+		$('#newsletter-builder-area-center-frame-content').css('width',320)
+		$('#RWD-css').attr('media','all')
+	} else if($(this).attr('id') == 'rwd-pad'){
+		$('#newsletter-builder-area-center-frame-content').css('width',1024)
+		$('#RWD-css').attr('media','screen and (max-width: 420px)')
+	} else{
+		$('#newsletter-builder-area-center-frame-content').css('width','100%')
+		$('#RWD-css').attr('media','screen and (max-width: 420px)')
+	};
+
+})
 
 
 

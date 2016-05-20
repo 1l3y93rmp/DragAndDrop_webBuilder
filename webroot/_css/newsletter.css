@@ -19,11 +19,9 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 	height: auto;
-	width: 800px;
 }
 .sim-row{
-	width: 800px;
-	float: left;
+	overflow: hidden;
 	font-family: 'Source Sans Pro', sans-serif;
 	position: relative;
 }
@@ -97,36 +95,34 @@ body {
 .sim-row-header1-slider{
 	width: 100%;
 	float: left;
-	height: 450px;
 }
 .sim-row-header1-slider-left{
-	height: 450px;
 	float: left;
-	width: 400px;
+	width: 50%;
 }
 .sim-row-header1-slider-left-title{
-	width: 300px;
 	float: left;
 	margin-left: 50px;
 	margin-top: 75px;
 	font-size: 26px;
+	clear: left;
 
 }
 .sim-row-header1-slider-left-subtitle{
 	float: left;
-	width: 300px;
 	margin-left: 50px;
 	font-size: 20px;
 	font-weight: 300;
+	clear: left;
 }
 .sim-row-header1-slider-left-text{
 	float: left;
-	width: 300px;
 	margin-left: 50px;
 	margin-top: 25px;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 300;
+	clear: left;
 }
 .sim-row-header1-slider-left-link{
 	float: left;
@@ -155,7 +151,7 @@ body {
 .sim-row-header1-slider-right{
 	float: left;
 	height: 450px;
-	width: 400px;
+	width: 50%;
 	overflow: hidden;
 }
 .sim-row-header1-slider-right img {
@@ -304,9 +300,10 @@ body {
 }
 .sim-row-content1-tab{
 	float: left;
-	width: 200px;
-	margin-left: 50px;
+	width: 33.33%;
 	text-align: center;
+	padding: 0 30px;
+	box-sizing: border-box;
 }
 .sim-row-content1-tab-icon{
 	background-color: rgba(63,141,191,1);
@@ -1056,13 +1053,14 @@ body {
 	padding-bottom: 25px;
 }
 .sim-row-content14-center{
-	float: left;
-	width: 600px;
-	margin-left: 100px;
+	width: 100%;
+	padding: 0 50px;
+	overflow: hidden;
+  box-sizing: border-box;
 }
 .sim-row-content14-center-left{
 	float: left;
-	width: 290px;
+	width: 50%;
 }
 .sim-row-content14-center-left-title{
 	color: #747885;
@@ -1077,7 +1075,7 @@ body {
 }
 .sim-row-content14-center-right{
 	float: right;
-	width: 290px;
+	width: 50%;
 }
 .sim-row-content14-center-right-title{
 	color: #747885;

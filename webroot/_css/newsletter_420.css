@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/*media screen max-width: 420px*/
+
+
+.sim-row-content1-tab{
+  width: 100%;
+}
+
+.sim-row-header1-slider-left , .sim-row-header1-slider-right{
+  width: 100%;
+}
+
+.sim-row-header1-slider-left-title , .sim-row-header1-slider-left-subtitle{
+  width: 100%;
+  margin-left: 0;
+  text-align: center;
+}
+
+.sim-row-header1-slider-left-text{
+  width: 100%;  
+  margin-left: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
