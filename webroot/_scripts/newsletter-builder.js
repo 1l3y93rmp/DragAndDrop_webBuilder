@@ -223,7 +223,7 @@ $(".sim-row").draggable({
 
 //Delete
 function add_delete(){
-	$("#newsletter-builder-area-center-frame-content .sim-row").removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入色碼" size="7";></div>');
+	$("#newsletter-builder-area-center-frame-content .sim-row").removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";></div>');
 		//執行動做移到東西載入
 	}
 
@@ -238,7 +238,12 @@ perform_delete();
 function perform_changeColor(){
 	$(".changeColor-input-text").blur(function(event) {
 		$(this).closest('.sim-row').css({
-			background: $(this).val()
+			'background-color': $(this).val()
+		});
+	});
+	$(".changeImg-input-text").blur(function(event) {
+		$(this).closest('.sim-row').css({
+			'background-image': 'url('+ $(this).val() +')'
 		});
 	});
 }
