@@ -101,7 +101,6 @@ body {
 .sim-row-header1-slider-left{
 	float: left;
 	width: 50%;
-	padding: 20px;
 	box-sizing: border-box;
 }
 .sim-row-header1-slider-left-title{
@@ -111,6 +110,9 @@ text-align: left;}
 	font-size: 20px;
 	font-weight: 300;
 	text-align: left;
+}
+.pd20px{
+	padding: 20px;
 }
 .sim-row-header1-slider-left-text{
 
@@ -148,7 +150,7 @@ text-align: left;}
 .sim-row-header1-slider-right{
 	float: left;
 	overflow: hidden;
-	padding: 20px;
+	
 	box-sizing: border-box;
   width: 50%;
   text-align: right;
@@ -1070,6 +1072,15 @@ text-align: left;}
     overflow: hidden;
     box-sizing: border-box;
     width: 33.33%;
+    text-align: center;
+    display: inline-block;
+}
+
+.sim-row-header4-slider {
+	float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 25%;
     text-align: center;
     display: inline-block;
 }
