@@ -26,6 +26,7 @@ body {
 	position: relative;
 	background-size: cover;
 	background-attachment: fixed;
+	margin: 0 auto; 
 }
 .sim-row-header1{
 	width: 100%;
@@ -70,7 +71,7 @@ body {
 	float: left;
 	margin-top: 25px;
 	background-color: rgba(63,141,191,1);
-	line-height: 30px;
+	line-height: 1.6em;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -118,7 +119,7 @@ text-align: left;}
 
 	margin-top: 25px;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.6em;
 	font-weight: 300;
 	text-align: left;
 
@@ -141,7 +142,7 @@ text-align: left;}
 .sim-row-header1-slider-left-link a {
 	color: rgba(255,255,255,1);
 	font-size: 15px;
-	line-height: 35px;
+	line-height: 1.6em;
 	text-decoration: none;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -199,7 +200,7 @@ text-align: left;}
 	float: left;
 	margin-top: 25px;
 	background-color: rgba(63,141,191,1);
-	line-height: 30px;
+	line-height: 1.6em;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -243,7 +244,7 @@ text-align: left;}
 
 	margin-top: 15px;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.6em;
 	font-weight: 300;
 }
 .sim-row-header2-slider-top-link{
@@ -269,7 +270,7 @@ text-align: left;}
 .sim-row-header2-slider-top-link-button a {
 	color: rgba(255,255,255,1);
 	font-size: 15px;
-	line-height: 35px;
+	line-height: 1.6em;
 	text-decoration: none;
 	display: block;
 	width: 100px;
@@ -377,7 +378,7 @@ text-align: left;}
 	margin-left: 50px;
 	margin-top: 25px;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.6em;
 	font-weight: 300;
 }
 .sim-row-content2-right-button{
@@ -398,7 +399,7 @@ text-align: left;}
 	transition: background 0.5s;
 	color: rgba(255,255,255,1);
 	font-size: 15px;
-	line-height: 35px;
+	line-height: 1.6em;
 	text-decoration: none;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -482,7 +483,7 @@ text-align: left;}
 	color: #656565;
 	float: left;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.6em;
 	font-weight: 300;
 	text-align: center;
 	}
@@ -521,7 +522,7 @@ text-align: left;}
 	margin-left: 50px;
 	margin-top: 25px;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.6em;
 	font-weight: 300;
 }
 .sim-row-content5-left-button{
@@ -542,7 +543,7 @@ text-align: left;}
 	transition: background 0.5s;
 	color: rgba(255,255,255,1);
 	font-size: 15px;
-	line-height: 35px;
+	line-height: 1.6em;
 	text-decoration: none;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -658,7 +659,7 @@ text-align: left;}
 
 	font-size: 14px;
 	color: rgba(102,102,102,1);
-	line-height: 24px;
+	line-height: 1.6em;
 	margin-top: 5px;
 
 }
@@ -702,7 +703,7 @@ text-align: left;}
 .sim-row-content8-center-tab-text {
 	font-size: 14px;
 	color: rgba(102,102,102,1);
-	line-height: 24px;
+	line-height: 1.6em;
 	margin-top: 5px;
 	padding: 0 10px;
 }
@@ -726,7 +727,7 @@ text-align: left;}
 	color: #656565;
 	float: left;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.6em;
 	font-weight: 300;
 	text-align: center;
 	}
@@ -800,7 +801,7 @@ text-align: left;}
 	width: 150px;
 	font-size: 14px;
 	color: rgba(102,102,102,1);
-	line-height: 24px;
+	line-height: 1.6em;
 	margin-top: 5px;
 	margin-left: 15px;
 }
@@ -847,7 +848,7 @@ text-align: left;}
 .sim-row-content11-center-tab-text {
 	font-size: 14px;
 	color: rgba(102,102,102,1);
-	line-height: 24px;
+	line-height: 1.6em;
 	margin-top: 5px;
 }
 .sim-row-content11-center-tab-text-link {
@@ -1009,7 +1010,7 @@ text-align: left;}
 .sim-row-content14-center-left-text{
 	color: #b9bcc5;
 	font-size: 14px;
-	line-height: 24px;
+	line-height: 1.6em;
 }
 .sim-row-content14-center-right{
 	float: right;
@@ -1024,7 +1025,7 @@ text-align: left;}
 .sim-row-content14-center-right-row{
 	color: #b9bcc5;
 	font-size: 14px;
-	line-height: 24px;
+	line-height: 1.6em;
 	float: left;
 	width: 100%;
 }

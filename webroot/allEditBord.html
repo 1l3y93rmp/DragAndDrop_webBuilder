@@ -1,6 +1,6 @@
 <!--編輯板 匯出html版-->
 <div class="sim-edit" id="sim-edit-export">
-  <div class="sim-edit-box" style="height:390px;">
+  <div class="sim-edit-box">
     <div class="sim-edit-box-title">Export Template</div>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text">Select and copy the entire text below</div>
@@ -16,7 +16,7 @@
 
 <!--編輯板 編輯圖片連結-->
 <div class="sim-edit" id="sim-edit-image">
-  <div class="sim-edit-box" style="height:230px;" >
+  <div class="sim-edit-box">
     <div class="sim-edit-box-title">Edit Image</div>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text">URL:<span>(full address including http://)</span></div>
@@ -37,7 +37,7 @@
 
 <!--編輯板 編輯連結-->
 <div class="sim-edit" id="sim-edit-link">
-  <div class="sim-edit-box" style="height:310px;">
+  <div class="sim-edit-box">
     <div class="sim-edit-box-title">Edit Link</div>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text">Title</div>
@@ -58,7 +58,7 @@
 
 <!--編輯板 編輯標題-->
 <div class="sim-edit" id="sim-edit-title">
-  <div class="sim-edit-box" style="height:230px;">
+  <div class="sim-edit-box">
     <div class="sim-edit-box-title">Edit Title</div>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text">Title</div>
@@ -75,8 +75,18 @@
 
 <!--編輯板 編輯內文-->
 <div class="sim-edit" id="sim-edit-text">
-  <div class="sim-edit-box" style="height:390px;">
+  <div class="sim-edit-box">
     <div class="sim-edit-box-title">Edit Text</div>
+    <div class="sim-edit-box-content-text">改變段落文字顏色</div>
+    <input class="sim-edit-box-content-field color" type="text" placeholder="請輸入色碼" size="20">
+    <div class="sim-edit-box-content-text">改變段落大小</div>
+    <input class="sim-edit-box-content-field size" type="text" placeholder="請輸入px" size="20">
+    <div class="sim-edit-box-content-text">改變段落文字字型</div>
+    <select class="sim-edit-box-content-field fonts" >
+      <option value="volvo">微軟正黑體</option>
+      <option value="saab">思源黑體</option>
+      <option value="mercedes">新細明體</option>
+    </select>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text">Text</div>
       <div class="sim-edit-box-content-field">
