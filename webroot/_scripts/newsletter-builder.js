@@ -122,7 +122,19 @@ $("#newsletter-builder-area-center-frame-content .sim-row-edit").hover(
 	$("#sim-edit-image .sim-edit-box-buttons-save").click(function() {
 	  $(this).parent().parent().parent().fadeOut(500)
 	  $(this).parent().parent().slideUp(500)
-	  big_parent.find('img').attr("src",$("#sim-edit-image .image").val());
+	  big_parent.find('img').removeAttr('style').attr('src',$("#sim-edit-image .image").val());
+	  //替換上IMG
+	  
+	  //將該圖片的寬設置成最大寬度
+	  setTimeout(function(){
+		  big_parent.find('img').css({
+		  	'max-width':big_parent.find('img').width(),
+		  	'width':'100%'
+		  })
+	  },100)
+
+
+
 	  if ( $("#sim-edit-image .link").val().length !=0 ) {
 	  	big_parent.wrapInner( "<a></a>" );
 	  	big_parent.find('a').attr("href",$("#sim-edit-image .link").val());
