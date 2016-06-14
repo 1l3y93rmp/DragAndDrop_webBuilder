@@ -25,14 +25,7 @@
         url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
         url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
  }
-@font-face {
-   font-family: 'Noto Sans TC';
-   font-style: normal;
-   font-weight: 500;
-   src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
- }
+
 @font-face {
    font-family: 'Noto Sans TC';
    font-style: normal;
@@ -51,11 +44,53 @@
  }
 
 
-body {
-	margin: 0px;
-	padding: 0px;
-	font-family: 'Noto Sans TC','Source Sans Pro', sans-serif;
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Light.eot') format('embedded-opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Light.otf.woff') format('woff'),
+         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Light.otf') format('opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Light.ttf') format('truetype');
 }
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Regular.eot') format('embedded-opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Regular.otf.woff') format('woff'),
+         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Regular.otf') format('opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Regular.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Bold.eot') format('embedded-opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Bold.otf.woff') format('woff'),
+         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Bold.otf') format('opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Bold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Serif Pro';
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Black.eot') format('embedded-opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Black.otf.woff') format('woff'),
+         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Black.otf') format('opentype'),
+         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Black.ttf') format('truetype');
+}
+
+
+/*
 #sim-wrapper{
 	background-color: rgba(195,204,213,1);
 	float: left;
@@ -73,9 +108,9 @@ body {
 	margin-left: auto;
 	height: auto;
 }
+*/
+
 .sim-row{
-	overflow: hidden;
-	font-family: 'Source Sans Pro', sans-serif;
 	position: relative;
 	background-size: cover;
 	background-attachment: fixed;
@@ -83,17 +118,10 @@ body {
 }
 .sim-row-header1{
 	width: 100%;
-	float: left;
 }
-.sim-row-header1-nav{
-	width: 100%;
-	float: left;
-	background-color: rgba(255,255,255,1.00);
-	height: 80px;
-}
+
 .sim-row-header1-nav-logo{
 	width: 150px;
-	float: left;
 	height: 80px;
 	text-align: center;
 	margin-left: 50px;
@@ -150,8 +178,14 @@ body {
 }
 .sim-row-header1-slider{
 	width: 100%;
-	float: left;
 }
+
+.sim-row-header1-slider::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
 .sim-row-header1-slider-left{
 	float: left;
 	width: 50%;
@@ -213,7 +247,6 @@ text-align: left;}
 }
 .sim-row-header2{
 	width: 100%;
-	float: left;
 }
 .sim-row-header2-nav{
 	width: 100%;
@@ -279,12 +312,10 @@ text-align: left;}
 }
 .sim-row-header2-slider{
 	width: 100%;
-	float: left;
 	padding: 20px;
 	box-sizing: border-box;
 }
 .sim-row-header2-slider-top{
-	float: left;
 	width: 100%;
 	text-align: center;
 }
@@ -296,9 +327,9 @@ text-align: left;}
 .sim-row-header2-slider-top-text{
 
 	margin-top: 15px;
-	font-size: 16px;
 	line-height: 1.6em;
 	font-weight: 300;
+	margin-bottom: 15px;
 }
 .sim-row-header2-slider-top-link{
 	margin-left: 50px;
@@ -330,7 +361,6 @@ text-align: left;}
 }
 .sim-row-header2-slider-bottom{
 	width: 100%;
-	overflow: hidden;
 	text-align: center;
 }
 .sim-row-header2-slider-bottom img {
@@ -338,10 +368,16 @@ text-align: left;}
 }
 .sim-row-header3{
   width: 100%;
-  overflow: hidden;
   text-align: center;
   word-spacing: -4px;
 }
+
+.sim-row-header3::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
 .sim-row-header3 img{
 }
 
@@ -616,22 +652,25 @@ text-align: left;}
 	width: auto;
 }
 .sim-row-content6{
-	background-color: rgba(130,207,204,1);
-	float: left;
 	width: 100%;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
 .sim-row-content6-center{
-	float: left;
-	width: 700px;
-	margin-left: 50px;
-}
-.sim-row-content6-center-tab{
-	float: left;
-	width: 150px;
-	margin-right: 33px;
+	width: 100%;
 	text-align: center;
+}
+
+.sim-row-content6-center::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.sim-row-content6-center-tab{
+	width: 150px;
+	text-align: center;
+	display: inline-block;
 }
 .sim-row-content6-center-tab:last-child {
 	margin-right: 0px;
@@ -661,7 +700,6 @@ text-align: left;}
 	width: 150px;
 }
 .sim-row-content7{
-	background-color: rgba(255,255,255,1);
 	width: 100%;
 	padding-top: 75px;
 	padding-bottom: 75px;
@@ -858,7 +896,6 @@ text-align: left;}
 	margin-left: 15px;
 }
 .sim-row-content11{
-	float: left;
 	width: 100%;
 	padding-top: 75px;
 	padding-bottom: 75px;
@@ -928,7 +965,6 @@ text-align: left;}
 .sim-row-content11-center-tab-text-link a:hover {
 }
 .sim-row-content12{
-	float: left;
 	width: 100%;
 	padding-top: 75px;
 	padding-bottom: 75px;
@@ -1122,7 +1158,6 @@ text-align: left;}
 
 .sim-row-header3-slider {
 	float: left;
-    overflow: hidden;
     box-sizing: border-box;
     width: 33.33%;
     text-align: center;
@@ -1131,14 +1166,29 @@ text-align: left;}
 
 .sim-row-header4-slider {
 	float: left;
-    overflow: hidden;
     box-sizing: border-box;
     width: 25%;
     text-align: center;
     display: inline-block;
 }
 
-/*********************************/
+
+.sim-row-header6-slider {
+	float: left;
+    box-sizing: border-box;
+    width: 16.66%;
+    text-align: center;
+    display: inline-block;
+}
+/****************字體******************/
+
+.NotoSans{font-family: 'Noto Sans TC', sans-serif;}
+.SourceSans{font-family: 'Source Sans Pro','Noto Sans TC', sans-serif;}
+.SourceSerif{font-family: 'Source Serif Pro','Noto Sans TC', sans;}
+.MicrosoftJhengHei{font-family: 'Microsoft JhengHei', sans-serif;}
+.serif{font-family:serif;}
+
+/****************特殊樣式*****************/
 
 .padding5{
 	padding: 5px;
@@ -1168,4 +1218,84 @@ text-align: left;}
 .paddinglr10{
 	padding: 0 10px;
 	box-sizing: border-box;
+}
+.paddingt5{
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+
+.paddingt10{
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+.paddingl5{
+	padding-left: 5px;
+	box-sizing: border-box;
+}
+
+.paddingl10{
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+
+.paddingr5{
+	padding-right: 5px;
+	box-sizing: border-box;
+}
+
+.paddingr10{
+	padding-right: 10px;
+	box-sizing: border-box;
+}
+
+.paddingb5{
+	padding-bottom: 5px;
+	box-sizing: border-box;
+}
+
+.paddingb10{
+	padding-bottom: 10px;
+	box-sizing: border-box;
+}
+
+/******/
+.margint-50{
+	margin-top: -50px;
+}
+.margint-100{
+  margin-top: -100px;
+}
+.margint-200{
+  margin-top: -200px;
+}
+
+.marginb-50{
+  margin-bottom: -50px;
+}
+.marginb-100{
+  margin-bottom: -100px;
+}
+.marginb-200{
+  margin-bottom: -200px;
+}
+
+.marginl-50{
+  margin-left: -50px;
+}
+.marginl-100{
+  margin-left: -100px;
+}
+.marginl-200{
+  margin-left: -200px;
+}
+
+.marginr-50{
+  margin-right: -50px;
+}
+.marginr-100{
+  margin-right: -100px;
+}
+.marginr-200{
+  margin-right: -200px;
 }

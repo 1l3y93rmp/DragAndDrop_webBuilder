@@ -116,32 +116,50 @@ $("#newsletter-builder-area-center-frame-content .sim-row-edit").hover(
 	
 	$("#sim-edit-image .image").val(big_parent.find('img').attr("src"));
 	$("#sim-edit-image .link").val(big_parent.find('a').attr("href"));
+	if( !big_parent.find('a').attr("class") ){
+		$("#sim-edit-image .style").val(big_parent.find('img').attr("class"));
+	}else{
+		$("#sim-edit-image .style").val(big_parent.find('a').attr("class"));
+	}
+	
 	$("#sim-edit-image").fadeIn(500);
 	$("#sim-edit-image .sim-edit-box").slideDown(500);
 	
 	$("#sim-edit-image .sim-edit-box-buttons-save").click(function() {
+		var imgSrc = $("#sim-edit-image .image").val();
+		var img = new Image();
+		img.src = imgSrc ;
+
 	  $(this).parent().parent().parent().fadeOut(500)
 	  $(this).parent().parent().slideUp(500)
-	  big_parent.find('img').removeAttr('style').attr('src',$("#sim-edit-image .image").val());
+	  big_parent.find('img').removeAttr('style').attr('src',imgSrc);
 	  //替換上IMG
 	  
 	  //將該圖片的寬設置成最大寬度
-	  setTimeout(function(){
+	  img.onload = function(){
+	  	var aaa=this.width;
 		  big_parent.find('img').css({
-		  	'max-width':big_parent.find('img').width(),
+		  	'max-width':aaa,
 		  	'width':'100%'
 		  })
-	  },100)
+	  }
 
-
+	  var style = $("#sim-edit-image .style").val();
 
 	  if ( $("#sim-edit-image .link").val().length !=0 ) {
 	  	big_parent.wrapInner( "<a></a>" );
-	  	big_parent.find('a').attr("href",$("#sim-edit-image .link").val());
+	  	big_parent.find('img').removeAttr('class');
+	  	big_parent.find('a').attr("href",$("#sim-edit-image .link").val()).addClass(style);
 	  } else {
-	  	console.log( big_parent )
-	  	big_parent.find('a').find('img').unwrap();
+	  	big_parent.find('a').find('img').unwrap()
+	  	big_parent.addClass(style);
 	  };
+
+	  if (!style){
+	  	big_parent.find('a').removeAttr('class');
+	  	//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
+	  }
+
 	   });
 
 	}
@@ -166,34 +184,16 @@ $("#newsletter-builder-area-center-frame-content .sim-row-edit").hover(
 		});
 
 	}
-	
-	//edit title
-	
-	if(big_parent.attr("data-type")=='title'){
-	
-	$("#sim-edit-title .title").val(big_parent.text());
-	$("#sim-edit-title").fadeIn(500);
-	$("#sim-edit-title .sim-edit-box").slideDown(500);
-	
-	$("#sim-edit-title .sim-edit-box-buttons-save").click(function() {
-	  $(this).parent().parent().parent().fadeOut(500)
-	  $(this).parent().parent().slideUp(500)
-	   
-	    big_parent.text($("#sim-edit-title .title").val());
-
-		});
-
-	}
-	
+		
 	//edit text
 	if(big_parent.attr("data-type")=='text'){
 	big_parent.find('.sim-row-edit-hover').remove()
-	console.log(big_parent)
 	$("#sim-edit-text .text").val(big_parent.html());
 	$("#sim-edit-text .color").val(big_parent.css('color'));
 	$("#sim-edit-text .size").val(big_parent.css('font-size'));
+	$("#sim-edit-text .weight").val(big_parent.css('font-weight'));
+	$("#sim-edit-text .fonts").val(big_parent.attr('class').split(' ')[2]);
 
-	console.log(big_parent.text())
 	$("#sim-edit-text").fadeIn(500);
 	$("#sim-edit-text .sim-edit-box").slideDown(500);
 	
@@ -203,12 +203,16 @@ $("#newsletter-builder-area-center-frame-content .sim-row-edit").hover(
 
 	  var str = $("#sim-edit-text .text").val(),
 	  		newColor = $("#sim-edit-text .color").val(),
-	  		newSize = $("#sim-edit-text .size").val()
+	  		newSize = $("#sim-edit-text .size").val(),
+	  		newFonts = $("#sim-edit-text .fonts").val()
+	  		newWeight = $("#sim-edit-text .weight").val()
 
 	    big_parent.html(str);
+	    big_parent.removeClass('NotoSans SourceSans SourceSerif MicrosoftJhengHei serif').addClass(newFonts);
 			big_parent.css({
 				'color': newColor,
-				'font-size': newSize
+				'font-size': newSize,
+				'font-weight': newWeight
 			})
 		
 	   
@@ -260,7 +264,7 @@ $(".sim-row").draggable({
 
 //Delete
 function add_delete(){
-	$("#newsletter-builder-area-center-frame-content .sim-row").removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>限制最大寬度：<input class="maxWidth" type="ime" placeholder="請輸入寬度px或%" size="20";></div>');
+	$("#newsletter-builder-area-center-frame-content .sim-row").removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";></div>');
 		//執行動做移到東西載入
 	}
 
@@ -287,6 +291,9 @@ function perform_changeColor(){
 		$(this).closest('.sim-row').css({
 			'max-width': $(this).val()
 		});
+	});
+	$(".style").blur(function(event) {
+		$(this).closest('.sim-row').removeClass().addClass('sim-row '+$(this).val());
 	});
 }
 perform_changeColor();

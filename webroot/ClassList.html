@@ -12,6 +12,7 @@
     display: inline-block;
     margin-right: 20px;
     margin-bottom: 20px;
+    vertical-align: top;
   }
   div{
     border: 1px solid #bbb;
@@ -25,6 +26,8 @@
     width: 100%;
     height: 100%;
     display: block;
+    position: relative;
+    z-index: -1;
   }
 
 </style>
@@ -36,24 +39,41 @@
   <li>
     <h4>內容往內縮</h4>
     <ul>
-      <li>往四周內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> </li>
-      <li>往四周內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> </li>
-      <li>上下內縮5px  <br><div class="paddingtm5"> <img src="images/k.jpg"> </div> </li>
-      <li>上下周內縮10px  <br><div class="paddingtm10"> <img src="images/k.jpg"> </div> </li>
-      <li>左右周內縮5px  <br><div class="paddinglr5"> <img src="images/k.jpg"> </div> </li>
-      <li>左右周內縮10px  <br><div class="paddinglr10"> <img src="images/k.jpg"> </div> </li>
-      <li>上方內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> </li>
-      <li>上方內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> </li>
-      <li>下方內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> </li>
-      <li>下方內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> </li>
-      <li>左方內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> </li>
-      <li>左方內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> </li>
-      <li>右方內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> </li>
-      <li>右方內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> </li>
+      <li>往四周內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> <br>padding5</li>
+      <li>往四周內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> <br>padding10 </li>
+      <li>上下內縮5px  <br><div class="paddingtm5"> <img src="images/k.jpg"> </div> <br>paddingtm5 </li>
+      <li>上下周內縮10px  <br><div class="paddingtm10"> <img src="images/k.jpg"> </div> <br>paddingtm10 </li>
+      <li>左右周內縮5px  <br><div class="paddinglr5"> <img src="images/k.jpg"> </div> <br>paddinglr5 </li>
+      <li>左右周內縮10px  <br><div class="paddinglr10"> <img src="images/k.jpg"> </div> <br>paddinglr10 </li>
+      <li>上方內縮5px  <br><div class="paddingt5"> <img src="images/k.jpg"> </div> <br>paddingt5 </li>
+      <li>上方內縮10px  <br><div class="paddingt10"> <img src="images/k.jpg"> </div> <br>paddingt10 </li>
+      <li>下方內縮5px  <br><div class="paddingb5"> <img src="images/k.jpg"> </div> <br>paddingb5 </li>
+      <li>下方內縮10px  <br><div class="paddingb10"> <img src="images/k.jpg"> </div> <br>paddingb10 </li>
+      <li>左方內縮5px  <br><div class="paddingl5"> <img src="images/k.jpg"> </div> <br>paddingl5 </li>
+      <li>左方內縮10px  <br><div class="paddingl10"> <img src="images/k.jpg"> </div> <br>paddingl10 </li>
+      <li>右方內縮5px  <br><div class="paddingr5"> <img src="images/k.jpg"> </div> <br>paddingr5 </li>
+      <li>右方內縮10px  <br><div class="paddingr10"> <img src="images/k.jpg"> </div> <br>paddingr10 </li>
     </ul>
   </li>
   <li>
-    <h4>往外推或往外偏移</h4>
+    <h4 style="margin-top: 200px;">外框往外推或外框往外偏移</h4>
+    <ul>
+      <li>沒有偏移  <br><div class=""> <img src="images/k.jpg"> </div> <br>---</li>
+      <li>往上偏移50px  <br><div class="margint-50"> <img src="images/k.jpg"> </div> <br>margint-50</li>
+      <li>往上偏移100px  <br><div class="margint-100"> <img src="images/k.jpg"> </div> <br>margint-100</li>
+      <li>往上偏移200px  <br><div class="margint-200"> <img src="images/k.jpg"> </div> <br>margint-200</li>
+
+      <li>往下偏移50px  <br><div class="marginb-50"> <img src="images/k.jpg"> </div> <br>marginb-50</li>
+      <li>往下偏移100px  <br><div class="marginb-100"> <img src="images/k.jpg"> </div> <br>marginb-100</li>
+      <li>往下偏移200px  <br><div class="marginb-200"> <img src="images/k.jpg"> </div> <br>marginb-200</li><br><br>
+
+      <li>往左偏移50px  <br><div class="marginl-50"> <img src="images/k.jpg"> </div> <br>marginl-50</li>
+      <li>往右偏移50px  <br><div class="marginr-50"> <img src="images/k.jpg"> </div> <br>marginr-50</li><br>
+      <li>往左偏移100px  <br><div class="marginl-100"> <img src="images/k.jpg"> </div> <br>marginl-100</li>
+      <li>往右偏移100px  <br><div class="marginr-100"> <img src="images/k.jpg"> </div> <br>marginr-100</li><br>
+      <li>往左偏移200px  <br><div class="marginl-200"> <img src="images/k.jpg"> </div> <br>marginl-200</li>
+      <li>往右偏移200px  <br><div class="marginr-200"> <img src="images/k.jpg"> </div> <br>marginr-200</li>
+    </ul>
   </li>
   <li>
     <h4>倒角裁切與外框線</h4>

@@ -27,6 +27,10 @@
       <div class="sim-edit-box-content-field">
         <input type="text" class="sim-edit-box-content-field-input link"/>
       </div>
+      <div class="sim-edit-box-content-text">特殊樣式:<span>(多個樣式請用空白格開)</span></div> 
+      <div class="sim-edit-box-content-field">
+        <input type="text" class="sim-edit-box-content-field-input style"/>
+      </div>
     </div>
     <div class="sim-edit-box-buttons">
       <div class="sim-edit-box-buttons-save">Save</div>
@@ -56,22 +60,6 @@
   </div>
 </div>
 
-<!--編輯板 編輯標題-->
-<div class="sim-edit" id="sim-edit-title">
-  <div class="sim-edit-box">
-    <div class="sim-edit-box-title">Edit Title</div>
-    <div class="sim-edit-box-content">
-      <div class="sim-edit-box-content-text">Title</div>
-      <div class="sim-edit-box-content-field">
-        <input type="text" class="sim-edit-box-content-field-input title"/>
-      </div>
-    </div>
-    <div class="sim-edit-box-buttons">
-      <div class="sim-edit-box-buttons-save">Save</div>
-      <div class="sim-edit-box-buttons-cancel">Cancel</div>
-    </div>
-  </div>
-</div>
 
 <!--編輯板 編輯內文-->
 <div class="sim-edit" id="sim-edit-text">
@@ -79,13 +67,23 @@
     <div class="sim-edit-box-title">Edit Text</div>
     <div class="sim-edit-box-content-text">改變段落文字顏色</div>
     <input class="sim-edit-box-content-field color" type="text" placeholder="請輸入色碼" size="20">
-    <div class="sim-edit-box-content-text">改變段落大小</div>
+    <div class="sim-edit-box-content-text">改變段落文字大小</div>
     <input class="sim-edit-box-content-field size" type="text" placeholder="請輸入px" size="20">
     <div class="sim-edit-box-content-text">改變段落文字字型</div>
     <select class="sim-edit-box-content-field fonts" >
-      <option value="volvo">微軟正黑體</option>
-      <option value="saab">思源黑體</option>
-      <option value="mercedes">新細明體</option>
+      <option value="serif">Times New Roman(英)+新細明體(中)</option>
+      <option value="NotoSans">微軟正黑體</option>
+      <option value="SourceSans">Source Sans(英)+思源黑體(中)</option>
+      <option value="SourceSerif">Source Serif(英)+思源黑體(中)</option>
+      <option value="MicrosoftJhengHei">思源黑體</option>
+    </select>
+    <div class="sim-edit-box-content-text">改變段落文字粗細</div>
+    <select class="sim-edit-box-content-field weight" >
+      <option value="100">100</option>
+      <option value="300">300</option>
+      <option value="400">400</option>
+      <option value="700">700</option>
+      <option value="900">900</option>
     </select>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text">Text</div>
