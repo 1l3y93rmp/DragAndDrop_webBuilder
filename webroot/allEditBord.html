@@ -19,16 +19,16 @@
   <div class="sim-edit-box">
     <div class="sim-edit-box-title">Edit Image</div>
     <div class="sim-edit-box-content">
-      <div class="sim-edit-box-content-text">URL:<span>(full address including http://)</span></div>
-      <div class="sim-edit-box-content-field">
+      <div class="sim-edit-box-content-text-100">URL:<span>(full address including http://)</span></div>
+      <div class="sim-edit-box-content-field-100">
         <input type="text" class="sim-edit-box-content-field-input image"/>
       </div>
-      <div class="sim-edit-box-content-text">Link URL:<span>(full address including http://)</span></div> 
-      <div class="sim-edit-box-content-field">
+      <div class="sim-edit-box-content-text-100">Link URL:<span>(full address including http://)</span></div> 
+      <div class="sim-edit-box-content-field-100">
         <input type="text" class="sim-edit-box-content-field-input link"/>
       </div>
-      <div class="sim-edit-box-content-text">特殊樣式:<span>(多個樣式請用空白格開)</span></div> 
-      <div class="sim-edit-box-content-field">
+      <div class="sim-edit-box-content-text-100">特殊樣式:<span>(多個樣式請用空白格開)</span></div> 
+      <div class="sim-edit-box-content-field-100">
         <input type="text" class="sim-edit-box-content-field-input style"/>
       </div>
     </div>
@@ -65,11 +65,13 @@
 <div class="sim-edit" id="sim-edit-text">
   <div class="sim-edit-box">
     <div class="sim-edit-box-title">Edit Text</div>
-    <div class="sim-edit-box-content-text">改變段落文字顏色</div>
+    <div class="sim-edit-box-content-text">段落文字顏色</div>
     <input class="sim-edit-box-content-field color" type="text" placeholder="請輸入色碼" size="20">
-    <div class="sim-edit-box-content-text">改變段落文字大小</div>
+    <div class="sim-edit-box-content-text">段落文字背景顏色</div>
+    <input class="sim-edit-box-content-field bgcolor" type="text" placeholder="請輸入色碼" size="20">
+    <div class="sim-edit-box-content-text">段落文字大小</div>
     <input class="sim-edit-box-content-field size" type="text" placeholder="請輸入px" size="20">
-    <div class="sim-edit-box-content-text">改變段落文字字型</div>
+    <div class="sim-edit-box-content-text">段落文字字型</div>
     <select class="sim-edit-box-content-field fonts" >
       <option value="serif">Times New Roman(英)+新細明體(中)</option>
       <option value="NotoSans">微軟正黑體</option>
@@ -77,7 +79,7 @@
       <option value="SourceSerif">Source Serif(英)+思源黑體(中)</option>
       <option value="MicrosoftJhengHei">思源黑體</option>
     </select>
-    <div class="sim-edit-box-content-text">改變段落文字粗細</div>
+    <div class="sim-edit-box-content-text">段落文字粗細</div>
     <select class="sim-edit-box-content-field weight" >
       <option value="100">100</option>
       <option value="300">300</option>
@@ -85,15 +87,23 @@
       <option value="700">700</option>
       <option value="900">900</option>
     </select>
+    <div class="sim-edit-box-content-text">段落文字齊左右</div>
+    <select class="sim-edit-box-content-field align" >
+      <option value="left">left</option>
+      <option value="center">center</option>
+      <option value="right">right</option>
+    </select>
     <div class="sim-edit-box-content">
-      <div class="sim-edit-box-content-text">Text</div>
+      <div class="sim-edit-box-content-text-100">Text (接受Html tag)</div>
       <div class="sim-edit-box-content-field">
         <textarea class="sim-edit-box-content-field-textarea text"></textarea>
       </div>
     </div>
     <div class="sim-edit-box-buttons">
       <div class="sim-edit-box-buttons-save">Save</div>
+      <div class="sim-edit-box-buttons-del">Delete this text box</div>
       <div class="sim-edit-box-buttons-cancel">Cancel</div>
+      <div class="sim-edit-box-buttons-add">+ Add new text box</div>
     </div>
   </div>
 </div>

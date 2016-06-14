@@ -551,12 +551,28 @@ body {
 }
 .sim-edit-box-content-text{
 	float: left;
+	width: 49%;
+	font-size: 16px;
+	color: rgba(102,102,102,1);
+	margin-top: 15px;
+	clear: left;
+}
+
+.sim-edit-box-content-text-100{
+	float: left;
 	width: 100%;
 	font-size: 16px;
 	color: rgba(102,102,102,1);
 	margin-top: 15px;
+	clear: left;
 }
+
 .sim-edit-box-content-field{
+	float: left;
+	width: 49%;
+	margin-top: 15px;
+	}
+.sim-edit-box-content-field-100{
 	float: left;
 	width: 100%;
 	margin-top: 15px;
@@ -682,11 +698,63 @@ body {
 	float: left;
 	padding-right: 25px;
 	padding-left: 25px;
-	margin-left: 25px;
+	margin-left: 15px;
 }
 .sim-edit-box-buttons-cancel:hover {
 	background-color: rgba(153,153,153,0.1);
 }
+
+
+.sim-edit-box-buttons-del{
+	background-color: #FF5722;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: rgba(255,255,255,1);
+	font-weight: 600;
+	font-size: 14px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: background 0.5s;
+	-moz-transition: background 0.5s;
+	-o-transition: background 0.5s;
+	transition: background 0.5s;
+	cursor: pointer;
+	float: left;
+	padding-right: 25px;
+	padding-left: 25px;
+	margin-left: 15px;
+}
+.sim-edit-box-buttons-del:hover {
+	background-color: #d80000;
+}
+
+.sim-edit-box-buttons-add{
+	height: 33px;
+	text-align: center;
+	line-height: 33px;
+	color: rgba(84,101,122,1);
+	font-weight: 600;
+	font-size: 14px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: background 0.5s;
+	-moz-transition: background 0.5s;
+	-o-transition: background 0.5s;
+	transition: background 0.5s;
+	cursor: pointer;
+	border: 1px solid #e4e4e5;
+	float: left;
+	padding-right: 25px;
+	padding-left: 25px;
+	margin-top: 15px;
+}
+.sim-edit-box-buttons-add:hover {
+	background-color: rgba(153,153,153,0.1);
+}
+
 
 /************/
 

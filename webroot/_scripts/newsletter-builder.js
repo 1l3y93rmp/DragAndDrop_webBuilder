@@ -1,370 +1,429 @@
-$(function() { 
-// Resize	
-function resize(){
-	//$('.resize-height').height(window.innerHeight - 50);
-	//$('.resize-width').width(window.innerWidth - 250);
-	//if(window.innerWidth<=1150){$('.resize-width').css('overflow','auto');}
-	
+$(function() {
+	// Resize	
+	function resize() {
+		//$('.resize-height').height(window.innerHeight - 50);
+		//$('.resize-width').width(window.innerWidth - 250);
+		//if(window.innerWidth<=1150){$('.resize-width').css('overflow','auto');}
+
 	}
-$( window ).resize(function() {resize();});
-resize();
+	$(window).resize(function() {
+		resize();
+	});
+	resize();
 
-$('.newsletter-builder-area-center-frame-buttons-content').load( "allTemplate.html #newsletter-preloaded-rows",function(data){
-	//載入模板 加入刪除鈕
-	
-	//載入模板 將資訊填入選單內使其可選擇 先加上Class
-	$('.newsletter-builder-area-center-frame-buttons-content').find('.sim-row').addClass('newsletter-builder-area-center-frame-buttons-content-tab')
-	//讓這個Class有用
- $(".newsletter-builder-area-center-frame-buttons-content-tab").hover(
-  function() {
-    $(this).append('<div class="newsletter-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert</div>');
-    //放入一個++鈕
-	$('.newsletter-builder-area-center-frame-buttons-content-tab-add').click(function() {
+	$('.newsletter-builder-area-center-frame-buttons-content').load('allTemplate.html #newsletter-preloaded-rows', function(data) {
+		//載入模板 加入刪除鈕
 
-		//++鈕按下後 把模板內的東西複製加入到畫面當中
-		
-	$("#newsletter-builder-area-center-frame-content").prepend($("#newsletter-preloaded-rows .sim-row[data-id='"+$(this).parent().attr("data-id")+"']").clone());
-	
-	add_delete();
-	
-	perform_delete();
-	perform_changeColor();
+		//載入模板 將資訊填入選單內使其可選擇 先加上Class
+		$('.newsletter-builder-area-center-frame-buttons-content').find('.sim-row').addClass('newsletter-builder-area-center-frame-buttons-content-tab')
+			//讓這個Class有用
+		$('.newsletter-builder-area-center-frame-buttons-content-tab').hover(
+			function() {
+				$(this).append('<div class="newsletter-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert</div>');
+				//放入一個++鈕
+				$('.newsletter-builder-area-center-frame-buttons-content-tab-add').click(function() {
+
+					//++鈕按下後 把模板內的東西複製加入到畫面當中
+
+					$('#newsletter-builder-area-center-frame-content').prepend($('#newsletter-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').clone());
+
+					add_delete();
+
+					perform_delete();
+					perform_changeColor();
+					hover_edit();
+
+					$('#newsletter-builder-area-center-frame-buttons-dropdown').fadeOut(200);
+				})
+			},
+			function() {
+				$('.newsletter-builder-area-center-frame-buttons-content-tab-add').remove()
+			}
+		);
+
+
+	});
+
+	$('#all-edit-bord').load('allEditBord.html', function() {
+
+		//close edit
+		$('.sim-edit-box-buttons-cancel').click(function() {
+			$(this).parent().parent().parent().fadeOut(500)
+			$(this).parent().parent().slideUp(500)
+				//關閉所有編輯面板
+		});
+	});
+
+
+	//Add Sections
+	$('#newsletter-builder-area-center-frame-buttons-add').hover(
+		function() {
+			$('#newsletter-builder-area-center-frame-buttons-dropdown').fadeIn(200);
+		},
+		function() {
+			$('#newsletter-builder-area-center-frame-buttons-dropdown').fadeOut(200);
+		}
+	);
+
+	$('#newsletter-builder-area-center-frame-buttons-dropdown').hover(
+		function() {
+			$('.newsletter-builder-area-center-frame-buttons-content').fadeIn(200);
+		},
+		function() {
+			$('.newsletter-builder-area-center-frame-buttons-content').fadeOut(200);
+		}
+	);
+
+
+	$('#add-column-1').hover(function() {
+
+		$('.newsletter-builder-area-center-frame-buttons-content-tab[data-type="column-1"]').show()
+		$('.newsletter-builder-area-center-frame-buttons-content-tab:not([data-type="column-1"])').hide()
+	});
+
+	$('#add-column-2').hover(function() {
+
+		$('.newsletter-builder-area-center-frame-buttons-content-tab[data-type="column-2"]').show()
+		$('.newsletter-builder-area-center-frame-buttons-content-tab:not([data-type="column-2"])').hide()
+	});
+
+	$('#add-column-3').hover(function() {
+
+		$('.newsletter-builder-area-center-frame-buttons-content-tab[data-type="column-3"]').show()
+		$('.newsletter-builder-area-center-frame-buttons-content-tab:not([data-type="column-3"])').hide()
+	});
+
+	$('#add-column-4').hover(function() {
+
+		$('.newsletter-builder-area-center-frame-buttons-content-tab[data-type="column-4"]').show()
+		$('.newsletter-builder-area-center-frame-buttons-content-tab:not([data-type="column-4"])').hide()
+	});
+
+
+
+
+	//Edit
+	function hover_edit() {
+
+		//HOVER後出現編輯鈕，編輯鈕則會分類顯示編輯版
+		$('#newsletter-builder-area-center-frame-content .sim-row-edit').hover(
+			function() {
+				$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
+				$('.sim-row-edit-hover').click(function(e) {
+					e.preventDefault()
+				})
+				$('.sim-row-edit-hover i').click(function(e) {
+					e.preventDefault();
+					big_parent = $(this).parent().parent();
+
+					//edit image
+					if (big_parent.attr('data-type') == 'image') {
+						$('#sim-edit-image').fadeIn(500);
+						$('#sim-edit-image .sim-edit-box').slideDown(500);
+
+						$('#sim-edit-image .image').val(big_parent.find('img').attr('src'));
+						$('#sim-edit-image .link').val(big_parent.find('a').attr('href'));
+						if (!big_parent.find('a').attr('class')) {
+							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
+						} else {
+							$('#sim-edit-image .style').val(big_parent.find('a').attr('class'));
+						}
+
+
+
+						$('#sim-edit-image .sim-edit-box-buttons-save').one('click', function(e) {
+							e.preventDefault();
+							console.log('圖片儲存被觸發..')
+							var imgSrc = $('#sim-edit-image .image').val();
+							var img = new Image();
+							img.src = imgSrc;
+
+							$(this).parent().parent().parent().fadeOut(500)
+							$(this).parent().parent().slideUp(500)
+							big_parent.find('img').removeAttr('style').attr('src', imgSrc);
+							//替換上IMG
+
+							//將該圖片的寬設置成最大寬度
+							//在JS中載入圖片並取得該寬度~
+							img.onload = function() {
+								var IMGwidth = this.width;
+								big_parent.find('img').css({
+									'max-width': IMGwidth,
+									'width': '100%'
+								})
+							}
+
+							var style = $('#sim-edit-image .style').val();
+
+							if ($('#sim-edit-image .link').val().length != 0) {
+								big_parent.wrapInner('<a></a>');
+								big_parent.find('img').removeAttr('class');
+								big_parent.find('a').attr('href', $('#sim-edit-image .link').val()).addClass(style);
+							} else {
+								big_parent.find('a').find('img').unwrap()
+								big_parent.addClass(style);
+							};
+
+							if (!style) {
+								big_parent.find('a').removeAttr('class');
+								//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
+							}
+
+						});
+
+					}
+
+					//edit link
+					if (big_parent.attr('data-type') == 'link') {
+
+						$('#sim-edit-link .title').val(big_parent.text());
+						$('#sim-edit-link .url').val(big_parent.attr('href'));
+
+						$('#sim-edit-link').fadeIn(500);
+						$('#sim-edit-link .sim-edit-box').slideDown(500);
+
+						$('#sim-edit-link .sim-edit-box-buttons-save').click(function() {
+							$(this).parent().parent().parent().fadeOut(500)
+							$(this).parent().parent().slideUp(500)
+
+							big_parent.text($('#sim-edit-link .title').val());
+							big_parent.attr('href', $('#sim-edit-link .url').val());
+
+
+						});
+
+					}
+
+					//edit text
+					if (big_parent.attr('data-type') == 'text') {
+						console.log('data-type=text')
+
+						$('#sim-edit-text').fadeIn(500);
+						$('#sim-edit-text .sim-edit-box').slideDown(500);
+
+						big_parent.find('.sim-row-edit-hover').remove()
+						$('#sim-edit-text .text').val(big_parent.html());
+						$('#sim-edit-text .color').val(big_parent.css('color'));
+						$('#sim-edit-text .size').val(big_parent.css('font-size'));
+						$('#sim-edit-text .weight').val(big_parent.css('font-weight'));
+						$('#sim-edit-text .bgcolor').val(big_parent.find('span').css('background-color'));
+						$('#sim-edit-text .align').val(big_parent.css('text-align'));
+						$('#sim-edit-text .fonts').val(big_parent.attr('class').split(' ')[2]);
+
+						$('#sim-edit-text').fadeIn(500);
+						$('#sim-edit-text .sim-edit-box').slideDown(500);
+
+
+
+						$('#sim-edit-text .sim-edit-box-buttons-save').one('click', function() {
+							console.log('文字儲存被觸發..'+big_parent)
+
+							$(this).closest('#sim-edit-text').fadeOut(500)
+							$(this).closest('.sim-edit-box').slideUp(500)
+
+							var str = $('#sim-edit-text .text').val(),
+								newColor = $('#sim-edit-text .color').val(),
+								newSize = $('#sim-edit-text .size').val(),
+								newFonts = $('#sim-edit-text .fonts').val(),
+								newWeight = $('#sim-edit-text .weight').val(),
+								newAlign = $('#sim-edit-text .align').val(),
+								newBgcolor = $('#sim-edit-text .bgcolor').val()
+
+							big_parent.html(str);
+							big_parent.removeClass('NotoSans SourceSans SourceSerif MicrosoftJhengHei serif').addClass(newFonts);
+							big_parent.css({
+								'color': newColor,
+								'font-size': newSize,
+								'text-align': newAlign,
+								'font-weight': newWeight
+							})
+							if (newBgcolor && big_parent.find('span').length == 0) {
+								big_parent.wrapInner('span');
+							}
+
+							big_parent.find('span').css({
+								'background-color': newBgcolor
+							})
+						});
+
+						$('#sim-edit-text .sim-edit-box-buttons-add').one('click', function() {
+								console.log('觸發複製')
+								$(this).parent().parent().parent().fadeOut(500);
+								$(this).parent().parent().slideUp(500);
+								big_parent.after(big_parent.clone(true));
+						})
+
+						$('#sim-edit-text .sim-edit-box-buttons-del').one('click', function() {
+							console.log('觸發刪除')
+							if (confirm('確認要刪除此文字框?')) {
+								
+								$(this).parent().parent().parent().fadeOut(500);
+								$(this).parent().parent().slideUp(500);
+								big_parent.remove();
+							}else{
+								$(this).parent().parent().parent().fadeOut(500);
+								$(this).parent().parent().slideUp(500);
+								
+							}
+						})
+
+
+
+					}
+
+
+
+					//edit icon
+					if (big_parent.attr('data-type') == 'icon') {
+
+
+						$('#sim-edit-icon').fadeIn(500);
+						$('#sim-edit-icon .sim-edit-box').slideDown(500);
+
+						$('#sim-edit-icon i').click(function() {
+							$(this).parent().parent().parent().parent().fadeOut(500)
+							$(this).parent().parent().parent().slideUp(500)
+
+							big_parent.children('i').attr('class', $(this).attr('class'));
+
+						});
+
+					} //
+
+
+
+				});
+			},
+			function() {
+				$(this).children('.sim-row-edit-hover').remove();
+			}
+		);
+
+
+
+	}
 	hover_edit();
-	
-	$("#newsletter-builder-area-center-frame-buttons-dropdown").fadeOut(200);
-		})
-  }, function() {
-    $('.newsletter-builder-area-center-frame-buttons-content-tab-add').remove()
-  }
-); 
-	
 
-});
 
-$('#all-edit-bord').load( "allEditBord.html",function(){
-//close edit
-	$(".sim-edit-box-buttons-cancel").click(function() {
-	  $(this).parent().parent().parent().fadeOut(500)
-	   $(this).parent().parent().slideUp(500)
+
+	//Drag & Drop
+	$('#newsletter-builder-area-center-frame-content').sortable({
+		revert: true
 	});
-});
-
- 
-//Add Sections
-$("#newsletter-builder-area-center-frame-buttons-add").hover(
-  function() {
-    $("#newsletter-builder-area-center-frame-buttons-dropdown").fadeIn(200);
-  }, function() {
-    $("#newsletter-builder-area-center-frame-buttons-dropdown").fadeOut(200);
-  }
-);
-
-$("#newsletter-builder-area-center-frame-buttons-dropdown").hover(
-  function() {
-    $(".newsletter-builder-area-center-frame-buttons-content").fadeIn(200);
-  }, function() {
-    $(".newsletter-builder-area-center-frame-buttons-content").fadeOut(200);
-  }
-);
 
 
-$("#add-column-1").hover(function() {
-
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-1']").show()
-    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-1'])").hide()
-  });
-  
-$("#add-column-2").hover(function() {
-
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-2']").show()
-    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-2'])").hide()
-  });
-  
-$("#add-column-3").hover(function() {
-
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-3']").show()
-    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-3'])").hide()
-  });
-
-$("#add-column-4").hover(function() {
-
-    $(".newsletter-builder-area-center-frame-buttons-content-tab[data-type='column-4']").show()
-    $(".newsletter-builder-area-center-frame-buttons-content-tab:not([data-type='column-4'])").hide()
-  });
-
-
-  
-  
-
-  
-  
-//Edit
-function hover_edit(){
-
-
-$("#newsletter-builder-area-center-frame-content .sim-row-edit").hover(
-  function() {
-    $(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
-	$(".sim-row-edit-hover").click(function(e) {e.preventDefault()})
-	$(".sim-row-edit-hover i").click(function(e) {
-	e.preventDefault();
-	big_parent = $(this).parent().parent();
-	
-	//edit image
-	if(big_parent.attr("data-type")=='image'){
-	
-	
-	$("#sim-edit-image .image").val(big_parent.find('img').attr("src"));
-	$("#sim-edit-image .link").val(big_parent.find('a').attr("href"));
-	if( !big_parent.find('a').attr("class") ){
-		$("#sim-edit-image .style").val(big_parent.find('img').attr("class"));
-	}else{
-		$("#sim-edit-image .style").val(big_parent.find('a').attr("class"));
-	}
-	
-	$("#sim-edit-image").fadeIn(500);
-	$("#sim-edit-image .sim-edit-box").slideDown(500);
-	
-	$("#sim-edit-image .sim-edit-box-buttons-save").click(function() {
-		var imgSrc = $("#sim-edit-image .image").val();
-		var img = new Image();
-		img.src = imgSrc ;
-
-	  $(this).parent().parent().parent().fadeOut(500)
-	  $(this).parent().parent().slideUp(500)
-	  big_parent.find('img').removeAttr('style').attr('src',imgSrc);
-	  //替換上IMG
-	  
-	  //將該圖片的寬設置成最大寬度
-	  img.onload = function(){
-	  	var aaa=this.width;
-		  big_parent.find('img').css({
-		  	'max-width':aaa,
-		  	'width':'100%'
-		  })
-	  }
-
-	  var style = $("#sim-edit-image .style").val();
-
-	  if ( $("#sim-edit-image .link").val().length !=0 ) {
-	  	big_parent.wrapInner( "<a></a>" );
-	  	big_parent.find('img').removeAttr('class');
-	  	big_parent.find('a').attr("href",$("#sim-edit-image .link").val()).addClass(style);
-	  } else {
-	  	big_parent.find('a').find('img').unwrap()
-	  	big_parent.addClass(style);
-	  };
-
-	  if (!style){
-	  	big_parent.find('a').removeAttr('class');
-	  	//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
-	  }
-
-	   });
-
-	}
-	
-	//edit link
-	if(big_parent.attr("data-type")=='link'){
-	
-	$("#sim-edit-link .title").val(big_parent.text());
-	$("#sim-edit-link .url").val(big_parent.attr("href"));
-	//預設輸入
-	$("#sim-edit-link").fadeIn(500);
-	$("#sim-edit-link .sim-edit-box").slideDown(500);
-	
-	$("#sim-edit-link .sim-edit-box-buttons-save").click(function() {
-	  $(this).parent().parent().parent().fadeOut(500)
-	  $(this).parent().parent().slideUp(500)
-	   
-	    big_parent.text($("#sim-edit-link .title").val());
-		big_parent.attr("href",$("#sim-edit-link .url").val());
-		//輸出
-
-		});
-
-	}
-		
-	//edit text
-	if(big_parent.attr("data-type")=='text'){
-	big_parent.find('.sim-row-edit-hover').remove()
-	$("#sim-edit-text .text").val(big_parent.html());
-	$("#sim-edit-text .color").val(big_parent.css('color'));
-	$("#sim-edit-text .size").val(big_parent.css('font-size'));
-	$("#sim-edit-text .weight").val(big_parent.css('font-weight'));
-	$("#sim-edit-text .fonts").val(big_parent.attr('class').split(' ')[2]);
-
-	$("#sim-edit-text").fadeIn(500);
-	$("#sim-edit-text .sim-edit-box").slideDown(500);
-	
-	$("#sim-edit-text .sim-edit-box-buttons-save").click(function() {
-	  $(this).parent().parent().parent().fadeOut(500)
-	  $(this).parent().parent().slideUp(500)
-
-	  var str = $("#sim-edit-text .text").val(),
-	  		newColor = $("#sim-edit-text .color").val(),
-	  		newSize = $("#sim-edit-text .size").val(),
-	  		newFonts = $("#sim-edit-text .fonts").val()
-	  		newWeight = $("#sim-edit-text .weight").val()
-
-	    big_parent.html(str);
-	    big_parent.removeClass('NotoSans SourceSans SourceSerif MicrosoftJhengHei serif').addClass(newFonts);
-			big_parent.css({
-				'color': newColor,
-				'font-size': newSize,
-				'font-weight': newWeight
-			})
-		
-	   
-		});
-
-	}
-	
-	//edit icon
-	if(big_parent.attr("data-type")=='icon'){
-	
-	
-	$("#sim-edit-icon").fadeIn(500);
-	$("#sim-edit-icon .sim-edit-box").slideDown(500);
-	
-	$("#sim-edit-icon i").click(function() {
-	  $(this).parent().parent().parent().parent().fadeOut(500)
-	  $(this).parent().parent().parent().slideUp(500)
-	   
-	    big_parent.children('i').attr('class',$(this).attr('class'));
-
-		});
-
-	}//
-	
+	$('.sim-row').draggable({
+		connectToSortable: "#newsletter-builder-area-center-frame-content",
+		//helper: "clone",
+		revert: "invalid",
+		handle: ".sim-row-move"
 	});
-  }, function() {
-    $(this).children(".sim-row-edit-hover").remove();
-  }
-);
-}
-hover_edit();
 
 
 
-//Drag & Drop
-$("#newsletter-builder-area-center-frame-content").sortable({
-  revert: true
-});
-	
-
-$(".sim-row").draggable({
-      connectToSortable: "#newsletter-builder-area-center-frame-content",
-      //helper: "clone",
-      revert: "invalid",
-	  handle: ".sim-row-move"
-});
-
-
-
-//Delete
-function add_delete(){
-	$("#newsletter-builder-area-center-frame-content .sim-row").removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";></div>');
+	//Delete
+	function add_delete() {
+		$('#newsletter-builder-area-center-frame-content .sim-row').removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";></div>');
 		//執行動做移到東西載入
 	}
 
 
-function perform_delete(){
-$(".sim-row-delete").click(function() {
-  $(this).parent().remove();
-});
-}
-perform_delete();
-
-function perform_changeColor(){
-	$(".changeColor-input-text").keyup(function(event) {
-		$(this).closest('.sim-row').css({
-			'background-color': $(this).val()
+	function perform_delete() {
+		$('.sim-row-delete').click(function() {
+			$(this).parent().remove();
 		});
-	});
-	$(".changeImg-input-text").keyup(function(event) {
-		$(this).closest('.sim-row').css({
-			'background-image': 'url('+ $(this).val() +')'
+	}
+	perform_delete();
+
+	function perform_changeColor() {
+		$('.changeColor-input-text').keyup(function(event) {
+			$(this).closest('.sim-row').css({
+				'background-color': $(this).val()
+			});
 		});
-	});
-	$(".maxWidth").blur(function(event) {
-		$(this).closest('.sim-row').css({
-			'max-width': $(this).val()
+		$('.changeImg-input-text').keyup(function(event) {
+			$(this).closest('.sim-row').css({
+				'background-image': 'url(' + $(this).val() + ')'
+			});
 		});
+		$('.maxWidth').blur(function(event) {
+			$(this).closest('.sim-row').css({
+				'max-width': $(this).val()
+			});
+		});
+		$('.style').blur(function(event) {
+			$(this).closest('.sim-row').removeClass().addClass('sim-row ' + $(this).val());
+		});
+	}
+	perform_changeColor();
+
+	//改變可視大小
+
+	$('.Rwd-bottom').click(function() {
+		if ($(this).attr('id') == 'rwd-phone') {
+			$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width', 320)
+			$('#RWD-css-420 , #RWD-css-900').attr('media', 'all')
+		} else if ($(this).attr('id') == 'rwd-pad') {
+			$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width', 1024)
+			$('#RWD-css-420').attr('media', 'screen and (max-width: 420px)')
+			$('#RWD-css-900').attr('media', 'all')
+		} else {
+			$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width', '100%')
+			$('#RWD-css-420').attr('media', 'screen and (max-width: 420px)')
+			$('#RWD-css-900').attr('media', 'screen and (max-width: 900px)')
+		};
+
+	})
+
+
+
+	//Download
+	$('#newsletter-builder-sidebar-buttons-abutton').click(function() {
+
+		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
+		$('#newsletter-preloaded-export .sim-row-delete').remove();
+		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
+		$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
+		$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
+
+		export_content = $('#newsletter-preloaded-export').html();
+
+		$('#export-textarea').val(export_content)
+		$('#export-form').submit();
+		$('#export-textarea').val(' ');
+
 	});
-	$(".style").blur(function(event) {
-		$(this).closest('.sim-row').removeClass().addClass('sim-row '+$(this).val());
-	});
-}
-perform_changeColor();
-
-//改變可視大小
-
-$('.Rwd-bottom').click(function(){
-	if ($(this).attr('id') == 'rwd-phone') {
-		$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width',320)
-		$('#RWD-css-420 , #RWD-css-900').attr('media','all')
-	} else if($(this).attr('id') == 'rwd-pad'){
-		$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width',1024)
-		$('#RWD-css-420').attr('media','screen and (max-width: 420px)')
-		$('#RWD-css-900').attr('media','all')
-	} else{
-		$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width','100%')
-		$('#RWD-css-420').attr('media','screen and (max-width: 420px)')
-		$('#RWD-css-900').attr('media','screen and (max-width: 900px)')
-	};
-
-})
 
 
+	//Export 
+	$('#newsletter-builder-sidebar-buttons-bbutton').click(function() {
 
-//Download
- $("#newsletter-builder-sidebar-buttons-abutton").click(function(){
-	 
-	$("#newsletter-preloaded-export").html($("#newsletter-builder-area-center-frame-content").html());
-	$("#newsletter-preloaded-export .sim-row-delete").remove();
-	$("#newsletter-preloaded-export .sim-row").removeClass("ui-draggable");
-	$("#newsletter-preloaded-export .sim-row-edit").removeAttr("data-type");
-	$("#newsletter-preloaded-export .sim-row-edit").removeClass("sim-row-edit");
-	
-	export_content = $("#newsletter-preloaded-export").html();
-	
-	$("#export-textarea").val(export_content)
-	$( "#export-form" ).submit();
-	$("#export-textarea").val(' ');
-	 
-});
-	 
-	 
-//Export 
-$("#newsletter-builder-sidebar-buttons-bbutton").click(function(){
-	
-	$("#sim-edit-export").fadeIn(500);
-	$("#sim-edit-export .sim-edit-box").slideDown(500);
-	
-	$("#newsletter-preloaded-export").html($("#newsletter-builder-area-center-frame-content").html());
-	$("#newsletter-preloaded-export .sim-row-delete").remove();
-	$("#newsletter-preloaded-export .sim-row").removeClass("ui-draggable");
-	$("#newsletter-preloaded-export .sim-row-edit").removeAttr("data-type");
-	$("#newsletter-preloaded-export .sim-row-edit").removeClass("sim-row-edit");
-	
-	preload_export_html = $("#newsletter-preloaded-export").html();
-	$.ajax({
-	  url: "_css/newsletter.css"
-	}).done(function(data) {
+		$('#sim-edit-export').fadeIn(500);
+		$('#sim-edit-export .sim-edit-box').slideDown(500);
 
-	
-export_content = '<style>'+data+'</style><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><div id="sim-wrapper"><div id="sim-wrapper-newsletter">'+preload_export_html+'</div></div>';
-	
-	$("#sim-edit-export .text").val(export_content);
-	
-	
-	});
-	
-	
-	
-	$("#newsletter-preloaded-export").html(' ');
-	
+		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
+		$('#newsletter-preloaded-export .sim-row-delete').remove();
+		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
+		$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
+		$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
+
+		preload_export_html = $('#newsletter-preloaded-export').html();
+		$.ajax({
+			url: "_css/newsletter.css"
+		}).done(function(data) {
+
+
+			export_content = '<style>' + data + '</style><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><div id="sim-wrapper"><div id="sim-wrapper-newsletter">' + preload_export_html + '</div></div>';
+
+			$('#sim-edit-export .text').val(export_content);
+
+
+		});
+
+
+
+		$('#newsletter-preloaded-export').html(' ');
+
 	});
 
 
