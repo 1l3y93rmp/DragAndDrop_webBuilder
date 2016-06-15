@@ -567,6 +567,15 @@ body {
 	clear: left;
 }
 
+.sim-edit-box-content-text-min{
+	float: left;
+	width: 100%;
+	font-size: 13px;
+	color: rgba(102,102,102,1);
+	clear: left;
+	text-decoration: none;
+}
+
 .sim-edit-box-content-field{
 	float: left;
 	width: 49%;

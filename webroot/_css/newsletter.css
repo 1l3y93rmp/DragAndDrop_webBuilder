@@ -44,52 +44,6 @@
  }
 
 
-
-@font-face{
-    font-family: 'Source Serif Pro';
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Light.eot') format('embedded-opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Light.otf.woff') format('woff'),
-         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Light.otf') format('opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Light.ttf') format('truetype');
-}
-
-@font-face{
-    font-family: 'Source Serif Pro';
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Regular.eot') format('embedded-opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Regular.otf.woff') format('woff'),
-         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Regular.otf') format('opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Regular.ttf') format('truetype');
-}
-
-@font-face{
-    font-family: 'Source Serif Pro';
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: normal;
-    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Bold.eot') format('embedded-opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Bold.otf.woff') format('woff'),
-         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Bold.otf') format('opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Bold.ttf') format('truetype');
-}
-
-@font-face{
-    font-family: 'Source Serif Pro';
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    src: url('//adobe-fonts.github.io/source-serif-pro/EOT/SourceSerifPro-Black.eot') format('embedded-opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/WOFF/OTF/SourceSerifPro-Black.otf.woff') format('woff'),
-         url('//adobe-fonts.github.io/source-serif-pro/OTF/SourceSerifPro-Black.otf') format('opentype'),
-         url('//adobe-fonts.github.io/source-serif-pro/TTF/SourceSerifPro-Black.ttf') format('truetype');
-}
-
-
 /*
 #sim-wrapper{
 	background-color: rgba(195,204,213,1);
@@ -211,30 +165,8 @@ text-align: left;}
 	text-align: left;
 
 }
-.sim-row-header1-slider-left-link{
-	float: left;
-	margin-top: 30px;
-	margin-left: 50px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-transition: background 0.5s;
-	-moz-transition: background 0.5s;
-	-o-transition: background 0.5s;
-	transition: background 0.5s;
-}
-.sim-row-header1-slider-left-link:hover {
-	background-color: rgba(63,141,191,1);
-}
-.sim-row-header1-slider-left-link a {
-	color: rgba(255,255,255,1);
-	font-size: 15px;
-	line-height: 1.6em;
-	text-decoration: none;
-	padding-right: 15px;
-	padding-left: 15px;
-	display: block;
-}
+
+
 .sim-row-header1-slider-right{
 	float: left;
 	overflow: hidden;
@@ -266,50 +198,10 @@ text-align: left;}
 	height: 80px;
 	width: auto;
 }
-.sim-row-header2-nav-links{
-	float: right;
-	height: 80px;
-	margin-right: 50px;
-}
-.sim-row-header2-nav-links a{
-	color: rgba(63,141,191,1);
-	text-decoration: none;
-	margin-top: 30px;
-	float: left;
-	margin-right: 25px;
-	font-size: 15px;
-}
-.sim-row-header2-nav-links a:hover {
-	text-decoration: underline;
-}
-.sim-row-header2-nav-links-contact{
-	float: left;
-	margin-top: 25px;
-	background-color: rgba(63,141,191,1);
-	line-height: 1.6em;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-transition: background 0.5s;
-	-moz-transition: background 0.5s;
-	-o-transition: background 0.5s;
-	transition: background 0.5s;
-}
-.sim-row-header2-nav-links-contact:hover {
-	background-color: rgba(150,111,177,1);
-}
-.sim-row-header2-nav-links-contact a {
-	color: rgba(255,255,255,1);
-	margin: 0px;
-	display: block;
-	padding-top: 0px;
-	padding-right: 15px;
-	padding-bottom: 0px;
-	padding-left: 15px;
-}
-.sim-row-header2-nav-links-contact a:hover {
-	text-decoration: none;
-}
+
+
+
+
 .sim-row-header2-slider{
 	width: 100%;
 	padding: 20px;
@@ -331,41 +223,11 @@ text-align: left;}
 	font-weight: 300;
 	margin-bottom: 15px;
 }
-.sim-row-header2-slider-top-link{
-	margin-left: 50px;
-	margin-top: 25px;
-}
-.sim-row-header2-slider-top-link-button{
-	background-color: rgba(150,111,177,1);
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-transition: background 0.5s;
-	-moz-transition: background 0.5s;
-	-o-transition: background 0.5s;
-	transition: background 0.5s;
-	margin-right: auto;
-	margin-left: auto;
-	width: 100px;
-}
-.sim-row-header2-slider-top-link-button:hover {
-	background-color: rgba(63,141,191,1);
-}
-.sim-row-header2-slider-top-link-button a {
-	color: rgba(255,255,255,1);
-	font-size: 15px;
-	line-height: 1.6em;
-	text-decoration: none;
-	display: block;
-	width: 100px;
-}
+
 .sim-row-header2-slider-bottom{
-	width: 100%;
 	text-align: center;
 }
-.sim-row-header2-slider-bottom img {
-	height: auto;
-}
+
 .sim-row-header3{
   width: 100%;
   text-align: center;

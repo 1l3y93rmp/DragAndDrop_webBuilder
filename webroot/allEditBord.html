@@ -39,27 +39,6 @@
   </div>
 </div>
 
-<!--編輯板 編輯連結-->
-<div class="sim-edit" id="sim-edit-link">
-  <div class="sim-edit-box">
-    <div class="sim-edit-box-title">Edit Link</div>
-    <div class="sim-edit-box-content">
-      <div class="sim-edit-box-content-text">Title</div>
-      <div class="sim-edit-box-content-field">
-        <input type="text" class="sim-edit-box-content-field-input title"/>
-      </div>
-      <div class="sim-edit-box-content-text">URL:<span>(full address including http://)</span></div>
-      <div class="sim-edit-box-content-field">
-        <input type="text" class="sim-edit-box-content-field-input url"/>
-      </div>
-    </div>
-    <div class="sim-edit-box-buttons">
-      <div class="sim-edit-box-buttons-save">Save</div>
-      <div class="sim-edit-box-buttons-cancel">Cancel</div>
-    </div>
-  </div>
-</div>
-
 
 <!--編輯板 編輯內文-->
 <div class="sim-edit" id="sim-edit-text">
@@ -74,10 +53,10 @@
     <div class="sim-edit-box-content-text">段落文字字型</div>
     <select class="sim-edit-box-content-field fonts" >
       <option value="serif">Times New Roman(英)+新細明體(中)</option>
-      <option value="NotoSans">微軟正黑體</option>
+      <option value="MicrosoftJhengHei">微軟正黑體</option>
       <option value="SourceSans">Source Sans(英)+思源黑體(中)</option>
       <option value="SourceSerif">Source Serif(英)+思源黑體(中)</option>
-      <option value="MicrosoftJhengHei">思源黑體</option>
+      <option value="NotoSans">思源黑體</option>
     </select>
     <div class="sim-edit-box-content-text">段落文字粗細</div>
     <select class="sim-edit-box-content-field weight" >
@@ -95,6 +74,7 @@
     </select>
     <div class="sim-edit-box-content">
       <div class="sim-edit-box-content-text-100">Text (接受Html tag)</div>
+      <a class="sim-edit-box-content-text-min" href="javascript:;"> +按我加一個連結</a>
       <div class="sim-edit-box-content-field">
         <textarea class="sim-edit-box-content-field-textarea text"></textarea>
       </div>
