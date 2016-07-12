@@ -101,15 +101,20 @@ $(function() {
 		console.log('所有編輯面板已被載入')
 	});
 
-		//pancilBox有兩種傳入的值 1.預設直接載入在COntend的 2.新被複製出現的
+		//pancilBox有兩種傳入的值 1.預設直接載入在Contend的 2.新被複製出現的
 		function hover_edit (pancilBox){
 			//當sim-row-edit被滑入出現鉛筆按鈕
 			pancilBox.hover(
 				function(e) {
 					e.preventDefault();
 					e.stopPropagation();
-					$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
-					console.log('hover_edit')
+					console.log($(this).attr('data-type'))
+					if(/image/.test($(this).attr('data-type'))){
+						$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i> <div class="edit-changeColor">背景設定(局部)</div></div>');
+					}else{
+						$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
+					}
+					
 
 					//鉛筆按鈕被按下 打開編輯面板
 					$('.sim-row-edit-hover i').one('click', function(e) {
@@ -234,8 +239,9 @@ $(function() {
 								$('#sim-edit-text .sim-edit-box-buttons-cancel').off();
 							});
 
-							$('#sim-edit-text .sim-edit-box-content-text-min').one('click',function(){
-									$('.sim-edit-box-content-field-textarea.text').val('<a href="網址寫這裡">'+big_parent.html()+'</a>')
+							$('#sim-edit-text .sim-edit-box-content-text-min').click(function(){
+									/*$('.trip').slideToggle();
+									$(this).off();*/
 								})
 
 							$('#sim-edit-text .sim-edit-box-buttons-add').one('click', function(e) {
@@ -305,11 +311,7 @@ $(function() {
 					$(this).children('.sim-row-edit-hover').remove();
 					$(this).children('.sim-row-edit-hover').off();
 					$('.sim-row-edit-hover i').off() //打開編輯面板
-						//$('.sim-edit-box-buttons-save').off() //儲存
-						//$('.sim-edit-box-buttons-del').off() //刪除
-						//$('.sim-edit-box-buttons-add').off() //新增
-					  //$('.sim-edit-box-buttons-cancel').off() //取消
-					console.log('hover_edit no')
+
 				}
 			);//這個HOVER只能加在新clone出現的那一塊content上，故使用:first
 		}
@@ -333,8 +335,9 @@ $(function() {
 
 	//Delete
 	function add_delete() {
-		$('#newsletter-builder-area-center-frame-content .sim-row').removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";></div>');
-		//清除面板中不需要的東西另外加入需要的欄位(右邊)
+		$('#newsletter-builder-area-center-frame-content .sim-row').removeClass('newsletter-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">背景設定(橫的整塊)</div>');
+
+		
 	}
 
 
@@ -342,10 +345,46 @@ $(function() {
 		$('.sim-row-delete').click(function() {
 			$(this).parent().remove();
 		});
+
 	}
 
 
 	function perform_changeColor() {
+
+		$('.sim-row-changeColor').click(function() {
+
+
+
+			$(this).parent().append('<div class="changeColor-box">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定</option><option value="fixed">固定</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button></div>	');
+
+				/*填入值*/
+				var changeColorBox = $(this).next('.changeColor-box')
+				var simRow = $(this).closest('.sim-row')
+
+				changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
+				changeColorBox.find('.changeImg-input-text').val(simRow.css('background-image'))
+				changeColorBox.find('.maxWidth').val(simRow.css('max-width'))
+				changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
+				changeColorBox.find('.style').val($(this).closest('.sim-row').attr('class').replace(/sim-row/,''))
+
+
+
+			$('#btnOK').click(function(){
+				$(this).closest('.sim-row').css({
+					'background-color': $(this).prevAll('.changeColor-input-text').val(),
+					'background-image': 'url(' + $(this).prevAll('.changeImg-input-text').val() + ')',
+					'max-width': $(this).prevAll('.maxWidth').val(),
+					'background-attachment': $(this).prevAll('.background-attachment').val()
+				});
+
+				$(this).closest('.sim-row').removeClass().addClass('sim-row ' + $(this).prevAll('.style').val());
+				$(this).closest('.changeColor-box').remove();
+			})
+
+		})
+
+
+/*
 		$('.changeColor-input-text').keyup(function(event) {
 			$(this).closest('.sim-row').css({
 				'background-color': $(this).val()
@@ -361,29 +400,19 @@ $(function() {
 				'max-width': $(this).val()
 			});
 		});
+
+		$('.background-attachment').blur(function(event) {
+			$(this).closest('.sim-row').css({
+				'background-attachment': $(this).val()
+			});
+		});
+
 		$('.style').blur(function(event) {
 			$(this).closest('.sim-row').removeClass().addClass('sim-row ' + $(this).val());
-		});
+		});*/
 	}
 
 
-	//改變可視大小
-
-	$('.Rwd-bottom').click(function() {
-		if ($(this).attr('id') == 'rwd-phone') {
-			$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width', 320)
-			$('#RWD-css-420 , #RWD-css-900').attr('media', 'all')
-		} else if ($(this).attr('id') == 'rwd-pad') {
-			$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width', 1024)
-			$('#RWD-css-420').attr('media', 'screen and (max-width: 420px)')
-			$('#RWD-css-900').attr('media', 'all')
-		} else {
-			$('#newsletter-builder-area-center-frame-content,.newsletter-builder-area-center-frame-buttons-content .sim-row').css('width', '100%')
-			$('#RWD-css-420').attr('media', 'screen and (max-width: 420px)')
-			$('#RWD-css-900').attr('media', 'screen and (max-width: 900px)')
-		};
-
-	})
 
 
 

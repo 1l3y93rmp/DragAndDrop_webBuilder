@@ -70,6 +70,12 @@
 	background-attachment: fixed;
 	margin: 0 auto; 
 }
+
+.sim-row a{
+	color: inherit;
+	/*text-decoration: none;*/
+}
+
 .sim-row-header1{
 	width: 100%;
 }

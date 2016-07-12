@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*media screen max-width: 420px*/
+/*media screen max-width: 900px*/
 
 
 .sim-row-header4-slider{
@@ -8,4 +8,8 @@
 
 .sim-row-header3-slider{
   width: 100%;  
+}
+
+.sim-row-header6-slider {
+  width: 50%;  
 }

@@ -245,7 +245,6 @@ body {
 	-o-transition: background 0.5s;
 	transition: background 0.5s;
 	cursor: pointer;
-	margin-bottom: 25px;
 	font-size: 15px;
 	float: left;
 	padding-right: 15px;
@@ -388,9 +387,9 @@ body {
 	width: 100%;
 	transition: width 0.5s;
 	background-color: #fff;
-	/*padding: 0 50px;
+	/*padding: 0 50px	;
   box-sizing: border-box;*/
-}
+    margin-top: 45px;}
 .sim-row{
 	-webkit-transition: box-shadow 0.5s;
 	-moz-transition: box-shadow 0.5s;
@@ -420,23 +419,61 @@ body {
 	font-size: 20px;
 }
 
+
 .sim-row-changeColor {
-	width: 200px;
-	background-color: rgba(192, 192, 192, 0.4);
-	top: 50px;
+	bottom: 5px;
 	right: 0px;
 	position: absolute;
-    color: rgba(102,102,102,1);
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	-o-transition: all 0.5s;
-	transition: all 0.5s;
 	opacity: 0;	
-  font-size: 12px;
-  padding: 10px;
-  box-sizing: border-box;
-  line-height: 1.6em;
+    background-color: rgba(63,141,191,1);
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: rgba(255,255,255,1);
+    font-weight: 600;
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 5px 0 0 5px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    float: left;
+    padding-right: 25px;
+    padding-left: 25px;
+
 }
+
+
+.edit-changeColor{
+	top: 0;
+	right: 50%;
+	margin-right: -75px;
+	position: absolute;
+    background-color: rgb(191, 63, 107);
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: rgba(255,255,255,1);
+    font-weight: 600;
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 0 0 5px 5px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    float: left;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+
+
 
 .sim-row-changeColor input{
 	padding:3px 0;
@@ -474,6 +511,30 @@ body {
 	transition: all 0.5s;
 
 }
+
+.btnOK{
+    background-color: rgba(63,141,191,1);
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: rgba(255,255,255,1);
+    font-weight: 600;
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    cursor: pointer;
+
+    padding-right: 25px;
+    padding-left: 25px;
+    border: none;
+    margin-top: 10px;
+}
+
 .sim-row-edit-hover i{
 	position: absolute;
 	height: 30px;
@@ -523,6 +584,21 @@ body {
 	font-family: 'Noto Sans TC', sans-serif;
 	font-weight: 300;
 }
+
+.changeColor-box{
+    width: 200px;
+    background-color: rgb(150, 192, 218);
+    padding: 25px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    top: 0;
+    line-height: 2em;
+    z-index: 9;
+}
+
 
 .sim-edit-box::after{
 	content: ".";
@@ -764,6 +840,14 @@ body {
 	background-color: rgba(153,153,153,0.1);
 }
 
+
+.trip{
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 0;
+	/*display: none;*/
+}
 
 /************/
 
