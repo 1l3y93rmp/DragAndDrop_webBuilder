@@ -2,7 +2,8 @@ $(function() {
 
 	if($('#newsletter-builder-area-center-frame-content').children().length != 0){
 		console.log('一載入content已經有東西!')
-		hover_edit ($('#newsletter-builder-area-center-frame-content>.sim-row .sim-row-edit'));
+		hover_edit($('#newsletter-builder-area-center-frame-content>.sim-row .sim-row-edit'));
+		hover_edit_BG($('#newsletter-builder-area-center-frame-content [edit_BG]'));
 		add_delete();
 		perform_delete();
 		perform_changeColor();
@@ -32,6 +33,7 @@ $(function() {
 					//var pancilBox = $('#newsletter-builder-area-center-frame-content>.sim-row:first .sim-row-edit');
 
 					hover_edit ($('#newsletter-builder-area-center-frame-content>.sim-row:first .sim-row-edit'));
+					hover_edit_BG($('#newsletter-builder-area-center-frame-content [edit_BG]'));
 
 
 					$('#newsletter-builder-area-center-frame-buttons-dropdown').fadeOut(200);
@@ -108,12 +110,8 @@ $(function() {
 				function(e) {
 					e.preventDefault();
 					e.stopPropagation();
-					console.log($(this).attr('data-type'))
-					if(/image/.test($(this).attr('data-type'))){
-						$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i> <div class="edit-changeColor">背景設定(局部)</div></div>');
-					}else{
-						$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
-					}
+					//console.log($(this).attr('data-type'))
+					$(this).append('<div class="sim-row-edit-hover"><i class="fa fa-pencil" style="line-height:30px;"></i></div>');
 					
 
 					//鉛筆按鈕被按下 打開編輯面板
@@ -128,11 +126,10 @@ $(function() {
 
 							$('#sim-edit-image .image').val(big_parent.find('img').attr('src'));
 							$('#sim-edit-image .link').val(big_parent.find('a').attr('href'));
-							if (!big_parent.find('a').attr('class')) {
-								$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
-							} else {
-								$('#sim-edit-image .style').val(big_parent.find('a').attr('class'));
-							}
+							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
+							$('#sim-edit-image .paddingTop').val(big_parent.find('img').css('padding-top'));
+							$('#sim-edit-image .align').val(big_parent.css('text-align'));
+
 
 							$('#sim-edit-image .sim-edit-box-buttons-save').one('click', function(e) {
 								e.preventDefault();
@@ -157,19 +154,23 @@ $(function() {
 									})
 								}
 
-								var style = $('#sim-edit-image .style').val();
+								var style = $('#sim-edit-image .style').val(),
+										paddingTop = $('#sim-edit-image .paddingTop').val(),
+										align = $('#sim-edit-image .align').val();
+								big_parent.find('img').removeClass().addClass(style).css('padding-top',paddingTop);
+								big_parent.css('text-align',align);
 
 								if ($('#sim-edit-image .link').val().length != 0) {
+									//如果有A包住圖片 CLASS統一寫在圖片上
 									big_parent.wrapInner('<a></a>');
-									big_parent.find('img').removeAttr('class');
-									big_parent.find('a').attr('href', $('#sim-edit-image .link').val()).addClass(style);
+									big_parent.find('a').attr('href', $('#sim-edit-image .link').val())
 								} else {
+									//如果沒有A
 									big_parent.find('a').find('img').unwrap()
-									big_parent.addClass(style);
 								};
 
 								if (!style) {
-									big_parent.find('a').removeAttr('class');
+									big_parent.find('img').removeAttr('class');
 									//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
 								}
 							});
@@ -300,9 +301,6 @@ $(function() {
 							});
 						}
 					});
-
-
-
 				},
 				function(e) {
 					//這裡是當sim-row-edit(鉛筆)滑出 要拔除的東西
@@ -316,6 +314,60 @@ $(function() {
 			);//這個HOVER只能加在新clone出現的那一塊content上，故使用:first
 		}
 
+		function hover_edit_BG(BGBox){
+			BGBox.hover(
+				function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					$(this).append('<div class="edit-changeColor">背景設定(局部)</div>');
+					//某些外框會比較特殊會有背景設定(不是全部)
+
+					//局部背景按鈕被按下 打開編輯面板
+					$('.edit-changeColor').one('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						console.log('dddd')
+							$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+
+								/*填入值*/
+								var changeColorBox = $(this).next('.changeColor-box')
+								var simRow = $(this).closest('[edit_BG]')
+
+								changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
+								changeColorBox.find('.changeImg-input-text').val(simRow.css('background-image'))
+								changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
+								changeColorBox.find('.minHeight').val(simRow.css('min-height'))
+
+
+							$('#btnOK').click(function(){
+								$(this).closest('[edit_BG]').css({
+									'background-color': $(this).prevAll('.changeColor-input-text').val(),
+									'background-image': 'url(' + $(this).prevAll('.changeImg-input-text').val() + ')',
+									'background-attachment': $(this).prevAll('.background-attachment').val(),
+									'min-height': $(this).prevAll('.minHeight').val()
+								});
+
+								$(this).closest('.changeColor-box-min').remove();
+							})
+
+							$('#btnCancel').click(function(e){
+								e.preventDefault();
+								e.stopPropagation();
+								$('.edit-changeColor').off();
+								$('.sim-row-edit-hover').off();
+								$('.sim-row-edit-hover i').off() //打開編輯面板		
+								$('.sim-row-edit-hover').remove();			
+								$('.changeColor-box-min').remove();			
+							})
+					});
+				},
+				function(e){
+					e.preventDefault();
+					e.stopPropagation();
+					$('.edit-changeColor').remove();
+					$('.edit-changeColor').off();
+				})
+		}
 
 
 		//Drag & Drop
@@ -355,7 +407,7 @@ $(function() {
 
 
 
-			$(this).parent().append('<div class="changeColor-box">換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定</option><option value="fixed">固定</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button></div>	');
+			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
 				/*填入值*/
 				var changeColorBox = $(this).next('.changeColor-box')
@@ -364,6 +416,7 @@ $(function() {
 				changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
 				changeColorBox.find('.changeImg-input-text').val(simRow.css('background-image'))
 				changeColorBox.find('.maxWidth').val(simRow.css('max-width'))
+				changeColorBox.find('.minHeight').val(simRow.css('min-height'))
 				changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
 				changeColorBox.find('.style').val($(this).closest('.sim-row').attr('class').replace(/sim-row/,''))
 
@@ -374,6 +427,7 @@ $(function() {
 					'background-color': $(this).prevAll('.changeColor-input-text').val(),
 					'background-image': 'url(' + $(this).prevAll('.changeImg-input-text').val() + ')',
 					'max-width': $(this).prevAll('.maxWidth').val(),
+					'min-height': $(this).prevAll('.minHeight').val(),
 					'background-attachment': $(this).prevAll('.background-attachment').val()
 				});
 
@@ -381,35 +435,14 @@ $(function() {
 				$(this).closest('.changeColor-box').remove();
 			})
 
+			$('#btnCancel').click(function(){
+				$(this).closest('.changeColor-box').remove();
+			})
+
 		})
 
 
-/*
-		$('.changeColor-input-text').keyup(function(event) {
-			$(this).closest('.sim-row').css({
-				'background-color': $(this).val()
-			});
-		});
-		$('.changeImg-input-text').keyup(function(event) {
-			$(this).closest('.sim-row').css({
-				'background-image': 'url(' + $(this).val() + ')'
-			});
-		});
-		$('.maxWidth').blur(function(event) {
-			$(this).closest('.sim-row').css({
-				'max-width': $(this).val()
-			});
-		});
 
-		$('.background-attachment').blur(function(event) {
-			$(this).closest('.sim-row').css({
-				'background-attachment': $(this).val()
-			});
-		});
-
-		$('.style').blur(function(event) {
-			$(this).closest('.sim-row').removeClass().addClass('sim-row ' + $(this).val());
-		});*/
 	}
 
 

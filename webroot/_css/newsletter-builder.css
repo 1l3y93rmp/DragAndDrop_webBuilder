@@ -528,7 +528,7 @@ body {
     -o-transition: background 0.5s;
     transition: background 0.5s;
     cursor: pointer;
-
+    margin-right: 5px;
     padding-right: 25px;
     padding-left: 25px;
     border: none;
@@ -593,10 +593,40 @@ body {
     font-weight: 300;
     position: absolute;
     left: 50%;
-    margin-left: -100px;
+    margin-left: -125px;
     top: 0;
     line-height: 2em;
     z-index: 9;
+    color: #fff
+}
+
+.changeColor-box-min{
+    width: 200px;
+    background-color: rgb(194, 82, 82);
+    padding: 25px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    top: 0;
+    line-height: 2em;
+    z-index: 9;
+    color: #fff
+}
+
+.changeColor-box .sim-edit-box-title,.changeColor-box-min .sim-edit-box-title{
+	color: #fff
+}
+
+.changeColor-box input,.changeColor-box-min input ,.changeColor-box select,.changeColor-box-min select{
+		border: 1px solid rgba(204,204,204,1);
+		padding-right: 10px;
+		padding-left: 10px;
+		font-size: 15px;
+		height: 33px;
+    box-sizing: border-box;
+    width: 100%;		    
 }
 
 
@@ -663,7 +693,6 @@ body {
 	margin-top: 15px;
 	}
 .sim-edit-box-content-field-input {
-	float: left;
 	height: 33px;
 	width: 380px;
 	border: 1px solid rgba(204,204,204,1);
