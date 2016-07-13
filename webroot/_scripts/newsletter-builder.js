@@ -448,33 +448,12 @@ $(function() {
 	}
 
 
-
-
-
-	//Download
-	$('#newsletter-builder-sidebar-buttons-abutton').click(function() {
-
-		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
-		$('#newsletter-preloaded-export .sim-row-delete').remove();
-		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
-		$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
-		$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
-
-		export_content = $('#newsletter-preloaded-export').html();
-
-		$('#export-textarea').val(export_content)
-		$('#export-form').submit();
-		$('#export-textarea').val(' ');
-
-	});
-
-
 	//Export 
 	$('#newsletter-builder-sidebar-buttons-bbutton').click(function() {
 
 		$('#sim-edit-export').fadeIn(500);
 		$('#sim-edit-export .sim-edit-box').slideDown(500);
-
+		//把東西複製進去 然後再逐個刪除不需要的東西
 		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
 		$('#newsletter-preloaded-export .sim-row-delete,#newsletter-preloaded-export .sim-row-changeColor,#newsletter-preloaded-export .edit-changeColor').remove();
 		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
@@ -483,17 +462,9 @@ $(function() {
 
 		preload_export_html = $('#newsletter-preloaded-export').html();
 		//所有內容
-
-
-		console.log(preload_export_html)
 		//修正
-		
 
     preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '')
-
-
-    console.log(preload_export_html)
-
 
 		$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
 
@@ -506,6 +477,38 @@ $(function() {
 		})
 
 	});
+	//Preview
+	$('#newsletter-builder-sidebar-buttons-Preview').click(function() {
+
+
+		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
+		$('#newsletter-preloaded-export .sim-row-delete,#newsletter-preloaded-export .sim-row-changeColor,#newsletter-preloaded-export .edit-changeColor').remove();
+		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
+		$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
+		$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
+
+		preload_export_html = $('#newsletter-preloaded-export').html();
+		//所有內容
+
+		//修正廢碼
+		
+
+    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '')
+
+
+		//$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
+
+		var PreviewWindow = window.open('','',true);
+		PreviewWindow.document.write('<link href="_css/newsletter.css" rel="stylesheet" type="text/css" />'+preload_export_html)
+
+
+
+		$('#newsletter-preloaded-export').html(' '); //把複製進去的東西挖空
+
+
+	});
+
+
 
 
 

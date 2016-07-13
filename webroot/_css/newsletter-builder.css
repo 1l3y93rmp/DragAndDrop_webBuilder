@@ -163,10 +163,10 @@ body {
 	cursor: pointer;
 	margin-bottom: 25px;
 }
-#newsletter-builder-sidebar-buttons-abutton:hover {
+.right_bbutton:hover {
 	background-color: rgba(51,175,222,1);
 }
-#newsletter-builder-sidebar-buttons-bbutton{
+.right_bbutton{
     height: 30px;
     margin-right: auto;
     margin-left: auto;
@@ -188,6 +188,7 @@ body {
     background-color: rgba(63,141,191,1);
     position: relative;
     font-family: 'Noto Sans TC', sans-serif;
+    margin-left: 10px;
 }
 
 .Rwd-bottom{
@@ -589,7 +590,6 @@ body {
 
 .changeColor-box{
     width: 200px;
-    background-color: rgb(150, 192, 218);
     padding: 25px;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 300;
@@ -602,9 +602,22 @@ body {
     color: #fff
 }
 
+.changeColor-box::after{
+	  content: "";
+	  display: block;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		z-index: -1;
+		left: 0;
+		top: 0;
+    background: rgba(96, 125, 139, 0.8);
+
+}
+
 .changeColor-box-min{
     width: 200px;
-    background-color: rgb(194, 82, 82);
+    
     padding: 25px;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 300;
@@ -615,6 +628,20 @@ body {
     line-height: 2em;
     z-index: 9;
     color: #fff
+}
+
+
+.changeColor-box-min::after{
+	  content: "";
+	  display: block;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		z-index: -1;
+		left: 0;
+		top: 0;
+    background-color: rgba(137, 59, 59, 0.8);
+
 }
 
 .changeColor-box .sim-edit-box-title,.changeColor-box-min .sim-edit-box-title{
