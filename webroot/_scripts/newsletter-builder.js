@@ -127,7 +127,7 @@ $(function() {
 							$('#sim-edit-image .image').val(big_parent.find('img').attr('src'));
 							$('#sim-edit-image .link').val(big_parent.find('a').attr('href'));
 							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
-							$('#sim-edit-image .paddingTop').val(big_parent.find('img').css('padding-top'));
+							$('#sim-edit-image .marginTop').val(big_parent.find('img').css('margin-top'));
 							$('#sim-edit-image .align').val(big_parent.css('text-align'));
 
 
@@ -155,9 +155,9 @@ $(function() {
 								}
 
 								var style = $('#sim-edit-image .style').val(),
-										paddingTop = $('#sim-edit-image .paddingTop').val(),
+										marginTop = $('#sim-edit-image .marginTop').val(),
 										align = $('#sim-edit-image .align').val();
-								big_parent.find('img').removeClass().addClass(style).css('padding-top',paddingTop);
+								big_parent.find('img').removeClass().addClass(style).css('margin-top',marginTop);
 								big_parent.css('text-align',align);
 
 								if ($('#sim-edit-image .link').val().length != 0) {
@@ -328,11 +328,10 @@ $(function() {
 					$('.edit-changeColor').one('click', function(e) {
 						e.preventDefault();
 						e.stopPropagation();
-						console.log('dddd')
 							$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
 								/*填入值*/
-								var changeColorBox = $(this).next('.changeColor-box')
+								var changeColorBox = $(this).next('.changeColor-box-min')
 								var simRow = $(this).closest('[edit_BG]')
 
 								changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
@@ -350,6 +349,12 @@ $(function() {
 								});
 
 								$(this).closest('.changeColor-box-min').remove();
+								$('.edit-changeColor').off();
+								$('.sim-row-edit-hover').off();
+								$('.sim-row-edit-hover i').off() //打開編輯面板		
+								$('.sim-row-edit-hover').remove();			
+								$('.changeColor-box-min').remove();			
+								$('.edit-changeColor').remove();
 							})
 
 							$('#btnCancel').click(function(e){
@@ -360,6 +365,8 @@ $(function() {
 								$('.sim-row-edit-hover i').off() //打開編輯面板		
 								$('.sim-row-edit-hover').remove();			
 								$('.changeColor-box-min').remove();			
+								$('.edit-changeColor').remove();
+
 							})
 					});
 				},
@@ -409,7 +416,7 @@ $(function() {
 
 
 
-			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>往下推：<input class="marginBottom" placeholder="註:螢幕寬400px失效" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
 				/*填入值*/
 				var changeColorBox = $(this).next('.changeColor-box')
@@ -420,6 +427,7 @@ $(function() {
 				changeColorBox.find('.maxWidth').val(simRow.css('max-width'))
 				changeColorBox.find('.minHeight').val(simRow.css('min-height'))
 				changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
+				changeColorBox.find('.marginBottom').val(simRow.css('margin-bottom'))
 				changeColorBox.find('.style').val($(this).closest('.sim-row').attr('class').replace(/sim-row/,''))
 
 
@@ -430,6 +438,7 @@ $(function() {
 					'background-image': $(this).prevAll('.changeImg-input-text').val(),
 					'max-width': $(this).prevAll('.maxWidth').val(),
 					'min-height': $(this).prevAll('.minHeight').val(),
+					'margin-bottom': $(this).prevAll('.marginBottom').val(),
 					'background-attachment': $(this).prevAll('.background-attachment').val()
 				});
 
