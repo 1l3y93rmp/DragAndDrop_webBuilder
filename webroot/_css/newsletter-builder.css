@@ -167,25 +167,27 @@ body {
 	background-color: rgba(51,175,222,1);
 }
 #newsletter-builder-sidebar-buttons-bbutton{
-	height: 40px;
-	width: 160px;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-	line-height: 40px;
-	color: rgba(84,101,122,1);
-	font-weight: 600;
-	font-size: 14px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-transition: background 0.5s;
-	-moz-transition: background 0.5s;
-	-o-transition: background 0.5s;
-	transition: background 0.5s;
-	cursor: pointer;
-	margin-bottom: 25px;
-	border: 1px solid #e4e4e5;
+    height: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    line-height: 30px;
+    color: rgba(255,255,255,1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    cursor: pointer;
+    font-size: 15px;
+    float: right;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: rgba(63,141,191,1);
+    position: relative;
+    font-family: 'Noto Sans TC', sans-serif;
 }
 
 .Rwd-bottom{
@@ -213,7 +215,7 @@ body {
 }
 
 #newsletter-builder-sidebar-buttons-bbutton:hover {
-	background-color: rgba(153,153,153,0.1);
+	background-color: rgba(51,175,222,1);
 }
 #newsletter-builder-area{
 }

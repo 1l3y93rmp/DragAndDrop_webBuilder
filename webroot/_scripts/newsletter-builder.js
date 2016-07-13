@@ -177,7 +177,6 @@ $(function() {
 							$('#sim-edit-image .sim-edit-box-buttons-cancel').one('click',function(e) {
 								e.preventDefault();
 								e.stopPropagation();
-								console.log('關閉image編輯面板')
 								$(this).closest('.sim-edit-box').parent().fadeOut(500)
 								$(this).closest('.sim-edit-box').slideUp(500)
 								$(this).off();
@@ -199,6 +198,7 @@ $(function() {
 							$('#sim-edit-text .bgcolor').val(big_parent.find('span').css('background-color'));
 							$('#sim-edit-text .align').val(big_parent.css('text-align'));
 							$('#sim-edit-text .fonts').val(big_parent.attr('class').split(' ')[2]);
+							$('#sim-edit-text .paddingTop').val(big_parent.css('padding-top'));
 
 
 
@@ -217,7 +217,8 @@ $(function() {
 									newFonts = $('#sim-edit-text .fonts').val(),
 									newWeight = $('#sim-edit-text .weight').val(),
 									newAlign = $('#sim-edit-text .align').val(),
-									newBgcolor = $('#sim-edit-text .bgcolor').val()
+									newBgcolor = $('#sim-edit-text .bgcolor').val(),
+									paddingTop = $('#sim-edit-text .paddingTop').val()
 
 								big_parent.html(str);
 								big_parent.removeClass('NotoSans SourceSans SourceSerif MicrosoftJhengHei serif').addClass(newFonts);
@@ -225,7 +226,8 @@ $(function() {
 									'color': newColor,
 									'font-size': newSize,
 									'text-align': newAlign,
-									'font-weight': newWeight
+									'font-weight': newWeight,
+									'padding-top': paddingTop
 								})
 								if (newBgcolor && big_parent.find('span').length == 0) {
 									big_parent.wrapInner('span');
@@ -327,7 +329,7 @@ $(function() {
 						e.preventDefault();
 						e.stopPropagation();
 						console.log('dddd')
-							$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+							$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
 								/*填入值*/
 								var changeColorBox = $(this).next('.changeColor-box')
@@ -342,7 +344,7 @@ $(function() {
 							$('#btnOK').click(function(){
 								$(this).closest('[edit_BG]').css({
 									'background-color': $(this).prevAll('.changeColor-input-text').val(),
-									'background-image': 'url(' + $(this).prevAll('.changeImg-input-text').val() + ')',
+									'background-image': $(this).prevAll('.changeImg-input-text').val(),
 									'background-attachment': $(this).prevAll('.background-attachment').val(),
 									'min-height': $(this).prevAll('.minHeight').val()
 								});
@@ -407,7 +409,7 @@ $(function() {
 
 
 
-			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入Url" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
 				/*填入值*/
 				var changeColorBox = $(this).next('.changeColor-box')
@@ -425,7 +427,7 @@ $(function() {
 			$('#btnOK').click(function(){
 				$(this).closest('.sim-row').css({
 					'background-color': $(this).prevAll('.changeColor-input-text').val(),
-					'background-image': 'url(' + $(this).prevAll('.changeImg-input-text').val() + ')',
+					'background-image': $(this).prevAll('.changeImg-input-text').val(),
 					'max-width': $(this).prevAll('.maxWidth').val(),
 					'min-height': $(this).prevAll('.minHeight').val(),
 					'background-attachment': $(this).prevAll('.background-attachment').val()
@@ -474,27 +476,34 @@ $(function() {
 		$('#sim-edit-export .sim-edit-box').slideDown(500);
 
 		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
-		$('#newsletter-preloaded-export .sim-row-delete').remove();
+		$('#newsletter-preloaded-export .sim-row-delete,#newsletter-preloaded-export .sim-row-changeColor,#newsletter-preloaded-export .edit-changeColor').remove();
 		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
 		$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
 		$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
 
 		preload_export_html = $('#newsletter-preloaded-export').html();
-		$.ajax({
-			url: "_css/newsletter.css"
-		}).done(function(data) {
+		//所有內容
 
 
-			export_content = '<style>' + data + '</style><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><div id="sim-wrapper"><div id="sim-wrapper-newsletter">' + preload_export_html + '</div></div>';
+		console.log(preload_export_html)
+		//修正
+		
 
-			$('#sim-edit-export .text').val(export_content);
-
-
-		});
-
+    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '')
 
 
-		$('#newsletter-preloaded-export').html(' ');
+    console.log(preload_export_html)
+
+
+		$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
+
+
+		$('#newsletter-preloaded-export').html(' '); //把複製進去的東西挖空
+
+		$('#sim-edit-export .sim-edit-box-buttons-cancel').one('click',function(){
+			$(this).closest('.sim-edit-box').parent().fadeOut(500)
+			$(this).closest('.sim-edit-box').slideUp(500)
+		})
 
 	});
 
