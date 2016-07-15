@@ -4,9 +4,14 @@ $(function() {
 		console.log('一載入content已經有東西!')
 		hover_edit($('#newsletter-builder-area-center-frame-content>.sim-row .sim-row-edit'));
 		hover_edit_BG($('#newsletter-builder-area-center-frame-content [edit_BG]'));
+
 		add_delete();
 		perform_delete();
 		perform_changeColor();
+
+
+
+
 	}
 	//外部檔案載入模板
 	$('.newsletter-builder-area-center-frame-buttons-content').load('allTemplate.html #newsletter-preloaded-rows', function(data) {
@@ -30,14 +35,13 @@ $(function() {
 					add_delete();
 					perform_delete();
 					perform_changeColor();
-					//var pancilBox = $('#newsletter-builder-area-center-frame-content>.sim-row:first .sim-row-edit');
+					var pancilBox = $('#newsletter-builder-area-center-frame-content>.sim-row:first .sim-row-edit');
 
 					hover_edit ($('#newsletter-builder-area-center-frame-content>.sim-row:first .sim-row-edit'));
 					hover_edit_BG($('#newsletter-builder-area-center-frame-content [edit_BG]'));
 
 
 					$('#newsletter-builder-area-center-frame-buttons-dropdown').fadeOut(200);
-
 				})
 			},
 			function(e) {
@@ -191,6 +195,7 @@ $(function() {
 							$('#sim-edit-text .sim-edit-box').slideDown(500);
 
 							big_parent.find('.sim-row-edit-hover').remove()
+							console.log(big_parent.html())
 							$('#sim-edit-text .text').val(big_parent.html());
 							$('#sim-edit-text .color').val(big_parent.css('color'));
 							$('#sim-edit-text .size').val(big_parent.css('font-size'));
@@ -230,7 +235,7 @@ $(function() {
 									'padding-top': paddingTop
 								})
 								if (newBgcolor && big_parent.find('span').length == 0) {
-									big_parent.wrapInner('span');
+									big_parent.wrapInner('<span></span>');
 								}
 
 								big_parent.find('span').css({
@@ -328,17 +333,37 @@ $(function() {
 					$('.edit-changeColor').one('click', function(e) {
 						e.preventDefault();
 						e.stopPropagation();
-							$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+
+
+
+						//顯示目前 CLASS name數量
+
+						$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20" ;=""><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+
 
 								/*填入值*/
-								var changeColorBox = $(this).next('.changeColor-box-min')
-								var simRow = $(this).closest('[edit_BG]')
+						var changeColorBox = $(this).next('.changeColor-box-min'),
+						    simRow = $(this).closest('[edit_BG]'),
+						    CLASS = simRow.attr('class').split(" "),
+						    original_CLASS_length = simRow.attr('edit_bg'),
+						    new_CLASS_length = simRow.attr('class').split(" ").length,
+						    CLASSarr = CLASS, //ALL的CLASS陣列
+								original = CLASSarr.splice(0,original_CLASS_length); //"被暫時刪掉"的東西　所以也就是被保留的原本的
 
-								changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
-								changeColorBox.find('.changeImg-input-text').val(simRow.css('background-image'))
-								changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
-								changeColorBox.find('.minHeight').val(simRow.css('min-height'))
+							//console.log(CLASS)//ALL CLASS陣列
+							//console.log(original_CLASS_length+'原有CLASS數量')
+							//console.log(new_CLASS_length+'目前CLASS數量')
+							//console.log(CLASSarr) //這是刪掉需要被保護後的陣列 也就是可被使用者異動的部分
 
+							
+
+							changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
+							changeColorBox.find('.changeImg-input-text').val(simRow.css('background-image'))
+							changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
+							changeColorBox.find('.minHeight').val(simRow.css('min-height'))
+							changeColorBox.find('.style').val(CLASSarr.toString().replace(/,/g, ' '))//顯示區
+							//注意 如果這樣直接抓會抓到模板預設的Class mane
+							
 
 							$('#btnOK').click(function(){
 								$(this).closest('[edit_BG]').css({
@@ -347,6 +372,8 @@ $(function() {
 									'background-attachment': $(this).prevAll('.background-attachment').val(),
 									'min-height': $(this).prevAll('.minHeight').val()
 								});
+								var OKOK = original.toString().replace(/,/g, ' ') +' '+ $(this).prevAll('.style').val()
+								simRow.attr('class',OKOK)
 
 								$(this).closest('.changeColor-box-min').remove();
 								$('.edit-changeColor').off();
@@ -416,7 +443,7 @@ $(function() {
 
 
 
-			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>往下推：<input class="marginBottom" placeholder="註:螢幕寬400px失效" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>往下推：<input class="marginBottom" placeholder="註:螢幕寬小於400px失效" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
 				/*填入值*/
 				var changeColorBox = $(this).next('.changeColor-box')
@@ -466,8 +493,9 @@ $(function() {
 		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
 		$('#newsletter-preloaded-export .sim-row-delete,#newsletter-preloaded-export .sim-row-changeColor,#newsletter-preloaded-export .edit-changeColor').remove();
 		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
-		$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
-		$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
+		//$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
+		//$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
+		//注意 上面這兩個是能夠重複編輯的重要ATTR 如果刪除了再放回本編輯器會不能夠再編輯，所以儲存在資料庫如果不存下去，記得回到編輯器後要加回來
 
 		preload_export_html = $('#newsletter-preloaded-export').html();
 		//所有內容
@@ -502,7 +530,7 @@ $(function() {
 		//修正廢碼
 		
 
-    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '')
+    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '').replace(/&quot;/g, '')
 
 
 		//$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內

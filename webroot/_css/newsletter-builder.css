@@ -570,7 +570,7 @@ body {
 	position: fixed;
 	z-index: 2;
 	display: none;
-	background-image: url(../_assets/background.png);
+	background-color: rgba(0, 0, 0, 0.6);
 	background-repeat: repeat;
 }
 .sim-edit-box{
@@ -905,6 +905,11 @@ body {
 	width: 100%;
 	margin: 0;
 	/*display: none;*/
+}
+
+div[edit_bg]{
+	position: relative;
+	background-position: center;
 }
 
 /************/

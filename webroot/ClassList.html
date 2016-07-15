@@ -15,15 +15,17 @@
     vertical-align: top;
   }
   div{
-    border: 1px solid #bbb;
+    border: 1px solid #f3f3f3;
     display: inline-block;
     vertical-align: top;
+       width: 150px;
+   height: 150px;
+       box-sizing: border-box;
   }
   img{
     max-width: 150px;
     max-height: 150px;
     width: 100%;
-    height: 100%;
     display: block;
     position: relative;
     z-index: -1;
@@ -36,32 +38,57 @@
 <h3>　　特殊的樣式</h3>
 <ul>
   <li>
+
+    <h4>在某個尺寸隱藏起來</h4>
+    <ul>
+      <li>一直都看的到 <br><div> <img src="images/k.jpg"> </div> <br>(不用寫)</li>
+      <li>只有寬超過900才會出現 <br><div > <img class="displayBIG900"src="images/k.jpg"> </div> <br>displayBIG900</li>
+      <li>只有寬0-900才會出現 <br><div> <img class="displaySMALL900" src="images/k.jpg"> </div> <br>displaySMALL900</li>
+      <li>只有寬超過400才會出現 <br><div> <img class="displayBIG400" src="images/k.jpg"> </div> <br>displayBIG400</li>
+      <li>只有寬0-400才會出現 <br><div> <img class="displaySMALL400" src="images/k.jpg"> </div> <br>displaySMALL400</li>
+    </ul>
+  </li>
+  <li>
     <h4>內容往內縮</h4>
     <ul>
       <li>往四周內縮5px  <br><div class="padding5"> <img src="images/k.jpg"> </div> <br>padding5</li>
       <li>往四周內縮10px  <br><div class="padding10"> <img src="images/k.jpg"> </div> <br>padding10 </li>
-      <li>上下內縮5px  <br><div class="paddingtm5"> <img src="images/k.jpg"> </div> <br>paddingtm5 </li>
-      <li>上下周內縮10px  <br><div class="paddingtm10"> <img src="images/k.jpg"> </div> <br>paddingtm10 </li>
-      <li>左右周內縮5px  <br><div class="paddinglr5"> <img src="images/k.jpg"> </div> <br>paddinglr5 </li>
-      <li>左右周內縮10px  <br><div class="paddinglr10"> <img src="images/k.jpg"> </div> <br>paddinglr10 </li>
-      <li>上方內縮5px  <br><div class="paddingt5"> <img src="images/k.jpg"> </div> <br>paddingt5 </li>
-      <li>上方內縮10px  <br><div class="paddingt10"> <img src="images/k.jpg"> </div> <br>paddingt10 </li>
-      <li>下方內縮5px  <br><div class="paddingb5"> <img src="images/k.jpg"> </div> <br>paddingb5 </li>
-      <li>下方內縮10px  <br><div class="paddingb10"> <img src="images/k.jpg"> </div> <br>paddingb10 </li>
-      <li>左方內縮5px  <br><div class="paddingl5"> <img src="images/k.jpg"> </div> <br>paddingl5 </li>
-      <li>左方內縮10px  <br><div class="paddingl10"> <img src="images/k.jpg"> </div> <br>paddingl10 </li>
-      <li>右方內縮5px  <br><div class="paddingr5"> <img src="images/k.jpg"> </div> <br>paddingr5 </li>
-      <li>右方內縮10px  <br><div class="paddingr10"> <img src="images/k.jpg"> </div> <br>paddingr10 </li>
       <li>往四周內縮50px  <br><div class="padding50"> <img src="images/k.jpg"> </div> <br>padding50</li>
 
     </ul>
   </li>
   <li>
     <h4>倒角裁切與外框線</h4>
+    <ul>
+      <li>變圓形 <br><div> <img class="radiusAll" src="images/k.jpg"> </div> <br>radiusAll</li>
+      <li>倒角5px <br><div> <img class="radius5" src="images/k.jpg"> </div> <br>radius5</li>
+      <li>倒角10px <br><div> <img class="radius10" src="images/k.jpg"> </div> <br>radius10</li>
+      <li>虛線邊框 <br><div> <img class="border_dashed" src="images/k.jpg"> </div> <br>border_dashed</li>
+      <li>點點邊框 <br><div> <img class="border_dotted" src="images/k.jpg"> </div> <br>border_dotted</li>
+      <li>實線邊框 <br><div> <img class="border_solid" src="images/k.jpg"> </div> <br>border_solid</li>
+    </ul>
   </li>
   <li>
-    <h4>與滑鼠游標互動</h4>
+    <h4>與滑鼠游標互動(這個在手機看不到)</h4>
+    <ul>
+      <li>滑入變50%半透明 <br><div class="hoverOpacity50"> <img src="images/k.jpg"> </div> <br>hoverOpacity50</li>
+      <li>滑入變大1.1倍 <br><div class="hoverScale12"> <img src="images/k.jpg"> </div> <br>hoverScale12</li>
+      <li>滑入變歪<br><div class="hoverRotate7"> <img src="images/k.jpg"> </div> <br>hoverRotate7</li>
+    </ul>
   </li>
+  <li>
+    <h4>動畫類</h4>
+    <ul>
+      <li>淡入淡出閃爍 <br><div> <img class="animation_fade" src="images/k.jpg"> </div> <br>animation_fade</li>
+    </ul>
+  </li>
+  <li>
+    <h4>其他</h4>
+    <ul>
+    </ul>
+  </li>
+
+
 </ul>
 
 </body>
