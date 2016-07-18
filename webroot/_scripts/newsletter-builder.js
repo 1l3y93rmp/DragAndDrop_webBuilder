@@ -522,7 +522,10 @@ $(function() {
 		$('#sim-edit-export .sim-edit-box').slideDown(500);
 
 		//把東西複製進去 然後再逐個刪除不需要的東西
-		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').children().html());
+		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
+		$('#newsletter-preloaded-export>#newsletter-builder-area-center-frame-content').unwrap();
+
+
 
 		$('#newsletter-preloaded-export .sim-row-delete,#newsletter-preloaded-export .sim-row-changeColor,#newsletter-preloaded-export .edit-changeColor').remove();
 		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');

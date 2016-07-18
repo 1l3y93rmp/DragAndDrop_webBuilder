@@ -136,6 +136,7 @@
 }
 .sim-row-header1-slider{
 	width: 100%;
+	display: flex;
 }
 
 .sim-row-header1-slider::after {
@@ -241,6 +242,7 @@ text-align: left;}
   width: 100%;
   text-align: center;
   word-spacing: -4px;
+  display: flex;
 }
 
 .sim-row-header3::after{
@@ -1040,6 +1042,14 @@ text-align: left;}
 
 .displaySMALL900,.displaySMALL400{
 	display: none;
+}
+
+
+div[edit_bg] {
+    background-position: center center;
+    flex: 1;
+    float: none;
+    width: 100%;
 }
 
 
