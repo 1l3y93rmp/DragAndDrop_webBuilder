@@ -233,11 +233,12 @@ body {
   padding: 0 20px;
   box-sizing: border-box;
 }
-#newsletter-builder-area-center-frame-buttons-add {
+#newsletter-builder-area-center-frame-buttons-add,#newsletter-buttons-impote {
 	height: 30px;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+  margin-right: 10px;
 	line-height: 30px;
 	color: rgba(255,255,255,1);
 	-webkit-border-radius: 3px;

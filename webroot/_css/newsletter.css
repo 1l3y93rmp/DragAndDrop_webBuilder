@@ -69,6 +69,7 @@
 	background-size: cover;
 	margin: 0 auto; 
 	background-position: center;
+	display: flex;
 }
 
 .sim-row a{

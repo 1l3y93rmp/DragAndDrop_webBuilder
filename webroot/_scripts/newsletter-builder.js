@@ -10,8 +10,6 @@ $(function() {
 		perform_changeColor();
 
 
-
-
 	}
 	//外部檔案載入模板
 	$('.newsletter-builder-area-center-frame-buttons-content').load('allTemplate.html #newsletter-preloaded-rows', function(data) {
@@ -483,16 +481,52 @@ $(function() {
 
 	}
 
+	//Inport
+	$('#newsletter-buttons-impote').click(function() {
+		$('#sim-edit-import').fadeIn(500);
+		$('#sim-edit-import .sim-edit-box').slideDown(500);
+
+
+
+		$('#sim-edit-import .sim-edit-box-buttons-save').one('click',function(){
+
+			var importText = $('#sim-edit-import .text').val();
+
+			$('#newsletter-builder-area-center-frame-content').prepend(importText)
+
+			$('#sim-edit-import .text').val('')
+			$(this).closest('.sim-edit-box').parent().fadeOut(500)
+			$(this).closest('.sim-edit-box').slideUp(500);
+
+
+		hover_edit($('#newsletter-builder-area-center-frame-content>.sim-row .sim-row-edit'));
+		hover_edit_BG($('#newsletter-builder-area-center-frame-content [edit_BG]'));
+
+		add_delete();
+		perform_delete();
+		perform_changeColor();
+
+		})
+
+		$('#sim-edit-import .sim-edit-box-buttons-cancel').one('click',function(){
+			$(this).closest('.sim-edit-box').parent().fadeOut(500)
+			$(this).closest('.sim-edit-box').slideUp(500)
+		})
+
+
+	})
 
 	//Export 
 	$('#newsletter-builder-sidebar-buttons-bbutton').click(function() {
-
 		$('#sim-edit-export').fadeIn(500);
 		$('#sim-edit-export .sim-edit-box').slideDown(500);
+
 		//把東西複製進去 然後再逐個刪除不需要的東西
-		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').html());
+		$('#newsletter-preloaded-export').html($('#newsletter-builder-area-center-frame-content').children().html());
+
 		$('#newsletter-preloaded-export .sim-row-delete,#newsletter-preloaded-export .sim-row-changeColor,#newsletter-preloaded-export .edit-changeColor').remove();
 		$('#newsletter-preloaded-export .sim-row').removeClass('ui-draggable');
+
 		//$('#newsletter-preloaded-export .sim-row-edit').removeAttr('data-type');
 		//$('#newsletter-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
 		//注意 上面這兩個是能夠重複編輯的重要ATTR 如果刪除了再放回本編輯器會不能夠再編輯，所以儲存在資料庫如果不存下去，記得回到編輯器後要加回來
@@ -501,7 +535,7 @@ $(function() {
 		//所有內容
 		//修正
 
-    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '')
+    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '').replace(/\n/g, '')
 
 		$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
 
@@ -512,7 +546,6 @@ $(function() {
 			$(this).closest('.sim-edit-box').parent().fadeOut(500)
 			$(this).closest('.sim-edit-box').slideUp(500)
 		})
-
 	});
 	//Preview
 	$('#newsletter-builder-sidebar-buttons-Preview').click(function() {
@@ -541,8 +574,6 @@ $(function() {
 
 
 		$('#newsletter-preloaded-export').html(' '); //把複製進去的東西挖空
-
-
 	});
 
 
