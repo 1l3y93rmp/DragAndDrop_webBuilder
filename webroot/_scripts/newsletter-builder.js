@@ -14,6 +14,7 @@ $(function() {
 	//外部檔案載入模板
 	$('.newsletter-builder-area-center-frame-buttons-content').load('allTemplate.html #newsletter-preloaded-rows', function(data) {
 
+		console.log('所有模板已被載入')
 
 		//載入模板 將資訊填入選單內使其可選擇 先加上Class
 		$('.newsletter-builder-area-center-frame-buttons-content').find('.sim-row').addClass('newsletter-builder-area-center-frame-buttons-content-tab')
@@ -128,8 +129,9 @@ $(function() {
 
 							$('#sim-edit-image .image').val(big_parent.find('img').attr('src'));
 							$('#sim-edit-image .link').val(big_parent.find('a').attr('href'));
+							$('#sim-edit-image .target').val(big_parent.find('a').attr('target'));
 							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
-							$('#sim-edit-image .marginTop').val(big_parent.find('img').css('margin-top'));
+
 							$('#sim-edit-image .align').val(big_parent.css('text-align'));
 
 
@@ -157,15 +159,16 @@ $(function() {
 								}
 
 								var style = $('#sim-edit-image .style').val(),
-										marginTop = $('#sim-edit-image .marginTop').val(),
 										align = $('#sim-edit-image .align').val();
-								big_parent.find('img').removeClass().addClass(style).css('margin-top',marginTop);
-								big_parent.css('text-align',align);
+								big_parent.find('img').removeClass().addClass(style);
 
 								if ($('#sim-edit-image .link').val().length != 0) {
 									//如果有A包住圖片 CLASS統一寫在圖片上
 									big_parent.wrapInner('<a></a>');
-									big_parent.find('a').attr('href', $('#sim-edit-image .link').val())
+									big_parent.find('a').attr({
+										'href': $('#sim-edit-image .link').val(),
+										'target': $('#sim-edit-image .target').val()
+									})
 								} else {
 									//如果沒有A
 									big_parent.find('a').find('img').unwrap()

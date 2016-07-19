@@ -22,6 +22,11 @@
    height: 150px;
        box-sizing: border-box;
   }
+  .big{
+      width: 200px;
+      height: 200px;
+  }
+
   img{
     max-width: 150px;
     max-height: 150px;
@@ -39,7 +44,7 @@
 <ul>
   <li>
 
-    <h4>在某個尺寸隱藏起來</h4>
+    <h4>在某個尺寸隱藏起來--建議使用在局部區域、整個橫條(紅色按鈕、藍色按鈕)</h4>
     <ul>
       <li>一直都看的到 <br><div> <img src="images/k.jpg"> </div> <br>(不用寫)</li>
       <li>只有寬超過900才會出現 <br><div > <img class="displayBIG900"src="images/k.jpg"> </div> <br>displayBIG900</li>
@@ -48,6 +53,22 @@
       <li>只有寬0-400才會出現 <br><div> <img class="displaySMALL400" src="images/k.jpg"> </div> <br>displaySMALL400</li>
     </ul>
   </li>
+
+  <li>
+    <h4>對齊類--只能使用在局部區域(紅色按鈕)，記得搭配"最小高度"功能使用</h4>
+    <ul>
+      <li>左上 <br><div class="big Align1"> <img src="images/k.jpg"> </div> <br>Align1</li>
+      <li>中上 <br><div class="big Align2"> <img src="images/k.jpg"> </div> <br>Align2</li>
+      <li>右上 <br><div class="big Align3"> <img src="images/k.jpg"> </div> <br>Align3</li>
+      <li>左中 <br><div class="big Align4"> <img src="images/k.jpg"> </div> <br>Align4</li>
+      <li>中中 <br><div class="big Align5"> <img src="images/k.jpg"> </div> <br>Align5</li>
+      <li>右中 <br><div class="big Align6"> <img src="images/k.jpg"> </div> <br>Align6</li>
+      <li>左下 <br><div class="big Align7"> <img src="images/k.jpg"> </div> <br>Align7</li>
+      <li>中下 <br><div class="big Align8"> <img src="images/k.jpg"> </div> <br>Align8</li>
+      <li>右下 <br><div class="big Align9"> <img src="images/k.jpg"> </div> <br>Align9</li>
+    </ul>
+  </li>
+
   <li>
     <h4>內容往內縮</h4>
     <ul>
@@ -80,6 +101,8 @@
     <h4>動畫類</h4>
     <ul>
       <li>淡入淡出閃爍 <br><div> <img class="animation_fade" src="images/k.jpg"> </div> <br>animation_fade</li>
+      <li>跟左邊的交叉淡入淡出閃爍 <br><div> <img class="animation_fade_" src="images/k.jpg"> </div> <br>animation_fade_</li>
+      <li>淡入淡出透明度50% <br><div> <img class="animation_fade50" src="images/k.jpg"> </div> <br>animation_fade50</li>
     </ul>
   </li>
   <li>

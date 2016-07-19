@@ -45,15 +45,10 @@
       <div class="sim-edit-box-content-field-100">
         <input type="text" class="sim-edit-box-content-field-input link"/>
       </div>
-      <div class="sim-edit-box-content-text-100">控制圖片上下位置(往下推):<span>(請輸入px)</span></div> 
-      <div class="sim-edit-box-content-field-100">
-        <input type="text" class="sim-edit-box-content-field-input marginTop"/>
-      </div>
-      <div class="sim-edit-box-content-text-100">圖片齊左右:</div> 
-        <select class="sim-edit-box-content-field-input paddingTop align">
-          <option value="left">left</option>
-          <option value="center">center</option>
-          <option value="right">right</option>
+      <div class="sim-edit-box-content-text-100">連結是否另開視窗:</div> 
+        <select class="sim-edit-box-content-field-input paddingTop target">
+          <option value="_self">本視窗開啟連結</option>
+          <option value="_blank">新視窗開啟連結</option>
         </select>
       <div class="sim-edit-box-content-text-100">特殊樣式:<span>(多個樣式請用空白格開)</span></div> 
       <div class="sim-edit-box-content-field-100">
@@ -106,10 +101,9 @@
       <div class="sim-edit-box-content-text-100">Text (接受Html tag)</div>
       <a class="sim-edit-box-content-text-min" href="javascript:;"> +小備註</a>
       <pre class="trip">
-&lt;a href="連結"&gt;連結呈現的文字&lt;/a&gt;
-&lt;i&gt;斜體&lt;/i&gt;
-&lt;b&gt;粗體&lt;/b&gt;
-&lt;br&gt;←換行
+&lt;a href="連結"&gt;連結文字&lt;/a&gt;
+&lt;a href="連結"  target="_blank"&gt;連結文字(開新視窗)&lt;/a&gt;
+&lt;i&gt;斜體&lt;/i&gt;　　&lt;b&gt;粗體&lt;/b&gt;　　&lt;br&gt;←換行
 如果需多格空白請使用全行空白
       </pre>
       <div class="sim-edit-box-content-field">
