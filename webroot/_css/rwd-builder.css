@@ -94,10 +94,10 @@ body {
 	padding-left: 20px;
 }
 
-.newsletter-builder-area-center-frame-buttons-content #newsletter-preloaded-rows{
+.rwd-builder-area-center-frame-buttons-content #rwd-preloaded-rows{
 	display: block;
 }
-.newsletter-builder-area-center-frame-buttons-content .sim-row{
+.rwd-builder-area-center-frame-buttons-content .sim-row{
 	transform: scale(0.8);
 	border:1px solid #fff;
 	display: block;
@@ -105,20 +105,20 @@ body {
 	width: 840px !important;
 }
 
-#newsletter-preloaded-rows{
+#rwd-preloaded-rows{
 	display:none;
 	}
-#newsletter-preloaded-export{
+#rwd-preloaded-export{
 	display:none;
 	}
-#newsletter-preloaded-download{
+#rwd-preloaded-download{
 	display:none;
 	}
-#newsletter-builder {
+#rwd-builder {
 	position: relative;
 	width: 100%;
 }
-#newsletter-builder-sidebar{
+#rwd-builder-sidebar{
 	float: left;
 	width: 250px;
 	position: absolute;
@@ -129,20 +129,20 @@ body {
 	height: 100%;
 	z-index: 1;
 }
-#newsletter-builder-sidebar-logo{
+#rwd-builder-sidebar-logo{
 	width: 100%;
 	float: left;
 	text-align: center;
 }
-#newsletter-builder-sidebar-logo img {
+#rwd-builder-sidebar-logo img {
 	margin-top: 50px;
 }
-#newsletter-builder-sidebar-buttons{
+#rwd-builder-sidebar-buttons{
 	float: left;
 	width: 100%;
 	margin-top: 20px;
 }
-#newsletter-builder-sidebar-buttons-abutton{
+#rwd-builder-sidebar-buttons-abutton{
 	background-color: rgba(63,141,191,1);
 	height: 40px;
 	width: 160px;
@@ -215,25 +215,25 @@ body {
 	font-family: 'Noto Sans TC','Source Sans Pro', sans-serif;
 }
 
-#newsletter-builder-sidebar-buttons-bbutton:hover {
+#rwd-builder-sidebar-buttons-bbutton:hover {
 	background-color: rgba(51,175,222,1);
 }
-#newsletter-builder-area{
+#rwd-builder-area{
 }
-#newsletter-builder-area-center {
+#rwd-builder-area-center {
 	margin-right: auto;
 	margin-left: auto;
 }
-#newsletter-builder-area-center-frame {
+#rwd-builder-area-center-frame {
   padding:20px 0;
 }
-#newsletter-builder-area-center-frame-buttons {
+#rwd-builder-area-center-frame-buttons {
 	width: 100%;
   text-align: center;
   padding: 0 20px;
   box-sizing: border-box;
 }
-#newsletter-builder-area-center-frame-buttons-add,#newsletter-buttons-impote {
+#rwd-builder-area-center-frame-buttons-add,#rwd-buttons-impote {
 	height: 30px;
 	margin-right: auto;
 	margin-left: auto;
@@ -257,17 +257,17 @@ body {
 	position: relative;
 	font-family: 'Noto Sans TC', sans-serif;
 }
-#newsletter-builder-area-center-frame-buttons-add i {
+#rwd-builder-area-center-frame-buttons-add i {
 	line-height: 30px;
 }
 
-#newsletter-builder-area-center-frame-buttons-add span {
+#rwd-builder-area-center-frame-buttons-add span {
 	font-size: 10px;
 }
-#newsletter-builder-area-center-frame-buttons-add:hover {
+#rwd-builder-area-center-frame-buttons-add:hover {
 	background-color: rgba(51,175,222,1);
 }
-#newsletter-builder-area-center-frame-buttons-dropdown {
+#rwd-builder-area-center-frame-buttons-dropdown {
 	position: absolute;
 	background-color: rgba(51,51,51,1);
 	z-index: 1;
@@ -277,7 +277,7 @@ body {
 	width: 110px;
 	display: none;
 }
-.newsletter-builder-area-center-frame-buttons-dropdown-tab {
+.rwd-builder-area-center-frame-buttons-dropdown-tab {
 	float: left;
 	height: 30px;
 	width: 100%;
@@ -287,10 +287,10 @@ body {
 	-o-transition: background 0.5s;
 	transition: background 0.5s;
 }
-.newsletter-builder-area-center-frame-buttons-dropdown-tab:hover {
+.rwd-builder-area-center-frame-buttons-dropdown-tab:hover {
 	background-color: rgba(153,153,153,0.2);
 }
-.newsletter-builder-area-center-frame-buttons-dropdown-tab p {
+.rwd-builder-area-center-frame-buttons-dropdown-tab p {
 	padding: 0px;
 	float: left;
 	margin-top: 0px;
@@ -299,11 +299,11 @@ body {
 	margin-left: 12px;
 	font-size: 14px;
 }
-.newsletter-builder-area-center-frame-buttons-dropdown-tab i {
+.rwd-builder-area-center-frame-buttons-dropdown-tab i {
 	float: right;
 	margin-right: 10px;
 }
-.newsletter-builder-area-center-frame-buttons-content {
+.rwd-builder-area-center-frame-buttons-content {
 	height: 500px;
 	width: 870px;
 	background-color: rgba(70,70,70,1);
@@ -315,25 +315,25 @@ body {
 	padding-bottom: 50px;
 	display: none;
 }
-.newsletter-builder-area-center-frame-buttons-content-tab {
+.rwd-builder-area-center-frame-buttons-content-tab {
 	/*float: left;
 	width: 590px;
 	margin-left: 50px;
 	margin-top: 50px;
 	position: relative;*/
 }
-.newsletter-builder-area-center-frame-buttons-content-tab:hover{
+.rwd-builder-area-center-frame-buttons-content-tab:hover{
 }
-.newsletter-builder-area-center-frame-buttons-content-tab:hover .newsletter-builder-area-center-frame-buttons-content-tab-add{
+.rwd-builder-area-center-frame-buttons-content-tab:hover .rwd-builder-area-center-frame-buttons-content-tab-add{
 	opacity: 1;
 	}
-.newsletter-builder-area-center-frame-buttons-content-tab img {
+.rwd-builder-area-center-frame-buttons-content-tab img {
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
-.newsletter-builder-area-center-frame-buttons-content-tab-add {
+.rwd-builder-area-center-frame-buttons-content-tab-add {
 	height: 30px;
 	width: 100px;
 	background-color: rgba(70,70,70,1);
@@ -351,11 +351,11 @@ body {
 	opacity: 0;
 	text-align: center;
 }
-.newsletter-builder-area-center-frame-buttons-content-tab-add:hover {
+.rwd-builder-area-center-frame-buttons-content-tab-add:hover {
 	background-color: rgba(0,0,0,1);
 	cursor: pointer;
 }
-#newsletter-builder-area-center-frame-buttons-reset {
+#rwd-builder-area-center-frame-buttons-reset {
 	height: 30px;
 	margin-right: auto;
 	margin-left: auto;
@@ -374,20 +374,20 @@ body {
 	float: right;
 	background-color: rgba(255,255,255,0.8);
 }
-#newsletter-builder-area-center-frame-buttons-reset a{
+#rwd-builder-area-center-frame-buttons-reset a{
 	padding-right: 15px;
 	padding-left: 15px;
 	display: block;
 	text-decoration: none;
 	color: rgba(84,101,122,1);
 	}
-#newsletter-builder-area-center-frame-buttons-reset span {
+#rwd-builder-area-center-frame-buttons-reset span {
 	font-size: 10px;
 }
-#newsletter-builder-area-center-frame-buttons-reset:hover {
+#rwd-builder-area-center-frame-buttons-reset:hover {
 	background-color: rgba(255,255,255,0.3);
 }
-#newsletter-builder-area-center-frame-content {
+#rwd-builder-area-center-frame-content {
 	width: 100%;
 	transition: width 0.5s;
 	background-color: #fff;

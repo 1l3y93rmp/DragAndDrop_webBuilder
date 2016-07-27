@@ -16,7 +16,7 @@ var env = process.env.NODE_ENV.trim();
 
 global.staticDir = './webroot';
 global.serverPort = 7702;
-global.jsEntries = global.staticDir + '/_scripts/newsletter-builder.js';
+global.jsEntries = global.staticDir + '/_scripts/rwd-builder.js';
 global.jsDistFile = 'bundle.js';
 global.jsDistDir = global.staticDir + '/build/js/';
 
