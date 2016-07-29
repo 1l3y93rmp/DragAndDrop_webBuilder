@@ -241,10 +241,14 @@ text-align: left;}
 }
 .pd20px{
 	padding: 20px;
+  box-sizing: border-box;
 }
-.sim-row-header1-slider-left-text{
+.mg20px{
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-	margin-top: 25px;
+.sim-row-header1-slider-left-text{
 	font-size: 16px;
 	line-height: 1.6em;
 	font-weight: 300;
@@ -864,4 +868,11 @@ div[edit_bg]>a.full a{
 /**/
 .textDecoration a{
   text-decoration: underline;
+}
+
+/**/
+@media screen and (orientation:portrait) and ( max-width: 900px){
+/*當手機為直立又可視寬在900以下*/
+  .Boxheight100
+{    min-height: 100vw !important;}
 }

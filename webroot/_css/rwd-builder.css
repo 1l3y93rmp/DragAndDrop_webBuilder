@@ -912,7 +912,26 @@ div[edit_bg]{
 	position: relative;
 }
 
+.mg20px{
+  margin-top: 1px;
+}
 
+div[edit_bg] div[edit_bg] .edit-changeColor{
+  background-color: rgb(229, 127, 162);
+  top: 20px;
+  left: 0;
+  width: 120px;
+  font-size: 9px;
+  position: absolute;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  color: rgba(255,255,255,1);
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  padding-right: 15px;
+  padding-left: 15px;
+}
 
 
 
