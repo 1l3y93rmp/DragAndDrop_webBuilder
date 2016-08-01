@@ -378,10 +378,15 @@ $(function() {
 								simRow.attr('class',OKOK);
 
 								if(changeColorBox.find('.fullLink').val()){　//如果設定為連截區塊有值的話
-									simRow.children().wrapAll('<a class="full" href="'+ changeColorBox.find('.fullLink').val() +'"/>');
-									$('a.full').find('a').children().unwrap()
+									if(simRow.find('a.full').length != 0){ //如果已經有設定過的話
+										simRow.find('a.full').attr('href',changeColorBox.find('.fullLink').val())
+									}else{
+										simRow.prepend('<a class="full" href="'+ changeColorBox.find('.fullLink').val() +'"/>');
+										$('a.full').find('a').children().unwrap()
+									}
+
 								}else{
-									simRow.children('.full').children().unwrap()
+									simRow.children('a.full').remove()
 								}
 
 								$(this).closest('.changeColor-box-min').remove();
