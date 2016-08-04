@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>RWD web Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+<link href="_css/rwd-builder.css" rel="stylesheet" type="text/css" />
+<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="_scripts/jquery-ui-1.10.4.min.js"></script>
+<script type="text/javascript" src="_scripts/rwd-builder.js"></script>
+</head>
+<body >
+<div id="header">
+
+</div>
+
+<div id="rwd-preloaded-export"></div>
+
+<!--所有預設模板(隱藏)-->
+<div id="all-template"></div>
+<!--編輯板(隱藏)-->
+<div id="all-edit-bord"></div>
+
+<!--編輯區呈現-->
+<div id="rwd-builder" class="resize-height">
+  <!--<div id="rwd-builder-sidebar">
+    <div id="rwd-builder-sidebar-logo"><img src="http://simbyone.com/demo/drag-and-drop-rwd-builder-using-jquery/_assets/logo.png" width="150" height="150" /></div>
+    <div id="rwd-builder-sidebar-buttons">
+      <div id="rwd-builder-sidebar-buttons-abutton">Download Template</div>
+      <div id="rwd-builder-sidebar-buttons-bbutton">Export</div>
+    </div>
+  </div>-->
+  <div id="rwd-builder-area" class="resize-height resize-width">
+    <div id="rwd-builder-area-center">
+      <div id="rwd-builder-area-center-frame">
+        <div id="rwd-builder-area-center-frame-buttons">
+          <div id="rwd-buttons-impote">Import</div>
+          <div id="rwd-builder-area-center-frame-buttons-add">Add&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+            <div id="rwd-builder-area-center-frame-buttons-dropdown">
+              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-1">
+                <p>單欄</p>
+                <i class="fa fa-caret-right"></i></div>
+              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-2">
+                <p>雙欄</p>
+                <i class="fa fa-caret-right"></i></div>
+              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-3">
+                <p>三欄</p>
+                <i class="fa fa-caret-right"></i></div>
+              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-4">
+                <p>四欄或更多</p>
+                <i class="fa fa-caret-right"></i></div>
+              <div class="rwd-builder-area-center-frame-buttons-content">
+              </div>
+            </div>
+          </div>
+          <div id="rwd-builder-sidebar-buttons-bbutton" class="right_bbutton">Export</div>
+          <div id="rwd-builder-sidebar-buttons-Preview" class="right_bbutton">Preview</div>
+        </div>
+        <div id="rwd-builder-area-center-frame-content">
+<div class="sim-row displaySMALL900" data-id="1-3" data-type="column-1" style="position: relative; left: 0px; top: 0px; max-width: 900px; min-height: 100px; margin-bottom: 0px; background-image: none; background-attachment: scroll; background-color: rgb(174, 172, 171);">  <div class="sim-row-header2">    <div class="sim-row-header2-slider">      <div class="sim-row-header2-slider-top">        <div class="sim-row-header2-slider-top-title MicrosoftJhengHei sim-row-edit" style="color: rgb(163, 92, 77); font-size: 26px; text-align: center; font-weight: 700; " data-type="text"><a href="http://goo.gl/0R9GyX">限時！２日</a></div>        <div class="sim-row-header2-slider-top-text MicrosoftJhengHei sim-row-edit" style="color: rgb(255, 255, 255); font-size: 16px; text-align: center; font-weight: 300; " data-type="text"><a href="http://goo.gl/0R9GyX"><b>春夏熱賣款．限定一件 149元</b></a><br>          <a href="http://goo.gl/0R9GyX"><b>滿588元 免運</b></a></div>        <div class="sim-row-header2-slider-top-text MicrosoftJhengHei sim-row-edit" style="color: rgb(255, 255, 255); font-size: 12px; text-align: center; font-weight: 300; " data-type="text"><a href="http://goo.gl/0R9GyX">08.03 10AM - 08.05 10AM</a></div>      </div>    </div>  </div></div><div class="sim-row" data-id="2-7" data-type="column-2" style="position: relative; left: 0px; top: 0px;">  <div class="sim-row-header1">    <div class="sim-row-header1-slider">      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 948px; background-image: url(&quot;http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/01-.jpg&quot;); background-attachment: scroll; "> <a class="full" href="http://goo.gl/kauE3A"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(255, 255, 255); font-size: 22px; text-align: center; font-weight: 100; ">初 秋 新 品　2 入 4 9 8</div>        </div>        </div>      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 948px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/02.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/GdbXyn"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text NotoSans sim-row-edit" style="color: rgb(113, 111, 109); font-size: 22px; text-align: center; font-weight: 400;" data-type="text">滿 額 贈 禮</div>          <div class="sim-row-header1-slider-left-text NotoSans sim-row-edit" style="color: rgb(113, 111, 109); font-size: 15px; text-align: center; font-weight: 400; padding-top: 10px;" data-type="text"><span style="line-height: 1.8em; ">gathering the life 極簡輕巧零錢包<br>            全館滿1,500元即贈送乙個</span></div>          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(113, 111, 109); font-size: 28px; text-align: center; font-weight: 100; padding-top: 5px;" data-type="text"><span>f r e e&nbsp;&nbsp;g i f t</span></div>        </div>      </div>    </div>  </div></div><div class="sim-row" data-id="2-7" data-type="column-2" style="position: relative; left: 0px; top: 0px;">  <div class="sim-row-header1">    <div class="sim-row-header1-slider">      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50" edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/03.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/uVzgx3"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100;" data-type="text">b a g</div>        </div>      </div>      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/04.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/2CsM3b"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100;" data-type="text">t o p</div>        </div>      </div>    </div>  </div></div><div class="sim-row" data-id="2-7" data-type="column-2" style="position: relative; left: 0px; top: 0px;">  <div class="sim-row-header1">    <div class="sim-row-header1-slider">      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 952px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/05.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/jmlqNa"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100;" data-type="text">s h i r t</div>        </div>      </div>      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 952px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/06.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/fD7T7X"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100; " data-type="text">s h o r t s</div>        </div>      </div>    </div>  </div></div><div class="sim-row" data-id="2-7" data-type="column-2" style="position: relative; left: 0px; top: 0px;">  <div class="sim-row-header1">    <div class="sim-row-header1-slider">      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/07.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/Nlx2CW"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100;" data-type="text">s h o e s</div>        </div>      </div>      <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/08.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/rCj63Q"></a>        <div class="pd20px">          <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100; " data-type="text">p a n t s</div>        </div>      </div>    </div>  </div></div><div class="sim-row" data-id="3-3" data-type="column-3" style="position: relative; left: 0px; top: 0px;">  <div class="sim-row-header3">    <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/09.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/57lcJt"></a>      <div class="pd20px">        <div class="sim-row-header1-slider-left-text OpenSans sim-row-edit" data-type="text" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100; ">l e v e l&nbsp;&nbsp;&nbsp;&nbsp;c u t &nbsp;&nbsp;&nbsp; t o p</div>      </div>    </div>    <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/10.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/8cibdb"></a>      <div class="pd20px">        <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100;" data-type="text">a w&nbsp;&nbsp;&nbsp; c o l o r</div>      </div>    </div>    <div class="sim-row-header1-slider-right hoverOpacity50 Align8 Boxheight100  padding50 " edit_bg="1" style="min-height: 953px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/11.jpg); background-attachment: scroll; "> <a class="full" href="http://goo.gl/wkBh0g"></a>      <div class="pd20px">        <div class="sim-row-header1-slider-left-text Oxygen sim-row-edit" style="color: rgb(255, 255, 255); font-size: 28px; text-align: center; font-weight: 100; " data-type="text">b l a z e r&nbsp;&nbsp;&nbsp;&nbsp; v e s t</div>      </div>    </div>  </div></div><div class="sim-row" data-id="3-3" data-type="column-3" style="position: relative; left: 0px; top: 0px; max-width: 1464px;  margin-bottom: 0px; background-image: none; background-attachment: scroll; ">  <div class="sim-row-header3">    <div class="sim-row-header1-slider-right hoverOpacity50 Boxheight100" edit_bg="1" style="min-height: 663px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/12.jpg); background-attachment: scroll; "> <a class="full" href="https://goo.gl/AJiVzm"></a>      <div class="pd20px"> </div>    </div>    <div class="sim-row-header1-slider-right hoverOpacity50 displayBIG900 Boxheight100" edit_bg="1" style="min-height: 663px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/14.jpg); background-attachment: scroll; "> <a class="full" href="https://goo.gl/GcQHJl"></a>      <div class="pd20px"> </div>    </div>    <div class="sim-row-header1-slider-right hoverOpacity50 displayBIG900 Boxheight100" edit_bg="1" style="min-height: 663px; background-image: url(http://pazzo.cloudcdn.tw/meierq/2016aw_web/index/0801img/13.jpg); background-attachment: scroll; "> <a class="full" href="https://goo.gl/av5Aku"></a>      <div class="pd20px"> </div>    </div>  </div></div>                  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

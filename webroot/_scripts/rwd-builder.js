@@ -416,7 +416,11 @@ $(function() {
 					e.stopPropagation();
 					$('.edit-changeColor').remove();
 					$('.edit-changeColor').off();
-				})
+				}
+			)
+
+
+
 		}
 
 
@@ -587,7 +591,7 @@ $(function() {
 
 		//$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
 
-		var PreviewWindow = window.open('','',true);
+		var PreviewWindow = window.open('','','resizable=yes,status=yes,scrollbars=yes');
 		PreviewWindow.document.write('<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />'+preload_export_html)
 
 

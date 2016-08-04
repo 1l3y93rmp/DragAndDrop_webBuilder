@@ -199,9 +199,10 @@
 	background-size: cover;
 	margin: 0 auto; 
 	background-position: center;
+  display: -ms-flexbox;
 	display: -webkit-flex;
   display: flex;
-
+  
   -webkit-align-items: center;
   -webkit-justify-content: center;
 	align-items: center;
@@ -221,6 +222,7 @@
 .sim-row-header1-slider{
 	width: 100%;
   display: -webkit-flex;
+  display: -ms-flexbox;
 	display: flex;
 
   -webkit-align-items: center;
@@ -312,11 +314,12 @@ text-align: left;}
   text-align: center;
   word-spacing: -4px;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 
   -webkit-align-items: center;
   -webkit-justify-content: center;
-  
+
 	align-items: center;
 	justify-content: center;
 }
@@ -501,8 +504,7 @@ text-align: left;}
 	padding-left: 15px;
 	display: block;
 }
-.sim-row-content11-center-tab-text-link a:hover {
-}
+
 .sim-row-content12{
 	width: 100%;
 	padding-top: 75px;
@@ -605,6 +607,7 @@ div[edit_bg] {
     background-position: center center;
     -webkit-flex: 1;
     flex: 1;
+    flex-grow: 1;
     float: none;
     width: 100%;
     position: relative;
@@ -647,6 +650,7 @@ div[edit_bg]>a.full a{
 
 .displaySMALL900{
   display: -webkit-flex;
+  display: -ms-flexbox;
 	display: flex;
 }
 .sim-row-header1-slider{
@@ -712,7 +716,9 @@ div[edit_bg]>a.full a{
 	}
 	.displaySMALL400{
     display: -webkit-flex;
+    display: -ms-flexbox;
 		display: flex;
+
 	}
 
 
@@ -764,12 +770,14 @@ div[edit_bg]>a.full a{
 .border_solid{
 	border: 1px solid #ccc;}
 
+
+
 .hoverOpacity50{
  transition: all 0.3s;
 }
 
 .hoverOpacity50:hover{
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 .hoverScale12{
@@ -786,6 +794,11 @@ div[edit_bg]>a.full a{
 
 .hoverRotate7:hover
 { transform: rotate(7deg);}
+
+
+
+
+
 
 
 .animation_fade{
@@ -831,7 +844,6 @@ div[edit_bg]>a.full a{
 
 
 
-
 .Align1{
     display: -webkit-flex;
     -webkit-align-items: flex-start;
@@ -840,6 +852,8 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+
+    height: 0px;
 }
 
 .Align2{
@@ -850,6 +864,8 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: flex-start;
     justify-content: center;
+
+    height: 0px;
 }
 
 .Align3{
@@ -860,6 +876,9 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    
+    height: 0px;
+    
 }
 
 .Align4  {
@@ -870,6 +889,8 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    height: 0px;
 }
 
 .Align5 {
@@ -880,6 +901,8 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    height: 0px;
 }
 
 .Align6{
@@ -890,6 +913,8 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    height: 0px;
 }
 
 
@@ -901,6 +926,8 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
+
+    height: 0px;
 }
 
 .Align8{
@@ -911,7 +938,15 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    
+
+   
+    height: 0px;
+
+
 }
+
+
 
 .Align9{
     display: -webkit-flex;
@@ -921,6 +956,10 @@ div[edit_bg]>a.full a{
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+
+    height: 0px;
+
+
 }
 
 /**/
