@@ -351,6 +351,16 @@ body {
 	opacity: 0;
 	text-align: center;
 }
+.rwd-builder-area-center-frame-buttons-content-tab-add span{
+  background-color: rgba(63,141,191,1);
+  display: inline-block;
+  width: 100px;
+  padding: 0 5px;
+  line-height: 1.6em;
+  font-size: 16px !important;
+  box-sizing: border-box;
+}
+
 .rwd-builder-area-center-frame-buttons-content-tab-add:hover {
 	background-color: rgba(0,0,0,1);
 	cursor: pointer;

@@ -214,6 +214,11 @@
 	text-decoration: none;
 }
 
+.sim-row a.imglink{
+  line-height: 0;
+  display: block;
+}
+
 .sim-row-header1{
 	width: 100%;
 }
@@ -282,7 +287,6 @@ text-align: left;}
 
 .sim-row-header2-slider{
 	width: 100%;
-	padding: 20px;
 	box-sizing: border-box;
 }
 .sim-row-header2-slider-top{
@@ -968,6 +972,15 @@ div[edit_bg]>a.full a{
 }
 
 /**/
+
+.nobreak{
+    display: -webkit-flex  !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+/**/
+
 @media screen and (orientation:portrait) and ( max-width: 900px){
 /*當手機為直立又可視寬在900以下*/
   .Boxheight100

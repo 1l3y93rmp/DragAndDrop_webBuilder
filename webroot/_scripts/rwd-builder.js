@@ -23,13 +23,14 @@ $(function() {
 			function(e) {
 				e.preventDefault();
 				e.stopPropagation();
-				$(this).append('<div class="rwd-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert</div>');
+				console.log($(this))
+				$(this).append('<div class="rwd-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert<br><span>'+$(this).attr('ex')+'</span></div>');
 				//在ADD放入一個Insert++鈕
 				$('.rwd-builder-area-center-frame-buttons-content-tab-add').click(function() {
 
-					//++鈕按下後 把模板內的東西複製加入到畫面當中
+					//++鈕按下後 把模板內的東西複製加入到畫面當中(別把說明文字也複製了所以刪除!)
 
-					$('#rwd-builder-area-center-frame-content').prepend($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').clone());
+					$('#rwd-builder-area-center-frame-content').prepend($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').removeAttr('ex').clone());
 
 					add_delete();
 					perform_delete();
@@ -549,6 +550,16 @@ $(function() {
 
 		$('#rwd-preloaded-export .sim-row-delete,#rwd-preloaded-export .sim-row-changeColor,#rwd-preloaded-export .edit-changeColor').remove();
 		$('#rwd-preloaded-export .sim-row').removeClass('ui-draggable');
+		console.log()
+
+		var imglinkattr = $('#rwd-preloaded-export .sim-row').find('.imglink'),
+				imglinklength = $('#rwd-preloaded-export .sim-row').find('.imglink').length;
+
+		for (var i = 0; i <= imglinklength; i++) {
+			if(imglinkattr.eq(i).children().length==0){
+				imglinkattr.eq(i).remove()
+			}
+		};
 
 		//$('#rwd-preloaded-export .sim-row-edit').removeAttr('data-type');
 		//$('#rwd-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
