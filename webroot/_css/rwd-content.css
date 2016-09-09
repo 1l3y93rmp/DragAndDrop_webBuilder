@@ -995,5 +995,11 @@ div[edit_bg]>a.full a{
 @media screen and (orientation:portrait) and ( max-width: 900px){
 /*當手機為直立又可視寬在900以下*/
   .Boxheight100{    min-height: 100vw !important;}
+  .Boxheight80{    min-height: 80vw !important;}
   .Boxheight50vh{    min-height: 50vh !important;}
+  .ParallaxScrolling {
+    background-attachment: scroll!important;
+    background-size: 100% auto;
+    background-position: center bottom;
+}
 }

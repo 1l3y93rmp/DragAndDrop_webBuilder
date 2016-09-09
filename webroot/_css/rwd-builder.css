@@ -191,6 +191,10 @@ body {
     margin-left: 10px;
 }
 
+a.right_bbutton {
+  text-decoration: none;
+}
+
 .Rwd-bottom{
 	display: inline-block;
   margin-right: auto;
