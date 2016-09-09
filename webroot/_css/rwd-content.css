@@ -377,7 +377,6 @@ text-align: left;}
 .sim-row-content7-center-tab{
 	text-align: center;
 	padding-bottom: 15px;
-	margin: 10px;
 	display: inline-block;
 }
 .sim-row-content7-center-tab:last-child {
@@ -985,8 +984,16 @@ div[edit_bg]>a.full a{
 
 /**/
 
+.ParallaxScrolling{
+  background-attachment: fixed !important;
+}
+
+
+
+/**/
+
 @media screen and (orientation:portrait) and ( max-width: 900px){
 /*當手機為直立又可視寬在900以下*/
-  .Boxheight100
-{    min-height: 100vw !important;}
+  .Boxheight100{    min-height: 100vw !important;}
+  .Boxheight50vh{    min-height: 50vh !important;}
 }
