@@ -439,7 +439,7 @@ a.right_bbutton {
 
 
 .sim-row-changeColor {
-	bottom: 5px;
+	bottom: -20px;
 	right: 0px;
 	position: absolute;
 	opacity: 0;	
