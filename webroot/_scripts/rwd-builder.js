@@ -188,8 +188,6 @@ $(function() {
 								$(this).off();
 								$('#sim-edit-image .sim-edit-box-buttons-save').off();
 							});
-
-
 						} else if (big_parent.attr('data-type') == 'text') {
 							console.log('data-type=text')
 
@@ -294,19 +292,70 @@ $(function() {
 								$('#sim-edit-text .sim-edit-box-buttons-save').off();
 								$('#sim-edit-text .sim-edit-box-buttons-del').off();
 							});
-						} else if (big_parent.attr('data-type') == 'icon') {
+						} else if (big_parent.attr('data-type') == 'video') {
+							console.log('sss')
+							$('#sim-edit-video').fadeIn(500);
+							$('#sim-edit-video .sim-edit-box').slideDown(500);
+
+							$('#sim-edit-video .image').val(big_parent.find('video').attr('src'));
+							$('#sim-edit-video .link').val(big_parent.find('a.imglink').attr('href'));
+							$('#sim-edit-video .target').val(big_parent.find('a.imglink').attr('target'));
+							$('#sim-edit-video .style').val(big_parent.find('video').attr('class'));
+
+							$('#sim-edit-video .align').val(big_parent.css('text-align'));
 
 
-							$('#sim-edit-icon').fadeIn(500);
-							$('#sim-edit-icon .sim-edit-box').slideDown(500);
-
-							$('#sim-edit-icon i').one('click', function(e) {
+							$('#sim-edit-video .sim-edit-box-buttons-save').one('click', function(e) {
 								e.preventDefault();
 								e.stopPropagation();
-								$(this).parent().parent().parent().parent().fadeOut(500)
-								$(this).parent().parent().parent().slideUp(500)
+								console.log('影片儲存被觸發..')
+								var videoSrc = $('#sim-edit-video .video').val();
 
-								big_parent.children('i').attr('class', $(this).attr('class'));
+								$(this).parent().parent().parent().fadeOut(500)
+								$(this).parent().parent().slideUp(500)
+								big_parent.find('video').removeAttr('style').attr('src', videoSrc);
+								//替換上VIDEO
+
+
+								var style = $('#sim-edit-image .style').val(),
+										align = $('#sim-edit-image .align').val();
+								big_parent.find('video').removeClass().addClass(style);
+
+								if ($('#sim-edit-video .link').val().length != 0) {
+									//如果有A包住圖片 CLASS統一寫在圖片上
+									big_parent.find('video').wrap('<a class="imglink"></a>');
+									big_parent.find('a.imglink').attr({
+										'href': $('#sim-edit-video .link').val(),
+										'target': $('#sim-edit-video .target').val()
+									})
+								} else {
+									//如果沒有A
+									big_parent.find('a.imglink').find('video').unwrap()
+								};
+
+								if (!style) {
+									big_parent.find('video').removeAttr('class');
+									//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
+								}
+								//影片設置最大寬度只能在載入後才設置，使用setTimeout
+								setTimeout(function(){
+									big_parent.find('video').css({
+										'max-width': big_parent.find('video').width(),
+										'width': '100%'
+										})
+								},300)
+								
+								
+							});
+							$('#sim-edit-video .sim-edit-box-buttons-cancel').one('click',function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								$(this).closest('.sim-edit-box').parent().fadeOut(500)
+								$(this).closest('.sim-edit-box').slideUp(500)
+								$(this).off();
+								$('#sim-edit-video .sim-edit-box-buttons-save').off();
+
+								
 							});
 						}
 					});
