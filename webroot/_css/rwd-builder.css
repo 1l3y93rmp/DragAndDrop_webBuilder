@@ -443,24 +443,25 @@ a.right_bbutton {
 	right: 0px;
 	position: absolute;
 	opacity: 0;	
-    background-color: rgba(63,141,191,1);
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    color: rgba(255,255,255,1);
-    font-weight: 600;
-    font-size: 14px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 5px 0 0 5px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    float: left;
-    padding-right: 25px;
-    padding-left: 25px;
+  background-color: rgba(63,141,191,1);
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  color: rgba(255,255,255,1);
+  font-weight: 600;
+  font-size: 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 5px 0 0 5px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  float: left;
+  padding-right: 25px;
+  padding-left: 25px;
+  z-index: 9;
 
 }
 

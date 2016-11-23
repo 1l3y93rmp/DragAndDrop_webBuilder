@@ -223,9 +223,6 @@
   display: block;
 }
 
-.sim-row-header1{
-	width: 100%;
-}
 
 
 .sim-row-header1-slider{
@@ -317,7 +314,7 @@ text-align: left;}
 }
 
 
-.sim-row-header3{
+.sim-row-header{
   width: 100%;
   text-align: center;
   word-spacing: -4px;
@@ -328,8 +325,13 @@ text-align: left;}
   -webkit-align-items: center;
   -webkit-justify-content: center;
 
-	align-items: center;
-	justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.sim-row-box{
+  width: 100%;
+  margin: 0 auto; 
 }
 
 .sim-row-header3::after{
@@ -675,7 +677,7 @@ div[edit_bg]>a.full a{
 
 @media only screen and (max-width: 420px){
 
-	.sim-row-header3{
+	.sim-row-header{
 		display: inline-block;
 	}
 

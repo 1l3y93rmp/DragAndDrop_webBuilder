@@ -519,11 +519,11 @@ $(function() {
 
 				changeColorBox.find('.changeColor-input-text').val(simRow.css('background-color'))
 				changeColorBox.find('.changeImg-input-text').val(simRow.css('background-image'))
-				changeColorBox.find('.maxWidth').val(simRow.css('max-width'))
+				changeColorBox.find('.maxWidth').val(simRow.find('.sim-row-box').css('max-width'))
 				changeColorBox.find('.minHeight').val(simRow.css('min-height'))
 				changeColorBox.find('.background-attachment').val(simRow.css('background-attachment'))
 				changeColorBox.find('.marginBottom').val(simRow.css('margin-bottom'))
-				changeColorBox.find('.style').val($(this).closest('.sim-row').attr('class').replace(/sim-row/,''))
+				changeColorBox.find('.style').val(simRow.attr('class').replace(/sim-row/,''))
 
 
 
@@ -531,10 +531,14 @@ $(function() {
 				$(this).closest('.sim-row').css({
 					'background-color': $(this).prevAll('.changeColor-input-text').val(),
 					'background-image': $(this).prevAll('.changeImg-input-text').val(),
-					'max-width': $(this).prevAll('.maxWidth').val(),
+
 					'min-height': $(this).prevAll('.minHeight').val(),
 					'margin-bottom': $(this).prevAll('.marginBottom').val(),
 					'background-attachment': $(this).prevAll('.background-attachment').val()
+				});
+
+				$(this).closest('.sim-row').find('.sim-row-box').css({
+					'max-width': $(this).prevAll('.maxWidth').val()
 				});
 
 				$(this).closest('.sim-row').removeClass().addClass('sim-row ' + $(this).prevAll('.style').val());
