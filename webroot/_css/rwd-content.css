@@ -1,6 +1,7 @@
 /*
 * Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
  */
+
 @font-face {
   font-family: 'Noto Sans TC';
   font-style: normal;
@@ -321,17 +322,21 @@ text-align: left;}
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-
   -webkit-align-items: center;
   -webkit-justify-content: center;
-
   align-items: center;
   justify-content: center;
 }
 
+.sim-row-header50{
+  width: 50%;
+  float: left;
+}
+
 .sim-row-box{
   width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto;
+  overflow: hidden; 
 }
 
 .sim-row-header3::after{
@@ -666,9 +671,13 @@ div[edit_bg]>a.full a{
 	display: inline-block;
 }
 
-	.sim-row-header3{
-		display: inline-block;
-	}
+.sim-row-header3{
+	display: inline-block;
+}
+
+.sim-row-header50{
+  width: 100%
+}
 
 
 }
