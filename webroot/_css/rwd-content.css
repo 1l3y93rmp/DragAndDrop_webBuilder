@@ -671,6 +671,10 @@ div[edit_bg]>a.full a{
 	display: inline-block;
 }
 
+.sim-row-header1-slider .sim-row-header1-slider{
+  display: flex
+}
+
 .sim-row-header3{
 	display: inline-block;
 }
@@ -704,6 +708,11 @@ div[edit_bg]>a.full a{
 	  text-align: center;
 	}
 
+  .sim-row-header1-slider .sim-row-header1-slider{
+    display: inline-block;
+  }
+
+
 	.sim-row-header1-slider-left-text{
 	  width: 100%;  
 	  margin-left: 0;
@@ -711,7 +720,7 @@ div[edit_bg]>a.full a{
 	}
 
 	.sim-row-content7-center-tab{
-	    width: 100%;  
+	  width: 100%;  
 	  margin-left: 0;
 	  padding: 0 20px;
 	  box-sizing: border-box;
@@ -726,7 +735,7 @@ div[edit_bg]>a.full a{
 	}
 
 	.sim-row-header6-slider {
-	  width: 100%;  
+	  width: 100%;
 	}
 
 	.displayBIG420{

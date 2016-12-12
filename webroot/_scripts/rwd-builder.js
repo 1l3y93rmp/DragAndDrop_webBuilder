@@ -391,6 +391,7 @@ $(function() {
 						//紅色的按鈕
 						$(this).parent().append('<div class="changeColor-box-min"><div class="sim-edit-box-title">Edit Background</div>換背景色：(輸入色碼)<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖(請輸入Url)：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>設定最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20" ;><br>局部區塊設為連結：<input class="fullLink" placeholder="請直接輸入連結網址" size="20" ;=""><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20" ;=""><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
 
+							$(this).closest('.sim-row-box').css('overflow', 'inherit')
 
 								/*填入值*/
 						var changeColorBox = $(this).next('.changeColor-box-min'),
@@ -446,6 +447,7 @@ $(function() {
 								$('.sim-row-edit-hover').remove();			
 								$('.changeColor-box-min').remove();			
 								$('.edit-changeColor').remove();
+								$(this).closest('.sim-row-box').css('overflow', 'hidden')
 							})
 
 							$('#btnCancel').click(function(e){
@@ -656,7 +658,12 @@ $(function() {
 		//$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
 
 		var PreviewWindow = window.open('','','resizable=yes,status=yes,scrollbars=yes');
-		PreviewWindow.document.write('<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />'+preload_export_html)
+		PreviewWindow.document.write('<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />'+
+			'<link href="_css/slick.css" rel="stylesheet" type="text/css" />'+preload_export_html+
+			'<script type="text/javascript" src="_scripts/jquery-1.11.0.min.js"></script>'+
+			'<script type="text/javascript" src="_scripts/jquery-migrate-1.2.1.min.js"></script>'+
+			'<script type="text/javascript" src="_scripts/slick.min.js"/></script>'+
+			'<script  type="text/javascript">$(".slick").slick();</script>')
 
 
 
