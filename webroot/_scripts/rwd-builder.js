@@ -122,6 +122,7 @@ $(function() {
 					$('.sim-row-edit-hover i').one('click', function(e) {
 						e.preventDefault();
 						e.stopPropagation();
+						console.log('開啟了圖片編輯面板')
 						big_parent = $(this).parent().parent();
 						//edit image
 						if (big_parent.attr('data-type') == 'image') {
@@ -179,15 +180,46 @@ $(function() {
 									big_parent.find('img').removeAttr('class');
 									//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
 								}
+								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
 							$('#sim-edit-image .sim-edit-box-buttons-cancel').one('click',function(e) {
 								e.preventDefault();
 								e.stopPropagation();
 								$(this).closest('.sim-edit-box').parent().fadeOut(500)
 								$(this).closest('.sim-edit-box').slideUp(500)
-								$(this).off();
 								$('#sim-edit-image .sim-edit-box-buttons-save').off();
+								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
+							$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								console.log('觸發圖片複製')
+								$(this).parent().parent().parent().fadeOut(500);
+								$(this).parent().parent().slideUp(500);
+								big_parent.parent().after(big_parent.parent().clone(true));
+								//$(this).off();
+								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+							})
+							$('#sim-edit-image .sim-edit-box-buttons-del').one('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								console.log('觸發img刪除')
+								if (confirm('確認要刪除此圖片?')) {
+
+									$(this).parent().parent().parent().fadeOut(500);
+									$(this).parent().parent().slideUp(500);
+									big_parent.parent().remove();
+									$(this).off();
+									$('.sim-row-edit-hover i').off('click')
+									$('#sim-edit-text .sim-edit-box-buttons-add').off();
+									$('#sim-edit-text .sim-edit-box-buttons-save').off();
+									$('#sim-edit-text .sim-edit-box-buttons-cancel').off();
+								} else {
+									$(this).parent().parent().parent().fadeOut(500);
+									$(this).parent().parent().slideUp(500);
+									$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+								}
+							})
 						} else if (big_parent.attr('data-type') == 'text') {
 							console.log('data-type=text')
 
@@ -364,9 +396,10 @@ $(function() {
 					//這裡是當sim-row-edit(鉛筆)滑出 要拔除的東西
 					e.preventDefault();
 					e.stopPropagation();
-					$(this).children('.sim-row-edit-hover').remove();
 					$(this).children('.sim-row-edit-hover').off();
-					$('.sim-row-edit-hover i').off() //打開編輯面板
+					$('.sim-row-edit-hover i').off('click') //打開編輯面板
+					$('.sim-row-edit-hover').remove();
+
 
 				}
 			);//這個HOVER只能加在新clone出現的那一塊content上，故使用:first
@@ -470,9 +503,6 @@ $(function() {
 					$('.edit-changeColor').off();
 				}
 			)
-
-
-
 		}
 
 
@@ -660,10 +690,9 @@ $(function() {
 		var PreviewWindow = window.open('','','resizable=yes,status=yes,scrollbars=yes');
 		PreviewWindow.document.write('<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />'+
 			'<link href="_css/slick.css" rel="stylesheet" type="text/css" />'+preload_export_html+
-			'<script type="text/javascript" src="_scripts/jquery-1.11.0.min.js"></script>'+
-			'<script type="text/javascript" src="_scripts/jquery-migrate-1.2.1.min.js"></script>'+
+			'<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>'+
 			'<script type="text/javascript" src="_scripts/slick.min.js"/></script>'+
-			'<script  type="text/javascript">$(".slick").slick();</script>')
+			'<script  type="text/javascript">$(".slick").slick({autoplay: true,Speed: 3000,dots: true,fade: true,arrows: false});</script>')
 
 
 
