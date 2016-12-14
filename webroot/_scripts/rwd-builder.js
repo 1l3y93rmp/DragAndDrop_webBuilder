@@ -190,36 +190,45 @@ $(function() {
 								$('#sim-edit-image .sim-edit-box-buttons-save').off();
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
-							$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
-								e.preventDefault();
-								e.stopPropagation();
-								console.log('觸發圖片複製')
-								$(this).parent().parent().parent().fadeOut(500);
-								$(this).parent().parent().slideUp(500);
-								big_parent.parent().after(big_parent.parent().clone(true));
-								//$(this).off();
-								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
-							})
-							$('#sim-edit-image .sim-edit-box-buttons-del').one('click', function(e) {
-								e.preventDefault();
-								e.stopPropagation();
-								console.log('觸發img刪除')
-								if (confirm('確認要刪除此圖片?')) {
 
+							if(big_parent.closest('.sim-row-box').hasClass('slick')){
+								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').show()
+								$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
+									e.preventDefault();
+									e.stopPropagation();
+									console.log('觸發圖片複製')
 									$(this).parent().parent().parent().fadeOut(500);
 									$(this).parent().parent().slideUp(500);
-									big_parent.parent().remove();
-									$(this).off();
-									$('.sim-row-edit-hover i').off('click')
-									$('#sim-edit-text .sim-edit-box-buttons-add').off();
-									$('#sim-edit-text .sim-edit-box-buttons-save').off();
-									$('#sim-edit-text .sim-edit-box-buttons-cancel').off();
-								} else {
-									$(this).parent().parent().parent().fadeOut(500);
-									$(this).parent().parent().slideUp(500);
+									big_parent.parent().after(big_parent.parent().clone(true));
+									//$(this).off();
 									$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
-								}
-							})
+								})
+								$('#sim-edit-image .sim-edit-box-buttons-del').one('click', function(e) {
+									e.preventDefault();
+									e.stopPropagation();
+									console.log('觸發img刪除')
+									if (confirm('確認要刪除此圖片?')) {
+
+										$(this).parent().parent().parent().fadeOut(500);
+										$(this).parent().parent().slideUp(500);
+										big_parent.parent().remove();
+										$(this).off();
+										$('.sim-row-edit-hover i').off('click')
+										$('#sim-edit-text .sim-edit-box-buttons-add').off();
+										$('#sim-edit-text .sim-edit-box-buttons-save').off();
+										$('#sim-edit-text .sim-edit-box-buttons-cancel').off();
+									} else {
+										$(this).parent().parent().parent().fadeOut(500);
+										$(this).parent().parent().slideUp(500);
+										$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+									}
+								})
+
+							}else{
+								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').hide()
+							}
+
+
 						} else if (big_parent.attr('data-type') == 'text') {
 							console.log('data-type=text')
 
@@ -325,7 +334,7 @@ $(function() {
 								$('#sim-edit-text .sim-edit-box-buttons-del').off();
 							});
 						} else if (big_parent.attr('data-type') == 'video') {
-							console.log('sss')
+							
 							$('#sim-edit-video').fadeIn(500);
 							$('#sim-edit-video .sim-edit-box').slideDown(500);
 
