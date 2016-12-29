@@ -122,10 +122,9 @@ $(function() {
 					$('.sim-row-edit-hover i').one('click', function(e) {
 						e.preventDefault();
 						e.stopPropagation();
-						console.log('開啟了圖片編輯面板')
 						big_parent = $(this).parent().parent();
 						//edit image
-						if (big_parent.attr('data-type') == 'image') {
+						if (big_parent.attr('data-type') === 'image') {
 							$('#sim-edit-image').fadeIn(500);
 							$('#sim-edit-image .sim-edit-box').slideDown(500);
 
@@ -227,9 +226,7 @@ $(function() {
 							}else{
 								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').hide()
 							}
-
-
-						} else if (big_parent.attr('data-type') == 'text') {
+						} else if (big_parent.attr('data-type') === 'text') {
 							console.log('data-type=text')
 
 							$('#sim-edit-text').fadeIn(500);
@@ -333,7 +330,7 @@ $(function() {
 								$('#sim-edit-text .sim-edit-box-buttons-save').off();
 								$('#sim-edit-text .sim-edit-box-buttons-del').off();
 							});
-						} else if (big_parent.attr('data-type') == 'video') {
+						} else if (big_parent.attr('data-type') === 'video') {
 							
 							$('#sim-edit-video').fadeIn(500);
 							$('#sim-edit-video .sim-edit-box').slideDown(500);
@@ -397,6 +394,37 @@ $(function() {
 								$('#sim-edit-video .sim-edit-box-buttons-save').off();
 
 								
+							});
+						} else if (big_parent.attr('data-type') === 'json'){
+							$('#sim-edit-json').fadeIn(500);
+							$('#sim-edit-json .sim-edit-box').slideDown(500);
+
+							big_parent.find('.sim-row-edit-hover').remove()
+							$('#sim-edit-json .json').val(big_parent.html());
+							$('#sim-edit-json .sim-edit-box-buttons-save').one('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								console.log('json儲存被觸發..')
+
+								$('#sim-edit-json').fadeOut(500);
+								$('#sim-edit-json .sim-edit-box').slideUp(500);
+
+
+								var str = $('#sim-edit-json .json').val()
+
+								big_parent.html(str);
+
+								$(this).off();
+								$('#sim-edit-json .sim-edit-box-buttons-cancel').off();
+							});
+							$('#sim-edit-json .sim-edit-box-buttons-cancel').one('click',function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								console.log('關閉json編輯面板')
+								$(this).closest('.sim-edit-box').parent().fadeOut(500)
+								$(this).closest('.sim-edit-box').slideUp(500)
+								$(this).off();
+								$('#sim-edit-json .sim-edit-box-buttons-save').off();
 							});
 						}
 					});
