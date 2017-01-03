@@ -15,7 +15,7 @@ var requireDir = require('require-dir');
 var env = process.env.NODE_ENV.trim();
 
 global.staticDir = './webroot';
-global.serverPort = 7702;
+global.serverPort = 1102;
 global.jsEntries = global.staticDir + '/_scripts/rwd-builder.js';
 global.jsDistFile = 'bundle.js';
 global.jsDistDir = global.staticDir + '/build/js/';
