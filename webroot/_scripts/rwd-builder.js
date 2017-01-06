@@ -98,6 +98,13 @@ $(function() {
 			$('.rwd-builder-area-center-frame-buttons-content-tab[data-type="column-4"]').show()
 			$('.rwd-builder-area-center-frame-buttons-content-tab:not([data-type="column-4"])').hide()
 		});
+		
+		$('#add-column-5').hover(function() {
+
+			$('.rwd-builder-area-center-frame-buttons-content-tab[data-type="column-5"]').show()
+			$('.rwd-builder-area-center-frame-buttons-content-tab:not([data-type="column-5"])').hide()
+		});
+
 	});
 
 
@@ -190,7 +197,7 @@ $(function() {
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
 
-							if(big_parent.closest('.sim-row-box').hasClass('slick')){
+							if(big_parent.closest('.sim-row-box').hasClass('slick') || big_parent.closest('ul').hasClass('pz_footerNotice')){
 								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').show()
 								$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
 									e.preventDefault();
@@ -226,6 +233,7 @@ $(function() {
 							}else{
 								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').hide()
 							}
+
 						} else if (big_parent.attr('data-type') === 'text') {
 							console.log('data-type=text')
 

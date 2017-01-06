@@ -955,3 +955,9 @@ div[edit_bg]>a.full{
 
 /************/
 
+/*PZ專用下方廣告*/
+.sideBySide li{
+  display: inline-block;
+  vertical-align: top;
+}
+  
