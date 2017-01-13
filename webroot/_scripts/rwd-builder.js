@@ -23,7 +23,7 @@ $(function() {
 			function(e) {
 				e.preventDefault();
 				e.stopPropagation();
-				console.log($(this))
+				//console.log($(this))
 				$(this).append('<div class="rwd-builder-area-center-frame-buttons-content-tab-add"><i class="fa fa-plus"></i>&nbsp;Insert<br><span>'+$(this).attr('ex')+'</span></div>');
 				//在ADD放入一個Insert++鈕
 				$('.rwd-builder-area-center-frame-buttons-content-tab-add').click(function() {
