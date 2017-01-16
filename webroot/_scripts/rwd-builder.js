@@ -197,7 +197,7 @@ $(function() {
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
 
-							if(big_parent.closest('.sim-row-box').hasClass('slick') || big_parent.closest('ul').hasClass('pz_footerNotice')){
+							if(big_parent.closest('.slick').length ===1 || big_parent.closest('ul').hasClass('sideBySide')){
 								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').show()
 								$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
 									e.preventDefault();
