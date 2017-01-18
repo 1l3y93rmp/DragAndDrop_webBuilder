@@ -184,7 +184,6 @@ $(function() {
 
 								if (!style) {
 									big_parent.find('img').removeAttr('class');
-									//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
 								}
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
@@ -207,7 +206,11 @@ $(function() {
 									$(this).parent().parent().slideUp(500);
 									big_parent.parent().after(big_parent.parent().clone(true));
 									//$(this).off();
-									$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+										$('.sim-row-edit-hover i').off('click')
+										$('#sim-edit-image .sim-edit-box-buttons-add').off();
+										$('#sim-edit-image .sim-edit-box-buttons-del').off();
+										$('#sim-edit-image .sim-edit-box-buttons-save').off();
+										$('#sim-edit-image .sim-edit-box-buttons-cancel').off();
 								})
 								$('#sim-edit-image .sim-edit-box-buttons-del').one('click', function(e) {
 									e.preventDefault();
@@ -220,9 +223,9 @@ $(function() {
 										big_parent.parent().remove();
 										$(this).off();
 										$('.sim-row-edit-hover i').off('click')
-										$('#sim-edit-text .sim-edit-box-buttons-add').off();
-										$('#sim-edit-text .sim-edit-box-buttons-save').off();
-										$('#sim-edit-text .sim-edit-box-buttons-cancel').off();
+										$('#sim-edit-image .sim-edit-box-buttons-add').off();
+										$('#sim-edit-image .sim-edit-box-buttons-save').off();
+										$('#sim-edit-image .sim-edit-box-buttons-cancel').off();
 									} else {
 										$(this).parent().parent().parent().fadeOut(500);
 										$(this).parent().parent().slideUp(500);
@@ -363,8 +366,8 @@ $(function() {
 								//替換上VIDEO
 
 
-								var style = $('#sim-edit-image .style').val(),
-										align = $('#sim-edit-image .align').val();
+								var style = $('#sim-edit-video .style').val(),
+										align = $('#sim-edit-video .align').val();
 								big_parent.find('video').removeClass().addClass(style);
 
 								if ($('#sim-edit-video .link').val().length != 0) {

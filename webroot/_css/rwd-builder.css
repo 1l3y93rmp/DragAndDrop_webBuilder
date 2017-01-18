@@ -956,9 +956,14 @@ div[edit_bg]>a.full{
 /************/
 
 /*PZ專用下方廣告*/
+.sideBySide{
+  letter-spacing: -5px;
+}
+
 .sideBySide li{
   display: inline-block;
   vertical-align: top;
+
 }
 /*MC22小蓋飯*/
 .sim-row.boxAD a.imglink{
