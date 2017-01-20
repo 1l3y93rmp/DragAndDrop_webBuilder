@@ -194,8 +194,9 @@
   -webkit-justify-content: center
   align-items: center
   justify-content: center
-  > * > *
-    line-height: 1.6em
+  > *  p
+    line-height: 1.8em
+    margin: 0
   a
     color: inherit
     text-decoration: none
@@ -208,15 +209,13 @@
 .sim-row-header
   width: 100%
   text-align: center
-  word-spacing: -5px
-
+  line-height: 0
   -webkit-align-items: center
   -webkit-justify-content: center
   align-items: center
   justify-content: center
+  font-size: 0
 
-.sim-row-header > div
-  word-spacing: 0px
 
 .flex
   display: -webkit-flex
@@ -421,6 +420,7 @@
   width: 33.33%
   text-align: center
   display: inline-block
+  vertical-align: top
 
 .sim-row-header4-slider
   box-sizing: border-box
@@ -428,12 +428,14 @@
   text-align: center
   display: inline-block
   background-size: cover
+  vertical-align: top
 
 .sim-row-header6-slider
   box-sizing: border-box
   width: 16.66%
   text-align: center
   display: inline-block
+  vertical-align: top
 
 // 字體
 
@@ -822,6 +824,8 @@
       display: flex
   .sim-row-header50
     width: 100%
+    .sim-row-header3-slider
+      width: 33.3%
 
   .item
     min-width: 0
@@ -872,6 +876,7 @@
   .ParallaxScrolling
     background-attachment: scroll !important
 
+
 //media screen max-width: 420px
 
 @media only screen and (max-width: 420px)
@@ -907,3 +912,6 @@
     width: 100%
   .break420
     display: block
+  .sim-row-header50
+    .sim-row-header3-slider
+      width: 100%

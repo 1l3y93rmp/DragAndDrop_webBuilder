@@ -1,0 +1,88 @@
+html
+  position: relative
+  min-height: 100%
+
+noscript + iframe
+  display: none
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, button, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video
+  margin: 0
+  padding: 0
+  border: 0
+  font: inherit
+  font-family: 'open sans', \5FAE\8EDF\6B63\9ED1\9AD4,\65B0\7D30\660E\9AD4, sans-serif
+  font-weight: normal
+  vertical-align: baseline
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
+
+blockquote, q
+  quotes: none
+  &:after, &:before
+    content: ''
+    content: none
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+ol, ul
+  list-style: none
+
+a
+  text-decoration: none
+  color: #e29fb0
+
+a, button, input
+  &:focus
+    outline: 0
+
+button::-moz-focus-inner
+  bottom: 0
+  padding: 0
+  border: 0
+
+em
+  color: #d06363
+
+input, label
+  vertical-align: middle
+
+input
+  letter-spacing: .1em
+  &[type=checkbox], &[type=radio]
+    display: none
+    + label
+      position: relative
+      display: inline-block
+      padding-left: 16px
+      cursor: pointer
+      -webkit-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      user-select: none
+      &:before,
+      &:after
+        content: ''
+        display: inline-block
+        position: absolute
+      &:before
+        width: 12px
+        height: 12px
+        border: 1px solid #6c6c6c
+        top: 2px
+        left: 0
+      &:after
+        width: 6px
+        height: 6px
+        top: 5px
+        left: 3px
+      &:hover:after
+        background-color: #d2d2d2
+    &:checked + label
+      &:after
+        background-color: #6c6c6c
+  &[type=radio] + label
+    &:after, &:before
+      border-radius: 50%

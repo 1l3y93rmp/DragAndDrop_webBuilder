@@ -132,10 +132,22 @@ $(function() {
 						big_parent = $(this).parent().parent();
 						//edit image
 						if (big_parent.attr('data-type') === 'image') {
+							var isBlankGIF = big_parent.find('img[src="images/blank.gif"]').length;
+							if(isBlankGIF === 0){
+								console.log('異動圖片SRC')
+								$('[type="src"]').show()
+								$('[type="BGsrc"]').hide()
+							}else{
+								console.log('異動圖片背景')
+								$('[type="src"]').hide()
+								$('[type="BGsrc"]').show()	
+							}
+
 							$('#sim-edit-image').fadeIn(500);
 							$('#sim-edit-image .sim-edit-box').slideDown(500);
 
 							$('#sim-edit-image .image').val(big_parent.find('img').attr('src'));
+							$('#sim-edit-image .imageBG').val(big_parent.find('img').css('background-image').split('"')[1]);
 							$('#sim-edit-image .link').val(big_parent.find('a.imglink').attr('href'));
 							$('#sim-edit-image .target').val(big_parent.find('a.imglink').attr('target'));
 							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
@@ -153,18 +165,29 @@ $(function() {
 
 								$(this).parent().parent().parent().fadeOut(500)
 								$(this).parent().parent().slideUp(500)
-								big_parent.find('img').removeAttr('style').attr('src', imgSrc);
-								//替換上IMG
+
+
+
 
 								//將該圖片的寬設置成最大寬度
 								//在JS中載入圖片並取得該寬度~
-								img.onload = function() {
-									var IMGwidth = this.width;
-									big_parent.find('img').css({
-										'max-width': IMGwidth,
-										'width': '100%'
-									})
+								//此動作只有在圖片SRC並非透明blank.gif才使用
+								if(isBlankGIF === 0){
+									//替換上IMG
+									big_parent.find('img').removeAttr('style').attr('src', imgSrc)
+									img.onload = function() {
+										var IMGwidth = this.width;
+										big_parent.find('img').css({
+											'max-width': IMGwidth,
+											'width': '100%'
+										})
+									}
+								}else{
+									//替換上IMG
+									big_parent.find('img').css('background-image','url("'+$('#sim-edit-image .imageBG').val()+'")');
+									
 								}
+
 
 								var style = $('#sim-edit-image .style').val(),
 										align = $('#sim-edit-image .align').val();
@@ -737,6 +760,7 @@ $(function() {
 
 		var PreviewWindow = window.open('','','resizable=yes,status=yes,scrollbars=yes');
 		PreviewWindow.document.write('<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />'+
+			'<link href="_css/reset.css" rel="stylesheet" type="text/css" />'+
 			'<link href="_css/slick.css" rel="stylesheet" type="text/css" />'+preload_export_html+
 			'<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>'+
 			'<script type="text/javascript" src="_scripts/slick.min.js"/></script>'+
