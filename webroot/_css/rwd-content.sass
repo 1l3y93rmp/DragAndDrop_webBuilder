@@ -854,8 +854,14 @@
   .break1024
     display: block
 
-  .padding1024
-    padding: 0 0 10px 0 !important
+  //forGQ模板
+  .break1024>.padding1024
+    padding: 0 0 20px 0 !important
+
+  .sliderleft_right.padding1024
+    padding: 0 !important
+  .sliderleft_right.padding1024 + .sliderleft_right.padding1024
+    margin-top: 20px
 
 .item--sale::before,.item--new::before
   top: 17px
@@ -901,7 +907,7 @@
     box-sizing: border-box
   .sim-row-header3-slider, .sim-row-header4-slider, .sim-row-header6-slider
     width: 100%
-  .displayBIG420
+  .displayBIG400
     display: none !important
   .displaySMALL400
     display: -webkit-flex
@@ -915,3 +921,9 @@
   .sim-row-header50
     .sim-row-header3-slider
       width: 100%
+  //forGQ模板
+  .padding1024 .padding1024
+    padding: 0 !important
+  .padding1024 .padding1024+.padding1024
+    padding: 0 !important
+    margin-top: 20px
