@@ -467,28 +467,29 @@ a.right_bbutton {
 
 
 .edit-changeColor{
-	top: 0;
+	top: -20px;
 	right: 50%;
 	margin-right: -75px;
 	position: absolute;
-    background-color: rgb(191, 63, 107);
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    color: rgba(255,255,255,1);
-    font-weight: 600;
-    font-size: 14px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 0 0 5px 5px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    float: left;
-    padding-right: 25px;
-    padding-left: 25px;
+  z-index: 9;
+  background-color: rgb(191, 63, 107);
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  color: rgba(255,255,255,1);
+  font-weight: 600;
+  font-size: 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  float: left;
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
 
@@ -633,7 +634,7 @@ a.right_bbutton {
 
 .changeColor-box-min{
     width: 200px;
-    
+    font-size: 15px;
     padding: 25px;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 300;
@@ -934,7 +935,7 @@ div[edit_bg]{
 
 div[edit_bg] div[edit_bg] .edit-changeColor{
   background-color: rgb(229, 127, 162);
-  top: 20px;
+  top: -20px;
   left: 0;
   width: 120px;
   font-size: 9px;
@@ -951,6 +952,10 @@ div[edit_bg] div[edit_bg] .edit-changeColor{
 
 div[edit_bg]>a.full{
   display: none !important;
+}
+
+.rwd-builder-area-center-frame-content .sim-row-box{
+  overflow: inherit !important;
 }
 
 /************/
