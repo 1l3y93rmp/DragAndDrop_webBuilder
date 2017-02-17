@@ -232,10 +232,12 @@ a.right_bbutton {
   padding:20px 0;
 }
 #rwd-builder-area-center-frame-buttons {
+  position: fixed;
 	width: 100%;
   text-align: center;
   padding: 0 20px;
   box-sizing: border-box;
+  z-index: 9;
 }
 #rwd-builder-area-center-frame-buttons-add,#rwd-buttons-impote {
 	height: 30px;

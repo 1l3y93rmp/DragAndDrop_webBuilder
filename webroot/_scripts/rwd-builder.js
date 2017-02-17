@@ -30,14 +30,15 @@ $(function() {
 
 					//++鈕按下後 把模板內的東西複製加入到畫面當中(別把說明文字也複製了所以刪除!)
 
-					$('#rwd-builder-area-center-frame-content').prepend($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').removeAttr('ex').clone());
+					$('#rwd-builder-area-center-frame-content').append($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').removeAttr('ex').clone());
 
+					$('html, body').animate({scrollTop: $('html, body').height()-window.innerHeight}, 300);
 					add_delete();
 					perform_delete();
 					perform_changeColor();
-					var pancilBox = $('#rwd-builder-area-center-frame-content>.sim-row:first .sim-row-edit');
+					var pancilBox = $('#rwd-builder-area-center-frame-content>.sim-row:last .sim-row-edit');
 
-					hover_edit ($('#rwd-builder-area-center-frame-content>.sim-row:first .sim-row-edit'));
+					hover_edit ($('#rwd-builder-area-center-frame-content>.sim-row:last .sim-row-edit'));
 					hover_edit_BG($('#rwd-builder-area-center-frame-content [edit_BG]'));
 
 
@@ -665,31 +666,42 @@ $(function() {
 
 
 
-		$('#sim-edit-import .sim-edit-box-buttons-save').one('click',function(){
+		$('#sim-edit-import .sim-edit-box-buttons-save').on('click',function(){
 
 			var importText = $('#sim-edit-import .text').val();
+			if(!/^\s*[<]{1}.*[>]{1}\s*$/.test(importText)){
+				alert('只能匯入Html啦 (‘⊙д⊙)');
+				return ;
+			}
 
-			$('#rwd-builder-area-center-frame-content').prepend(importText)
+			//挑選出剛載入的加入class
+			$newImportText = $(importText).addClass('new')
+
+			$('#rwd-builder-area-center-frame-content').append($newImportText)
+			
 
 			$('#sim-edit-import .text').val('')
 			$(this).closest('.sim-edit-box').parent().fadeOut(500)
 			$(this).closest('.sim-edit-box').slideUp(500);
 
 
-		hover_edit($('#rwd-builder-area-center-frame-content>.sim-row .sim-row-edit'));
-		hover_edit_BG($('#rwd-builder-area-center-frame-content [edit_BG]'));
+			hover_edit($('#rwd-builder-area-center-frame-content>.sim-row.new .sim-row-edit'));
+			hover_edit_BG($('#rwd-builder-area-center-frame-content>.sim-row.new [edit_BG]'));
+			$('html, body').animate({scrollTop: $('.new').offset().top}, 300);
+			$('#rwd-builder-area-center-frame-content>.new').removeClass('new')
 
-		add_delete();
-		perform_delete();
-		perform_changeColor();
+			add_delete();
+			perform_delete();
+			perform_changeColor();
+			$('#sim-edit-import .sim-edit-box-buttons-save').off()
 
 		})
 
 		$('#sim-edit-import .sim-edit-box-buttons-cancel').one('click',function(){
 			$(this).closest('.sim-edit-box').parent().fadeOut(500)
 			$(this).closest('.sim-edit-box').slideUp(500)
+			$('#sim-edit-import .sim-edit-box-buttons-save').off()
 		})
-
 
 	})
 
