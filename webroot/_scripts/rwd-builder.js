@@ -669,7 +669,7 @@ $(function() {
 		$('#sim-edit-import .sim-edit-box-buttons-save').on('click',function(){
 
 			var importText = $('#sim-edit-import .text').val();
-			if(!/^\s*[<]{1}.*[>]{1}\s*$/.test(importText)){
+			if(!/^\s*[<]{1}.*[>]{1}\s*$/m.test(importText)){
 				alert('只能匯入Html啦 (‘⊙д⊙)');
 				return ;
 			}
