@@ -976,3 +976,10 @@ div[edit_bg]>a.full{
 .sim-row.boxAD a.imglink{
   display: inline !important
 }
+
+/*************/
+/*在編輯器中不使隱藏生效*/
+.displayBIG900,.displaySMALL900,.displayBIG400,.displaySMALL400{
+  display: block !important;
+
+}
