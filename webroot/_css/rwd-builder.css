@@ -979,9 +979,7 @@ div[edit_bg]>a.full{
 
 /*************/
 /*在編輯器中不使隱藏生效*/
-#rwd-builder-area-center-frame-content .displayBIG900,
 #rwd-builder-area-center-frame-content .displaySMALL900,
-#rwd-builder-area-center-frame-content .displayBIG400,
 #rwd-builder-area-center-frame-content .displaySMALL400{
   display: block !important;
 
