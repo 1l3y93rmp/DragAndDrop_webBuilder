@@ -1,7 +1,7 @@
 {
-  "name": "MEIERQ-Mobile",
+  "name": "DragAndDrop_webBuilder",
   "version": "1.0.0",
-  "description": "MEIER.Q Mobile Website.",
+  "description": "DragAndDrop_webBuilder",
   "scripts": {
     "start": "set NODE_ENV=production && gulp",
     "dev": "set NODE_ENV=dev && gulp",

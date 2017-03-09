@@ -198,6 +198,8 @@
   > *  p
     line-height: 1.8em
     margin: 0
+  ul
+    line-height: 1.8em
   a
     color: inherit
     text-decoration: none
@@ -318,7 +320,7 @@
 
 
 
-.sim-row-header50
+.sim-row-header50,.sim-row-header50-tighten
   width: 50%
   float: left
 
@@ -432,12 +434,13 @@
   background-size: cover
   vertical-align: top
 
-.sim-row-header6-slider
+.sim-row-header6-slider,.sim-row-header6-slider-tighten
   box-sizing: border-box
   width: 16.66%
   text-align: center
   display: inline-block
   vertical-align: top
+
 
 // 字體
 
@@ -824,7 +827,7 @@
   .sim-row-header1-slider
     .sim-row-header1-slider
       display: flex
-  .sim-row-header50
+  .sim-row-header50,.sim-row-header50-tighten
     width: 100%
     .sim-row-header3-slider
       width: 33.3%
@@ -911,6 +914,8 @@
     box-sizing: border-box
   .sim-row-header3-slider, .sim-row-header4-slider, .sim-row-header6-slider
     width: 100%
+  .sim-row-header6-slider-tighten
+    width: 50%
   .displayBIG400
     display: none !important
   .displaySMALL400
@@ -922,6 +927,10 @@
     width: 100%
   .break420
     display: block
+  .sim-row-header50-tighten
+    width: 100%
+    .sim-row-header3-slider
+      width: 50%
   .sim-row-header50
     .sim-row-header3-slider
       width: 100%

@@ -133,7 +133,7 @@ $(function() {
 						big_parent = $(this).parent().parent();
 						//edit image
 						if (big_parent.attr('data-type') === 'image') {
-							var isBlankGIF = big_parent.find('img[src="images/blank.gif"]').length;
+							var isBlankGIF = big_parent.find('img[src="img/blank.gif"]').length;
 							if(isBlankGIF === 0){
 								console.log('異動圖片SRC')
 								$('[type="src"]').show()
@@ -220,7 +220,7 @@ $(function() {
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
 
-							if(big_parent.closest('.slick').length ===1 || big_parent.closest('ul').hasClass('sideBySide')){
+							if(big_parent.closest('.slick').length ===1 || big_parent.closest('.slick-Grouping').length ===1 || big_parent.closest('ul').hasClass('sideBySide')){
 								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').show()
 								$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
 									e.preventDefault();

@@ -341,14 +341,14 @@ a.right_bbutton {
 }
 .rwd-builder-area-center-frame-buttons-content-tab-add {
 	height: 30px;
-	width: 100px;
-	background-color: rgba(70,70,70,1);
+	width: 150px;
+	background-color: #8e8e8e;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	float: left;
 	margin-top: -15px;
-	margin-left: -50px;
+	margin-left: -75px;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
@@ -360,7 +360,7 @@ a.right_bbutton {
 .rwd-builder-area-center-frame-buttons-content-tab-add span{
   background-color: rgba(63,141,191,1);
   display: inline-block;
-  width: 100px;
+  width: 150px;
   padding: 0 5px;
   line-height: 1.6em;
   font-size: 16px !important;
@@ -975,6 +975,29 @@ div[edit_bg]>a.full{
 /*MC22小蓋飯*/
 .sim-row.boxAD a.imglink{
   display: inline !important
+}
+
+/*PZ 輪播預覽*/
+.sim-row.home-jumbo img{
+  width: 300px;
+  height: 150px;
+  background: no-repeat center;
+  background-size: contain;
+}
+
+/*GQ輪播預覽*/
+
+.slick-Grouping{
+  border-bottom: 1px solid #ccc;
+}
+
+.slick-Grouping>div{
+  display: inline-block;
+  width: auto;
+}
+
+.slick-Grouping img{
+  width: 150px !important;
 }
 
 /*************/
