@@ -16,11 +16,10 @@ gulp.task('browserSync', ['build'], function() {
     notify: false,
     files: [
       // Watch everything in webroot
-      global.staticDir + '/**',
+      global.staticDir + '/**.*',
       // Exclude sourcemap files
       '!' + global.staticDir + '/**/*.map',
-      '!' + global.staticDir + '/sass/**',
-      '!' + global.staticDir + '/scripts/**'
+      '!' + global.staticDir + '/_css/**/*.sass'
     ]
   });
 });
