@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>RWD web Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+  <link href="_css/rwd-builder.css" rel="stylesheet" type="text/css" />
+  <link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script type="text/javascript" src="_scripts/jquery-ui-1.10.4.min.js"></script>
+  <script type="text/javascript" src="_scripts/rwd-builder.js"></script>
+</head>
+
+<body>
+  <div id="header">
+
+  </div>
+
+  <div id="rwd-preloaded-export"></div>
+
+  <!--所有預設模板(隱藏)-->
+  <div id="all-template"></div>
+  <!--編輯板(隱藏)-->
+  <div id="all-edit-bord"></div>
+
+  <!--編輯區呈現-->
+  <div id="rwd-builder" class="resize-height">
+    <!--<div id="rwd-builder-sidebar">
+    <div id="rwd-builder-sidebar-logo"><img src="http://simbyone.com/demo/drag-and-drop-rwd-builder-using-jquery/_assets/logo.png" width="150" height="150" /></div>
+    <div id="rwd-builder-sidebar-buttons">
+      <div id="rwd-builder-sidebar-buttons-abutton">Download Template</div>
+      <div id="rwd-builder-sidebar-buttons-bbutton">Export</div>
+    </div>
+  </div>-->
+    <div id="rwd-builder-area" class="resize-height resize-width">
+      <div id="rwd-builder-area-center">
+        <div id="rwd-builder-area-center-frame">
+          <div id="rwd-builder-area-center-frame-buttons">
+            <div id="rwd-buttons-impote">Import</div>
+            <div id="rwd-builder-area-center-frame-buttons-add">Add&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+              <div id="rwd-builder-area-center-frame-buttons-dropdown">
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-1">
+                  <p>單欄</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-2">
+                  <p>雙欄</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-3">
+                  <p>三欄</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-4">
+                  <p>四欄或更多</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-content">
+                </div>
+              </div>
+            </div>
+            <div id="rwd-builder-sidebar-buttons-bbutton" class="right_bbutton">Export</div>
+            <div id="rwd-builder-sidebar-buttons-Preview" class="right_bbutton">Preview</div>
+          </div>
+          <div id="rwd-builder-area-center-frame-content">
+            <div class="sim-row displayBIG400" data-id="1-5" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 0px; background-attachment: scroll;">
+              <div class="sim-row-box slick" style="">
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/MEIERQ/2017ss_web/index/B/031517_index_B_01.jpg" style="max-width: 2000px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/MEIERQ/2017ss_web/index/B/031517_index_B_02.jpg" style="max-width: 2000px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/MEIERQ/2017ss_web/index/B/031517_index_B_03.jpg" style="max-width: 2000px; width: 100%;"> </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row displaySMALL400" data-id="1-5" data-type="column-1" style=" background-image: none; margin-bottom: 0px; background-attachment: scroll;">
+              <div class="sim-row-box slick" style="">
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/MEIERQ/2017ss_web/index/B/031517_index_B_01_s.jpg" style="max-width: 500px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/MEIERQ/2017ss_web/index/B/031517_index_B_02_s.jpg" style="max-width: 500px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/MEIERQ/2017ss_web/index/B/031517_index_B_03_s.jpg" style="max-width: 500px; width: 100%;"> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,79 +1,291 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>RWD web Builder</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <title>RWD web Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
-<link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
 
-<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
-<link href="_css/rwd-builder.css" rel="stylesheet" type="text/css" />
-<link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+  <link href="_css/rwd-builder.css" rel="stylesheet" type="text/css" />
+  <link href="_css/rwd-content.css" rel="stylesheet" type="text/css" />
 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script type="text/javascript" src="_scripts/jquery-ui-1.10.4.min.js"></script>
-<script type="text/javascript" src="_scripts/rwd-builder.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script type="text/javascript" src="_scripts/jquery-ui-1.10.4.min.js"></script>
+  <script type="text/javascript" src="_scripts/rwd-builder.js"></script>
 </head>
-<body >
-<div id="header">
 
-</div>
+<body>
+  <div id="header">
 
-<div id="rwd-preloaded-export"></div>
+  </div>
 
-<!--所有預設模板(隱藏)-->
-<div id="all-template"></div>
-<!--編輯板(隱藏)-->
-<div id="all-edit-bord"></div>
+  <div id="rwd-preloaded-export"></div>
 
-<!--編輯區呈現-->
-<div id="rwd-builder" class="resize-height">
-  <!--<div id="rwd-builder-sidebar">
+  <!--所有預設模板(隱藏)-->
+  <div id="all-template"></div>
+  <!--編輯板(隱藏)-->
+  <div id="all-edit-bord"></div>
+
+  <!--編輯區呈現-->
+  <div id="rwd-builder" class="resize-height">
+    <!--<div id="rwd-builder-sidebar">
     <div id="rwd-builder-sidebar-logo"><img src="http://simbyone.com/demo/drag-and-drop-rwd-builder-using-jquery/_assets/logo.png" width="150" height="150" /></div>
     <div id="rwd-builder-sidebar-buttons">
       <div id="rwd-builder-sidebar-buttons-abutton">Download Template</div>
       <div id="rwd-builder-sidebar-buttons-bbutton">Export</div>
     </div>
   </div>-->
-  <div id="rwd-builder-area" class="resize-height resize-width">
-    <div id="rwd-builder-area-center">
-      <div id="rwd-builder-area-center-frame">
-        <div id="rwd-builder-area-center-frame-buttons">
-          <div id="rwd-buttons-impote">Import</div>
-          <div id="rwd-builder-area-center-frame-buttons-add">Add&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
-            <div id="rwd-builder-area-center-frame-buttons-dropdown">
-              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-1">
-                <p>單欄</p>
-                <i class="fa fa-caret-right"></i></div>
-              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-2">
-                <p>雙欄</p>
-                <i class="fa fa-caret-right"></i></div>
-              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-3">
-                <p>三欄</p>
-                <i class="fa fa-caret-right"></i></div>
-              <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-4">
-                <p>四欄或更多</p>
-                <i class="fa fa-caret-right"></i></div>
-              <div class="rwd-builder-area-center-frame-buttons-content">
+    <div id="rwd-builder-area" class="resize-height resize-width">
+      <div id="rwd-builder-area-center">
+        <div id="rwd-builder-area-center-frame">
+          <div id="rwd-builder-area-center-frame-buttons">
+            <div id="rwd-buttons-impote">Import</div>
+            <div id="rwd-builder-area-center-frame-buttons-add">Add&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+              <div id="rwd-builder-area-center-frame-buttons-dropdown">
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-1">
+                  <p>單欄</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-2">
+                  <p>雙欄</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-3">
+                  <p>三欄</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-dropdown-tab" id="add-column-4">
+                  <p>四欄或更多</p>
+                  <i class="fa fa-caret-right"></i></div>
+                <div class="rwd-builder-area-center-frame-buttons-content">
+                </div>
+              </div>
+            </div>
+            <div id="rwd-builder-sidebar-buttons-bbutton" class="right_bbutton">Export</div>
+            <div id="rwd-builder-sidebar-buttons-Preview" class="right_bbutton">Preview</div>
+          </div>
+          <div id="rwd-builder-area-center-frame-content">
+            <div class="sim-row ui-sortable-helper displaySMALL400" data-id="1-5" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 20px; background-attachment: scroll;">
+              <div class="sim-row-box slick">
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/01_s.jpg" style="max-width: 500px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/02_s.jpg" style="max-width: 500px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/03_s.jpg" style="max-width: 500px; width: 100%;"> </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row displayBIG400" data-id="1-5" data-type="column-1" style="background-image: none; margin-bottom: 30px; background-attachment: scroll; ">
+              <div class="sim-row-box slick" style="max-width: 1180px;">
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/01.jpg" style="max-width: 1920px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/02.jpg" style="max-width: 1920px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header2-slider">
+                  <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/03.jpg" style="max-width: 1920px; width: 100%;"> </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row displayBIG900" data-id="4-5" data-type="column-4" style="background-image: none; margin-bottom: 50px; background-attachment: scroll; position: relative; left: 0px; top: 0px; ">
+              <div class="sim-row-box" style="max-width: 1180px;">
+                <div class="sim-row-header sim-row-header50 flex">
+                  <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;"><img src="http://s3.lativ.com.tw/i/Page/images/share/icon_down_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div>
+                  <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;"><img src="http://s1.lativ.com.tw/i/Page/images/share/icon_fb_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div>
+                </div>
+                <div class="sim-row-header sim-row-header50 flex">
+                  <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;"><img src="http://s2.lativ.com.tw/i/Page/images/share/icon_line_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div>
+                  <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2"><img src="http://s3.lativ.com.tw/i/Page/images/share/icon_wanted_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="1-2" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 10px; background-attachment: scroll;">
+              <div class="sim-row-box">
+                <div class="sim-row-header">
+                  <div class="sim-row-header2-slider">
+                    <div class="sim-row-header2-slider-top">
+                      <p class="sim-row-header2-slider-top-title sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(0, 0, 0); font-size: 20px; text-align: center; font-weight: 400; ">春夏熱賣商品</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="2-14" data-type="column-2" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 30px; background-attachment: scroll; ">
+              <div class="sim-row-box flex" style="max-width: 1180px;">
+                <div class="sim-row-header">
+                  <div class="sim-row-header1-slider">
+                    <div class="sliderleft_right padding1024" edit_bg="2" style="padding-right: 10px;">
+                      <div class="sim-row-header1-slider">
+                        <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="img/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40101454/P40101454-63L.jpg) center center / cover no-repeat;">
+                          <div class="sliderleft_right pd20px" edit_bg="1"
+                            style="background-color:#f7f7f7;">
+                            <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                            <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                            <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                          </div>
+                        </div>
+                        <div class="padding1024" data-type="image" edit_bg="2" style="padding-left:10px;">
+                          <div class="sim-row-edit padding1024" data-type="image" edit_bg="2"> <img src="img/blank.gif" height="150" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40003725/3-1L.jpg) center center / cover no-repeat;">
+                            <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                              <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                              <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                              <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                            </div>
+                          </div>
+                          <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-top:10px;"> <img src="img/blank.gif" height="150" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40003725/3-1L.jpg) center center / cover no-repeat;">
+                            <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                              <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                              <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                              <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sliderleft_right padding1024" edit_bg="2" style="padding-left: 10px;">
+                      <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="img/blank.gif" height="400" width="100%" style="background: url(&quot;http://pazzo.cloudcdn.tw/meierq/2017ss_items/40002087/1-0-4.jpg&quot;) center center / cover no-repeat;">
+                        <div class="sliderleft_right pd20px" edit_bg="1"
+                          style="background-color:#f7f7f7;">
+                          <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                          <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                          <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="1-2" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 10px; background-attachment: scroll;">
+              <div class="sim-row-box">
+                <div class="sim-row-header">
+                  <div class="sim-row-header2-slider">
+                    <div class="sim-row-header2-slider-top">
+                      <p class="sim-row-header2-slider-top-title sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(0, 0, 0); font-size: 20px; text-align: center; font-weight: 400; ">春夏熱賣商品</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="2-10" data-type="column-2" style=" background-image: none; margin-bottom: 20px; background-attachment: scroll;">
+              <div class="sim-row-box flex" style="max-width: 1180px;">
+                <div class="sim-row-header">
+                  <div class="sim-row-header1-slider">
+                    <div class="sliderleft_right sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right: 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201700/P40201700-11L.jpg" style="max-width: 1920px; width: 100%;">
+                      <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                        <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                        <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                        <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                      </div>
+                    </div>
+                    <div class="sliderleft_right sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-left: 10px;"><img src="http://pazzo.cloudcdn.tw/pazzo/2016AW_item/w/P40201665/P40201665-11L.jpg" style="max-width: 1920px; width: 100%;">
+                      <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                        <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價 <span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px"> 200</span></p>
+                        <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                        <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="2-11" data-type="column-2" style="background-image: none; background-attachment: scroll; margin-bottom: 30px; ">
+              <div class="sim-row-box flex" style="max-width: 1180px;">
+                <div class="sim-row-header">
+                  <div class="sim-row-header1-slider">
+                    <div class="sliderleft_right padding1024" edit_bg="2" style="padding-right: 10px;">
+                      <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="img/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40003725/3-1L.jpg) center center / cover no-repeat;">
+                        <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                          <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                          <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                          <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sliderleft_right padding1024" edit_bg="2" style="padding-left: 10px;">
+                      <div class="sim-row-header1-slider">
+                        <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="img/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40101454/P40101454-61L.jpg) center center / cover no-repeat;">
+                          <div class="sliderleft_right pd20px" edit_bg="1"
+                            style="background-color:#f7f7f7;">
+                            <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                            <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                            <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                          </div>
+                        </div>
+                        <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-left: 10px;"> <img src="img/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40101454/P40101454-62L.jpg) center center / cover no-repeat;">
+                          <div class="sliderleft_right pd20px" edit_bg="1"
+                            style="background-color:#f7f7f7;">
+                            <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                            <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                            <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="1-2" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 10px; background-attachment: scroll;">
+              <div class="sim-row-box">
+                <div class="sim-row-header">
+                  <div class="sim-row-header2-slider">
+                    <div class="sim-row-header2-slider-top">
+                      <p class="sim-row-header2-slider-top-title sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(0, 0, 0); font-size: 20px; text-align: center; font-weight: 400; ">春夏熱賣商品</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-row" data-id="4-11" data-type="column-4" style="position: relative; left: 0px; top: 0px;">
+              <div class="sim-row-box" style="max-width: 1180px;">
+                <div class="sim-row-header break1024 flex">
+                  <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right: 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/P40201764-21.jpg" style="max-width: 573px; width: 100%;">
+                    <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                      <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                    </div>
+                  </div>
+                  <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding:0 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/P40201764-22.jpg" style="max-width: 573px; width: 100%;">
+                    <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                      <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                    </div>
+                  </div>
+                  <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding:0 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/P40201764-24.jpg" style="max-width: 573px; width: 100%;">
+                    <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                      <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                    </div>
+                  </div>
+                  <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-left: 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/2-1.jpg" style="max-width: 573px; width: 100%;">
+                    <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;">
+                      <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p>
+                      <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div id="rwd-builder-sidebar-buttons-bbutton" class="right_bbutton">Export</div>
-          <div id="rwd-builder-sidebar-buttons-Preview" class="right_bbutton">Preview</div>
-        </div>
-        <div id="rwd-builder-area-center-frame-content">
-           <div class="sim-row ui-sortable-helper displaySMALL400" data-id="1-5" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 20px; background-attachment: scroll;"> <div class="sim-row-box slick"> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/01_s.jpg" style="max-width: 500px; width: 100%;"> </div> </div> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/02_s.jpg" style="max-width: 500px; width: 100%;"> </div> </div> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/03_s.jpg" style="max-width: 500px; width: 100%;"> </div> </div> </div> </div><div class="sim-row displayBIG400" data-id="1-5" data-type="column-1" style="background-image: none; margin-bottom: 30px; background-attachment: scroll; "> <div class="sim-row-box slick" style="max-width: 1180px;"> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/01.jpg" style="max-width: 1920px; width: 100%;"> </div> </div> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/02.jpg" style="max-width: 1920px; width: 100%;"> </div> </div> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-bottom sim-row-edit" data-type="image"><img src="http://pazzo.cloudcdn.tw/pazzo/P_MAINPAGE_W/2017SS/012317/03.jpg" style="max-width: 1920px; width: 100%;"> </div> </div> </div> </div><div class="sim-row displayBIG900" data-id="4-5" data-type="column-4" style="background-image: none; margin-bottom: 50px; background-attachment: scroll; position: relative; left: 0px; top: 0px; "> <div class="sim-row-box" style="max-width: 1180px;"> <div class="sim-row-header sim-row-header50 flex"> <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;"><img src="http://s3.lativ.com.tw/i/Page/images/share/icon_down_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div> <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;"><img src="http://s1.lativ.com.tw/i/Page/images/share/icon_fb_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div> </div> <div class="sim-row-header sim-row-header50 flex"> <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;"><img src="http://s2.lativ.com.tw/i/Page/images/share/icon_line_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div> <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2"><img src="http://s3.lativ.com.tw/i/Page/images/share/icon_wanted_161121_TW.gif" style="max-width: 220px; width: 100%;"> </div> </div> </div> </div><div class="sim-row" data-id="1-2" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 10px; background-attachment: scroll;"> <div class="sim-row-box"> <div class="sim-row-header"> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-top"> <p class="sim-row-header2-slider-top-title sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(0, 0, 0); font-size: 20px; text-align: center; font-weight: 400; ">春夏熱賣商品</p> </div> </div> </div> </div> </div><div class="sim-row" data-id="2-14" data-type="column-2" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 30px; background-attachment: scroll; "> <div class="sim-row-box flex" style="max-width: 1180px;"> <div class="sim-row-header"> <div class="sim-row-header1-slider"> <div class="sliderleft_right padding1024" edit_bg="2" style="padding-right: 10px;"> <div class="sim-row-header1-slider"> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="images/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40101454/P40101454-63L.jpg) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="padding1024" data-type="image" edit_bg="2" style="padding-left:10px;"> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2"> <img src="images/blank.gif" height="150" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40003725/3-1L.jpg) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-top:10px;"> <img src="images/blank.gif" height="150" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40003725/3-1L.jpg) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> </div> </div> </div> <div class="sliderleft_right padding1024" edit_bg="2" style="padding-left: 10px;"> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="images/blank.gif" height="400" width="100%" style="background: url(&quot;http://pazzo.cloudcdn.tw/meierq/2017ss_items/40002087/1-0-4.jpg&quot;) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> </div> </div> </div> </div> </div><div class="sim-row" data-id="1-2" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 10px; background-attachment: scroll;"> <div class="sim-row-box"> <div class="sim-row-header"> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-top"> <p class="sim-row-header2-slider-top-title sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(0, 0, 0); font-size: 20px; text-align: center; font-weight: 400; ">春夏熱賣商品</p> </div> </div> </div> </div> </div><div class="sim-row" data-id="2-10" data-type="column-2" style=" background-image: none; margin-bottom: 20px; background-attachment: scroll;"> <div class="sim-row-box flex" style="max-width: 1180px;"> <div class="sim-row-header"> <div class="sim-row-header1-slider"> <div class="sliderleft_right sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right: 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201700/P40201700-11L.jpg" style="max-width: 1920px; width: 100%;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="sliderleft_right sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-left: 10px;"><img src="http://pazzo.cloudcdn.tw/pazzo/2016AW_item/w/P40201665/P40201665-11L.jpg" style="max-width: 1920px; width: 100%;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價 <span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px"> 200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> </div> </div> </div> </div><div class="sim-row" data-id="2-11" data-type="column-2" style="background-image: none; background-attachment: scroll; margin-bottom: 30px; "> <div class="sim-row-box flex" style="max-width: 1180px;"> <div class="sim-row-header"> <div class="sim-row-header1-slider"> <div class="sliderleft_right padding1024" edit_bg="2" style="padding-right: 10px;"> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="images/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40003725/3-1L.jpg) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> </div> <div class="sliderleft_right padding1024" edit_bg="2" style="padding-left: 10px;"> <div class="sim-row-header1-slider"> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right:10px;"> <img src="images/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40101454/P40101454-61L.jpg) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-left: 10px;"> <img src="images/blank.gif" height="400" width="100%" style="background: url(http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40101454/P40101454-62L.jpg) center center / cover no-repeat;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> </div> </div> </div> </div> </div> </div><div class="sim-row" data-id="1-2" data-type="column-1" style="position: relative; left: 0px; top: 0px; background-image: none; margin-bottom: 10px; background-attachment: scroll;"> <div class="sim-row-box"> <div class="sim-row-header"> <div class="sim-row-header2-slider"> <div class="sim-row-header2-slider-top"> <p class="sim-row-header2-slider-top-title sim-row-edit MicrosoftJhengHei" data-type="text" style="color: rgb(0, 0, 0); font-size: 20px; text-align: center; font-weight: 400; ">春夏熱賣商品</p> </div> </div> </div> </div> </div><div class="sim-row" data-id="4-11" data-type="column-4" style="position: relative; left: 0px; top: 0px;"> <div class="sim-row-box" style="max-width: 1180px;"> <div class="sim-row-header break1024 flex"> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-right: 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/P40201764-21.jpg" style="max-width: 573px; width: 100%;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding:0 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/P40201764-22.jpg" style="max-width: 573px; width: 100%;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding:0 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/P40201764-24.jpg" style="max-width: 573px; width: 100%;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> <div class="sim-row-edit padding1024" data-type="image" edit_bg="2" style="padding-left: 10px;"> <img src="http://pazzo.cloudcdn.tw/pazzo/2017SS_item/w/P40201764/2-1.jpg" style="max-width: 573px; width: 100%;"> <div class="sliderleft_right pd20px" edit_bg="1" style="background-color:#f7f7f7;"> <p class="sim-row-edit NotoSans" data-type="text" style="text-align: left;color:#7c0000; font-size: 12px">原價<span style="font-family: 'Lato'; font-size:18px;font-weight: bold; padding-left:8px">200</span></p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: left;font-size: 16px">舒適涼感背心</p> <p class="stab-text sim-row-edit NotoSans" data-type="text" style="text-align: right;float: right;color:#7c0000;font-size: 16px;position: absolute;top: 0;right: 0;padding: 20px 20px 0 0;">一件<span style="font-family: 'Lato'; font-size:32px;font-weight: bold">79</span>折</p> </div> </div> </div> </div> </div> 
         </div>
       </div>
     </div>
   </div>
-</div>
 </body>
+
 </html>
