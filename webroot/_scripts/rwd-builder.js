@@ -176,13 +176,21 @@ $(function() {
 								if(isBlankGIF === 0){
 									//替換上IMG
 									big_parent.find('img').removeAttr('style').attr('src', imgSrc)
-									img.onload = function() {
-										var IMGwidth = this.width;
+									//如果圖片有屬性no-zoom表示不用限制最大寬為圖片原始寬度
+									if(typeof big_parent.attr('no-zoom') === 'string'){
 										big_parent.find('img').css({
-											'max-width': IMGwidth,
-											'width': '100%'
-										})
+												'width': '100%'
+											})
+									}else{
+										img.onload = function() {
+											var IMGwidth = this.width;
+											big_parent.find('img').css({
+												'max-width': IMGwidth,
+												'width': '100%'
+											})
+										}									
 									}
+
 								}else{
 									//替換上IMG
 									big_parent.find('img').css('background-image','url("'+$('#sim-edit-image .imageBG').val()+'")');
@@ -613,9 +621,10 @@ $(function() {
 
 		$('.sim-row-changeColor').click(function() {
 
-
-
+			//藍色的按鈕
 			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>往下推：<input class="marginBottom" placeholder="註:螢幕寬小於400px失效" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br><button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>	');
+
+				$('html, body').animate({scrollTop: $('.changeColor-box').offset().top}, 300);
 
 				/*填入值*/
 				var changeColorBox = $(this).next('.changeColor-box')
