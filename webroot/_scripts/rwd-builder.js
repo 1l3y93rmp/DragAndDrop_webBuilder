@@ -154,6 +154,10 @@ $(function() {
 							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
 
 							$('#sim-edit-image .align').val(big_parent.css('text-align'));
+								if(big_parent.closest('[decode="absolute-box"]').length ===1){
+									$('#sim-edit-image .left').val(big_parent.closest('.absolute-contrnt').css('left'));
+									$('#sim-edit-image .top').val(big_parent.closest('.absolute-contrnt').css('top'));
+								}
 
 
 							$('#sim-edit-image .sim-edit-box-buttons-save').one('click', function(e) {
@@ -188,6 +192,12 @@ $(function() {
 												'max-width': IMGwidth,
 												'width': '100%'
 											})
+											// 如果外層的DIV有absolute 也給它一個最大寬
+											if (big_parent.parent().hasClass('absolute-contrnt')) {
+												big_parent.parent('.absolute-contrnt').css({
+													'max-width': IMGwidth
+												})
+											}
 										}									
 									}
 
@@ -217,8 +227,21 @@ $(function() {
 								if (!style) {
 									big_parent.find('img').removeAttr('class');
 								}
+
+								if(big_parent.closest('[decode="absolute-box"]').length ===1){
+									var newLeft = $('#sim-edit-image .left').val(),
+									newTop = $('#sim-edit-image .top').val()
+									big_parent.closest('.absolute-contrnt').css({
+									'left': newLeft,
+									'top': newTop
+								})
+								}
+
+
+
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
+
 							$('#sim-edit-image .sim-edit-box-buttons-cancel').one('click',function(e) {
 								e.preventDefault();
 								e.stopPropagation();
@@ -228,7 +251,7 @@ $(function() {
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 							});
 
-							if(big_parent.closest('.slick').length ===1 || big_parent.closest('.slick-Grouping').length ===1 || big_parent.closest('ul').hasClass('sideBySide')){
+							if(big_parent.closest('.slick').length ===1 || big_parent.closest('.slick-Grouping').length ===1 || big_parent.closest('ul').hasClass('sideBySide') || big_parent.closest('[decode="absolute-box"]').length ===1){
 								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').show()
 								$('#sim-edit-image .sim-edit-box-buttons-add').one('click', function(e) {
 									e.preventDefault();
@@ -237,7 +260,6 @@ $(function() {
 									$(this).parent().parent().parent().fadeOut(500);
 									$(this).parent().parent().slideUp(500);
 									big_parent.parent().after(big_parent.parent().clone(true));
-									//$(this).off();
 										$('.sim-row-edit-hover i').off('click')
 										$('#sim-edit-image .sim-edit-box-buttons-add').off();
 										$('#sim-edit-image .sim-edit-box-buttons-del').off();
@@ -264,9 +286,17 @@ $(function() {
 										$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
 									}
 								})
+								
+								if(big_parent.closest('[decode="absolute-box"]').length ===1){
+									//decode="absolute-box"代表可以操作top left 兩個CSS
+									$('.left_top').show()
+									
+								}else{
+									$('.left_top').hide()
+								}
 
 							}else{
-								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del').hide()
+								$('#sim-edit-image .sim-edit-box-buttons-add,#sim-edit-image .sim-edit-box-buttons-del ,.left_top').hide()
 							}
 
 						} else if (big_parent.attr('data-type') === 'text') {
@@ -283,7 +313,8 @@ $(function() {
 							$('#sim-edit-text .weight').val(big_parent.css('font-weight'));
 							$('#sim-edit-text .bgcolor').val(big_parent.find('span').css('background-color'));
 							$('#sim-edit-text .align').val(big_parent.css('text-align'));
-							$('#sim-edit-text .fonts').val(big_parent.attr('class').split(' ')[2]);
+							$('#sim-edit-text .fonts').val(big_parent.attr('class').split(' ')[1]);
+							console.log(big_parent.attr('class'))
 							$('#sim-edit-text .paddingTop').val(big_parent.css('padding-top'));
 
 
@@ -307,7 +338,7 @@ $(function() {
 									paddingTop = $('#sim-edit-text .paddingTop').val()
 
 								big_parent.html(str);
-								big_parent.removeClass('NotoSans SourceSans SourceSerif MicrosoftJhengHei serif Marcellus Andika Oxygen OpenSans').addClass(newFonts);
+								big_parent.removeClass('NotoSans SourceSans SourceSerif MicrosoftJhengHei serif Marcellus Andika Oxygen OpenSans ReemKufi Crimson').addClass(newFonts);
 								big_parent.css({
 									'color': newColor,
 									'font-size': newSize,
