@@ -313,6 +313,8 @@ $(function() {
 							$('#sim-edit-text .weight').val(big_parent.css('font-weight'));
 							$('#sim-edit-text .bgcolor').val(big_parent.find('span').css('background-color'));
 							$('#sim-edit-text .align').val(big_parent.css('text-align'));
+							$('#sim-edit-text .highlight').val(big_parent.css('line-height'));
+							$('#sim-edit-text .letter-spacing').val(big_parent.css('letter-spacing'));
 							$('#sim-edit-text .fonts').val(big_parent.attr('class').split(' ')[1]);
 							console.log(big_parent.attr('class'))
 							$('#sim-edit-text .paddingTop').val(big_parent.css('padding-top'));
@@ -335,6 +337,8 @@ $(function() {
 									newWeight = $('#sim-edit-text .weight').val(),
 									newAlign = $('#sim-edit-text .align').val(),
 									newBgcolor = $('#sim-edit-text .bgcolor').val(),
+									newLetterSpacing = $('#sim-edit-text .letter-spacing').val(),
+									newHighlight = $('#sim-edit-text .highlight').val(),
 									paddingTop = $('#sim-edit-text .paddingTop').val()
 
 								big_parent.html(str);
@@ -344,7 +348,9 @@ $(function() {
 									'font-size': newSize,
 									'text-align': newAlign,
 									'font-weight': newWeight,
-									'padding-top': paddingTop
+									'padding-top': paddingTop,
+									'letter-spacing': newLetterSpacing,
+									'line-height': newHighlight
 								})
 								if (newBgcolor && big_parent.find('span').length == 0) {
 									big_parent.wrapInner('<span></span>');
