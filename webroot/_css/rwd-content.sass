@@ -468,6 +468,11 @@
   &:hover
     opacity: 0.5
 
+.hoverOpacity100
+  transition: all 0.3s
+  &:hover
+    opacity: 0
+
 .hoverScale12
   transition: all 0.5s
   &:hover
@@ -630,6 +635,8 @@ div[decode="absolute-box"]
 @media only screen and (max-width: 1024px)
   .sim-row-header4-slider
     width: 50%
+  .sim-row-header4-slider.had
+      width: 50% !important
   .sim-row-header3-slider
     width: 100%
   .sim-row-header6-slider
