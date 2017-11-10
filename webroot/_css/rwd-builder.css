@@ -1136,3 +1136,9 @@ div[edit_bg]>a.full {
 #rwd-builder-area-center-frame-content .displaySMALL400 {
   display: block !important;
 }
+
+/*在編輯器中不浮動*/
+
+.sim-row[data-id*="5"] > div[data-type="image"], .sim-row[data-id*="5"] {
+  position: static !important
+}
