@@ -660,7 +660,7 @@ $(function() {
 
 			var isSlick = $(this).siblings('.slick').length === 1 //這個模塊要輪播嗎?
 			var moreOption = ''
-			if (isSlick) {moreOption = '輪播畫面出現幾張：<input class="slidesToShow" value="1" placeholder="請輸入數字" size="20";><br>輪播一次滑動幾張：<input class="slidesToScroll" value="1" placeholder="請輸入數字" size="20";><br>替換圖片漸變時間：<input class="speed" value="300" placeholder="請輸入數字(單位:毫秒)" size="20";><br>每次停留時間：<input class="autoplaySpeed" value="2000" placeholder="請輸入數字(單位:毫秒)" size="20";><br>換圖方式：<select class="fade"><option value="true">圖片往左滑</option><option value="false">圖片淡入淡出</option></select>'}
+			if (isSlick) {moreOption = '輪播畫面出現幾張：<input class="slidesToShow" value="1" placeholder="請輸入數字" size="20";><br>輪播一次滑動幾張：<input class="slidesToScroll" value="1" placeholder="請輸入數字" size="20";><br>替換圖片漸變時間：<input class="speed" value="300" placeholder="請輸入數字(單位:毫秒)" size="20";><br>每次停留時間：<input class="autoplaySpeed" value="2000" placeholder="請輸入數字(單位:毫秒)" size="20";><br>換圖方式：<select class="fade"><option value="true">圖片往左滑</option><option value="false">圖片淡入淡出</option></select><select class="arrows"><option value="false">沒有左右箭頭</option><option value="true">要有左右箭頭</option></select><select class="dots"><option value="false">沒有點點</option><option value="true">要有點點</option></select>'}
 
 			//藍色的按鈕
 			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>往下推：<input class="marginBottom" placeholder="註:螢幕寬小於400px失效" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br>'+moreOption+'<button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>');
@@ -696,7 +696,8 @@ $(function() {
 					$(this).closest('.sim-row').children('.slick').attr({
 						'slidesToShow': $(this).prevAll('.slidesToShow').val(),
 						'slidesToScroll': $(this).prevAll('.slidesToScroll').val(),
-						'fade': $(this).prevAll('.fade').val()
+						'dots': $(this).prevAll('.dots').val(),
+						'arrows': $(this).prevAll('.arrows').val()
 					})
 				}
 
