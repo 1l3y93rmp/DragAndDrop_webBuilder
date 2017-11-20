@@ -1139,6 +1139,7 @@ div[edit_bg]>a.full {
 
 /*在編輯器中不浮動*/
 
-.sim-row[data-id*="5"] > div[data-type="image"], .sim-row[data-id*="5"] {
+.sim-row[data-id^="5"] > div[data-type="image"], .sim-row[data-id^="5"] {
   position: static !important
 }
+
