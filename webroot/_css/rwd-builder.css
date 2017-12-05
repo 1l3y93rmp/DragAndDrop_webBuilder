@@ -489,13 +489,24 @@ a.right_bbutton {
   right: 0px;
   position: absolute;
   color: rgba(102, 102, 102, 1);
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
   transition: all 0.5s;
   opacity: 0;
   text-align: center;
   font-size: 20px;
+}
+
+.ModuleIndex {
+  opacity: 0;
+  padding: 10px;
+  width: 80px;
+  top: 50px;
+  right: 0px;
+  position: absolute;
+  transition: all 0.5s;
+  background-color: rgb(148, 202, 96);
+  color: #fff;
+  line-height: 1.2em;
+  border-radius: 5px 0 0 5px;
 }
 
 .sim-row-changeColor {
@@ -564,13 +575,10 @@ a.right_bbutton {
   color: rgba(255, 255, 255, 1);
 }
 
-.sim-row:hover .sim-row-delete {
+.sim-row:hover .sim-row-delete,.sim-row:hover .sim-row-changeColor ,.sim-row:hover .ModuleIndex {
   opacity: 1;
 }
 
-.sim-row:hover .sim-row-changeColor {
-  opacity: 1;
-}
 
 .sim-row-edit {
   position: relative;

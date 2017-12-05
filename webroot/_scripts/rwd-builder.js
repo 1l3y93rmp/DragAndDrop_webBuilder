@@ -7,6 +7,7 @@ $(function() {
 
 		add_delete();
 		perform_delete();
+		changeIndex;
 		perform_changeColor();
 
 
@@ -33,8 +34,11 @@ $(function() {
 					$('#rwd-builder-area-center-frame-content').append($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').removeAttr('ex').clone());
 
 					$('html, body').animate({scrollTop: $('html, body').height()-window.innerHeight}, 300);
+
+					console.log($(this))
 					add_delete();
 					perform_delete();
+					changeIndex();
 					perform_changeColor();
 					var pancilBox = $('#rwd-builder-area-center-frame-content>.sim-row:last .sim-row-edit');
 
@@ -625,7 +629,13 @@ $(function() {
 
 		//Drag & Drop
 		$('#rwd-builder-area-center-frame-content').sortable({
-			revert: true
+			revert: true,
+			deactivate: function() { // 在移動順序結束後 重新呈現一次新的順位
+				var allSimRow = $('#rwd-builder-area-center-frame-content > .sim-row').length
+				for (var i = 0 ; i < allSimRow ; i++) {
+					$('.rightCtrl .ModuleIndexIs').eq(i).val(i)
+				}
+			}
 		});
 
 
@@ -638,22 +648,27 @@ $(function() {
 
 
 
-	//Delete
-	function add_delete() {
-		$('#rwd-builder-area-center-frame-content .sim-row').removeClass('rwd-builder-area-center-frame-buttons-content-tab').append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="sim-row-changeColor">背景設定(橫的整塊)</div>');
+	//Delete (加入控制的刪除 順位 背景顏色鈕)
+	function add_delete() { // 這個會不斷的重複直行在每一次加入新模塊進到頁面的同時
+		$('.rightCtrl').remove();
 
-		
+		var allSimRow = $('#rwd-builder-area-center-frame-content > .sim-row').length
+		$('#rwd-builder-area-center-frame-content .sim-row').removeClass('rwd-builder-area-center-frame-buttons-content-tab').append('<div class="rightCtrl"><div class="sim-row-delete"><i class="fa fa-times" ></i></div><div class="ModuleIndex">模塊順位<input type="text" size="2" class="ModuleIndexIs"></div><div class="sim-row-changeColor">背景設定(橫的整塊)</div></div>');
+
+		for (var i = 0 ; i < allSimRow ; i++) {
+			$('.rightCtrl .ModuleIndexIs').eq(i).val(i)
+		}
 	}
 
-
+	//刪除動作
 	function perform_delete() {
 		$('.sim-row-delete').click(function() {
-			$(this).parent().remove();
+			$(this).closest('.sim-row').remove();
 		});
 
 	}
 
-
+	//改變背景顏色動作
 	function perform_changeColor() {
 
 		$('.sim-row-changeColor').click(function() {
@@ -734,6 +749,39 @@ $(function() {
 
 	}
 
+	//替換順位動作
+	function changeIndex() {
+		$('.ModuleIndexIs').keyup(function(event) {
+			
+			if (event.key === 'Enter') {
+				var oldIndex = $('.ModuleIndexIs').index( this )
+				var all = $('#rwd-builder-area-center-frame-content .sim-row').length
+				var val = $(this).val()
+				console.log(val)
+				if (val >= all) {
+					val = all-1
+				} 
+				if (oldIndex === val) {
+					return
+				}
+
+				if (oldIndex > val) { // 上移
+					$('#rwd-builder-area-center-frame-content .sim-row').eq(val).before( $(this).closest('.sim-row'));
+				} else { // 下移
+					$('#rwd-builder-area-center-frame-content .sim-row').eq(val).after( $(this).closest('.sim-row'));
+				}
+					
+				
+				console.log($(this).closest('.sim-row'))
+				var allSimRow = $('#rwd-builder-area-center-frame-content > .sim-row').length
+				for (var i = 0 ; i < allSimRow ; i++) {
+					$('.rightCtrl .ModuleIndexIs').eq(i).val(i)
+				}
+			}
+		});
+	}
+
+
 	//Inport
 	$('#rwd-buttons-impote').click(function() {
 		$('#sim-edit-import').fadeIn(500);
@@ -765,8 +813,10 @@ $(function() {
 			$('html, body').animate({scrollTop: $('.new').offset().top}, 300);
 			$('#rwd-builder-area-center-frame-content>.new').removeClass('new')
 
+			
 			add_delete();
 			perform_delete();
+			changeIndex();
 			perform_changeColor();
 			$('#sim-edit-import .sim-edit-box-buttons-save').off()
 
@@ -785,15 +835,35 @@ $(function() {
 		$('#sim-edit-export').fadeIn(500);
 		$('#sim-edit-export .sim-edit-box').slideDown(500);
 
-		//把東西複製進去 然後再逐個刪除不需要的東西
+		
+		// 複製之前先 整理一下(因為這邊用到高度去判別，如果到export裏面會都扁到)
+		// 檢察一下有沒有扁掉的sim-row模塊 扁掉的要移除...(代表為廢碼)
+		var allSimRow = $('#rwd-builder-area-center-frame-content .sim-row').length
+		for (var i = 0 ; i < allSimRow ; i++) {
+			var thisSim = $('#rwd-builder-area-center-frame-content .sim-row').eq(i)
+			var thisHighr = thisSim.height()
+			console.log(thisHighr)
+			if (thisHighr === 0 ) {
+				thisSim.addClass('goRemove')
+			}
+		}
+		$('#rwd-builder-area-center-frame-content .goRemove').remove();
+
+		// 因為剛剛有刪除異動了length 所以重抓一次
+		allSimRow = $('#rwd-builder-area-center-frame-content > .sim-row').length		
+		for (var i = 0 ; i < allSimRow ; i++) {
+			$('.rightCtrl .ModuleIndexIs').eq(i).val(i)
+		}
+
+		//開始把東西複製進去 然後再逐個刪除不需要的東西
 		$('#rwd-preloaded-export').html($('#rwd-builder-area-center-frame-content').html());
 		$('#rwd-preloaded-export>#rwd-builder-area-center-frame-content').unwrap();
 
 
-
-		$('#rwd-preloaded-export .sim-row-delete,#rwd-preloaded-export .sim-row-changeColor,#rwd-preloaded-export .edit-changeColor').remove();
+		$('#rwd-preloaded-export .rightCtrl').remove();
 		$('#rwd-preloaded-export .sim-row').removeClass('ui-draggable');
-		console.log()
+
+
 
 		var imglinkattr = $('#rwd-preloaded-export .sim-row').find('.imglink'),
 				imglinklength = $('#rwd-preloaded-export .sim-row').find('.imglink').length;
@@ -829,7 +899,7 @@ $(function() {
 
 
 		$('#rwd-preloaded-export').html($('#rwd-builder-area-center-frame-content').html());
-		$('#rwd-preloaded-export .sim-row-delete,#rwd-preloaded-export .sim-row-changeColor,#rwd-preloaded-export .edit-changeColor').remove();
+		$('.rightCtrl').remove();
 		$('#rwd-preloaded-export .sim-row').removeClass('ui-draggable');
 		$('#rwd-preloaded-export .sim-row-edit').removeAttr('data-type');
 		$('#rwd-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
