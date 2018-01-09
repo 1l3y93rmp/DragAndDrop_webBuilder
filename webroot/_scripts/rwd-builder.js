@@ -261,15 +261,12 @@ $(function() {
 									big_parent.find('img').addClass('hoverOpacity0').wrap('<span class="bgspan"></span>')
 									big_parent.find('span.bgspan').css('background', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
 								} else {
-									
 									big_parent.find('span.bgspan').find('img').unwrap('span')
-									console.log(big_parent.find('img'))
 									big_parent.find('img').removeClass('hoverOpacity0')
 									console.log('有開啟功能/但是沒有輸入 刪除＿hoverOpacity0')
 								}
 								
-
-								big_parent.find('img').removeClass().addClass(style);
+								big_parent.find('img').removeClass().addClass(style)
 
 								if ($('#sim-edit-image .link').val().length != 0) {
 									//如果有A包住圖片 CLASS統一寫在圖片上
@@ -372,13 +369,13 @@ $(function() {
 							}
 
 						} else if (big_parent.attr('data-type') === 'text') {
-							console.log('data-type=text')
+							// console.log('data-type=text')
 
 							$('#sim-edit-text').fadeIn(500);
 							$('#sim-edit-text .sim-edit-box').slideDown(500);
 
 							big_parent.find('.sim-row-edit-hover').remove()
-							console.log(big_parent.html())
+							// console.log(big_parent.html())
 							$('#sim-edit-text .text').val(big_parent.html());
 							$('#sim-edit-text .color').val(big_parent.css('color'));
 							$('#sim-edit-text .size').val(big_parent.css('font-size'));
@@ -388,7 +385,7 @@ $(function() {
 							$('#sim-edit-text .highlight').val(big_parent.css('line-height'));
 							$('#sim-edit-text .letter-spacing').val(big_parent.css('letter-spacing'));
 							$('#sim-edit-text .fonts').val(big_parent.attr('class').split(' ')[1]);
-							console.log(big_parent.attr('class'))
+							// console.log(big_parent.attr('class'))
 							$('#sim-edit-text .paddingTop').val(big_parent.css('padding-top'));
 
 
