@@ -127,11 +127,9 @@
             </p>
       </div>
   </div>
-  <div class="sim-row" data-id="1-9" ex="[PZ MC22專用]使用IG TAG牆" data-type="column-1">
+  <div class="sim-row" data-id="1-9" ex="首頁IG TAG牆" data-type="column-1">
     <div id="IGbox"><p style="min-height:30px;     text-align: center">[MC22專用]使用IG TAG牆(首頁一次只能用一個)</p></div>
   </div>
-
-
 
   <div class="sim-row" data-id="1-10" ex="圖片的上面印字(靠近底下)"  data-type="column-1">
     <div class="sim-row-box">
@@ -161,6 +159,25 @@
     </div>
   </div>
 
+  <div class="sim-row" data-id="1-12" ex="動畫效果：疊在下面一塊上並且３秒往上位移淡入，只播放一次" data-type="column-1">
+    <style>
+    @keyframes fadin-upIs {
+      to {
+      opacity: 1;
+      margin-top: 0px
+      }
+      }
+      .fadin-up {	animation: fadin-upIs 2s ease-out 1 forwards;	position: absolute;	right: 0;	top: 0;	opacity: 0;	z-index: 5;	margin-top: 50px
+      }  
+    </style>
+      <div class="sim-row-box fadin-up">
+        <div class="sim-row-header">
+          <div class="sim-row-edit" data-type="image">
+            <img src="images/imgbox.ai.svg">
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div class="sim-row" data-id="2-1" ex="" data-type="column-2">
     <div class="sim-row-box flex">
@@ -175,6 +192,30 @@
     </div>
   </div>
 
+  <div class="sim-row" data-id="1-13" ex="游標在這個區塊內，圖片就會越來越大直到滿版，手機板沒有用" data-type="column-1">
+    <style>
+      @keyframes Bigger {
+        to {
+        width: 100%;
+        margin: 0 0
+        }
+      }
+      .BiggerImg a>img, .BiggerImg img{	max-width: 100%;	width: 50%;	margin: 200px 0;	animation: Bigger 3s ease-out 1 paused forwards;
+      }
+      .BiggerImg:hover a>img , .BiggerImg:hover img {	animation-play-state: running
+      }
+      @media (max-width: 1024px){
+        .BiggerImg a>img ,.BiggerImg img{	animation: none;	width: 100%;	border: none;	margin: 0}
+      }
+    </style>
+      <div class="sim-row-box BiggerImg">
+        <div class="sim-row-header">
+          <div nosetthewidth class="sim-row-edit" data-type="image">
+            <img src="images/imgbox.ai.svg">
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div class="sim-row" data-id="2-2" ex="" data-type="column-2">
     <div class="sim-row-box flex">
@@ -1386,24 +1427,48 @@
       </div>
     </div>
   </div>
-  <div class="sim-row displayBIG900" data-id="4-16" ex="[GQ專用]四張圖片有灰色線區隔 只有在視窗寬900以上看的到" data-type="column-4" style="background-image: none; margin-bottom: 50px; background-attachment: scroll; position: relative; left: 0px; top: 0px; ">
-    <div class="sim-row-box" style="max-width: 1180px;">
-      <div class="sim-row-header sim-row-header50 flex">
-        <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;">
-          <img src="http://s3.lativ.com.tw/i/Page/images/share/icon_down_161121_TW.gif" style="max-width: 220px; width: 100%;">
+  <div class="sim-row" data-id="4-16" ex="連結按鈕並列"  data-type="column-4">
+    <style>
+      .inlineStyle span{
+        display: inline-block;
+        text-align: center;
+        margin: 5px;
+        font-size: 14px
+      }
+      .inlineStyle a {
+        display: block;
+        padding: 30px 40px;
+      }
+      a.v {
+        padding: 30px 40px 0px 40px;
+      }
+      a.v::after {
+        content: "";
+        border: 1px solid #FFF;
+        text-indent: -9999px;
+        width: auto;
+        height: auto;
+        border-left: none;
+        border-bottom: none;
+        display: block;
+        width: 5px;
+        height: 5px;
+        transform: rotate(135deg);
+        margin: 15px auto;}
+    </style>
+    <div class="sim-row-box">
+        <div class="sim-row-header inlineStyle">
+          <span class="sim-row-edit" data-type="text">
+            <a class="v" href="#" >
+              Sale
+            </a>
+          </span>
+          <span class="sim-row-edit" data-type="text">
+            <a class="v" href="#">
+              Dresses
+            </a>
+          </span>
         </div>
-        <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;">
-          <img src="http://s1.lativ.com.tw/i/Page/images/share/icon_fb_161121_TW.gif" style="max-width: 220px; width: 100%;">
-        </div>
-      </div>
-      <div class="sim-row-header sim-row-header50 flex">
-        <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2" style=" border-right: 1px solid #cecece;">
-          <img src="http://s2.lativ.com.tw/i/Page/images/share/icon_line_161121_TW.gif" style="max-width: 220px; width: 100%;">
-        </div>
-        <div class="sim-row-header4-slider sim-row-edit" data-type="image" edit_bg="2">
-          <img src="http://s3.lativ.com.tw/i/Page/images/share/icon_wanted_161121_TW.gif" style="max-width: 220px; width: 100%;">
-        </div>
-      </div>
     </div>
   </div>
 

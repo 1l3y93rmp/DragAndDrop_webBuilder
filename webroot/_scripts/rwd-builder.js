@@ -221,6 +221,7 @@ $(function() {
 								//將該圖片的寬設置成最大寬度
 								//在JS中載入圖片並取得該寬度~
 								//此動作只有在圖片SRC並非透明blank.gif才使用
+								//或是如果圖片上被加上了noSetTheSidth的Class的時候
 								if(isBlankGIF === 0){
 									//替換上IMG
 									big_parent.find('img').removeAttr('style').attr('src', imgSrc)
@@ -229,6 +230,8 @@ $(function() {
 										big_parent.find('img').css({
 												'width': '100%'
 											})
+									}else if(typeof big_parent.attr('nosetthewidth') === 'string') {
+										console.log('不設定CSS')
 									}else{
 										img.onload = function() {
 											var IMGwidth = this.width;
@@ -852,14 +855,11 @@ $(function() {
 	$('#rwd-buttons-impote').click(function() {
 		$('#sim-edit-import').fadeIn(500);
 		$('#sim-edit-import .sim-edit-box').slideDown(500);
-
-
-
 		$('#sim-edit-import .sim-edit-box-buttons-save').on('click',function(){
 
 			var importText = $('#sim-edit-import .text').val();
 			if(!/^\s*[<]{1}.*[>]{1}\s*$/m.test(importText)){
-				alert('只能匯入Html啦 (‘⊙д⊙)');
+				alert('只能匯入Html喔，不行匯入請注意看看是不是HTML碼最前面是否有空格');
 				return ;
 			}
 
@@ -948,12 +948,12 @@ $(function() {
 		//所有內容
 		//修正
 
-    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '').replace(/\s(?=\s)/g, '')
+    preload_export_html = preload_export_html.replace(/style=""/g, '').replace(/max-width:\snone;/g, '').replace(/min-height:\s0px;/g, '').replace(/min-height:\s0px;/g, '').replace(/background-image: url\(&quot;none&quot;\);/g, '').replace(/background-image:\surl\(&quot;&quot;\);/g, '').replace(/padding-top:\s0px;/g, '').replace(/background-color:\srgba\(0,\s0,\s0,\s0\);/g, '').replace(/\s(?=\s)/g, '').replace(/&quot;/g, '')
 
 		$('#sim-edit-export .text').val(preload_export_html);//把值填寫到val內
 
 
-		$('#rwd-preloaded-export').html(' '); //把複製進去的東西挖空
+		$('#rwd-preloaded-export').html(''); //把複製進去的東西挖空
 
 		$('#sim-edit-export .sim-edit-box-buttons-cancel').one('click',function(){
 			$(this).closest('.sim-edit-box').parent().fadeOut(500)
@@ -965,7 +965,9 @@ $(function() {
 
 
 		$('#rwd-preloaded-export').html($('#rwd-builder-area-center-frame-content').html());
-		$('.rightCtrl').remove();
+
+
+		$('#rwd-preloaded-export .rightCtrl').remove();
 		$('#rwd-preloaded-export .sim-row').removeClass('ui-draggable');
 		$('#rwd-preloaded-export .sim-row-edit').removeAttr('data-type');
 		$('#rwd-preloaded-export .sim-row-edit').removeClass('sim-row-edit');
@@ -993,10 +995,5 @@ $(function() {
 
 		$('#rwd-preloaded-export').html(' '); //把複製進去的東西挖空
 	});
-
-
-
-
-
 
 });

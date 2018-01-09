@@ -1,7 +1,9 @@
 body {
   margin: 0px;
   padding: 0px;
-  background: url(../images/blueprint.png);
+  /*background: url(../images/blueprint.png);*/
+  background-color: #242424;
+  background-image: url(../images/graphy.png)
 }
 
 #header {
@@ -493,6 +495,7 @@ a.right_bbutton {
   opacity: 0;
   text-align: center;
   font-size: 20px;
+  z-index: 11;
 }
 
 .ModuleIndex {
@@ -507,6 +510,7 @@ a.right_bbutton {
   color: #fff;
   line-height: 1.2em;
   border-radius: 5px 0 0 5px;
+  z-index: 10;
 }
 
 .sim-row-changeColor {
@@ -1147,7 +1151,7 @@ div[edit_bg]>a.full {
 
 /*在編輯器中不浮動*/
 
-.sim-row[data-id^="5"] > div[data-type="image"], .sim-row[data-id^="5"] {
+.sim-row[data-id^="5"] > div[data-type="image"], .sim-row[data-id^="5"],.sim-row .fadin-up{
   position: static !important
 }
 
