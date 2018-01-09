@@ -119,6 +119,9 @@ $(function() {
 		console.log('所有編輯面板已被載入')
 	});
 
+
+
+
 		//pancilBox有兩種傳入的值 1.預設直接載入在Contend的 2.新被複製出現的
 		function hover_edit (pancilBox){
 			//當sim-row-edit被滑入出現鉛筆按鈕
@@ -134,9 +137,32 @@ $(function() {
 					$('.sim-row-edit-hover i').one('click', function(e) {
 						e.preventDefault();
 						e.stopPropagation();
+
+
+
 						big_parent = $(this).parent().parent();
 						//edit image
 						if (big_parent.attr('data-type') === 'image') {
+							var hoverKeyCode = [72, 79, 86, 69, 82]
+							var testKeyCode = false
+							var testFrequency = 0
+							var hoverFeatures
+							var spanSrcis = big_parent.find('span.bgspan').length;
+							
+							var whichButton = function (event) {
+								console.log(event.keyCode)
+								if(event.keyCode === hoverKeyCode[testFrequency] ){
+									testFrequency++
+								} else {
+									testFrequency = 0
+								}
+								if (testFrequency === hoverKeyCode.length) {
+									alert('你成功打開游標hover效果設定功能了，請在"另一張圖"的欄位放上你要呈現相同大小的另外一張圖 PS:如果你不想要這個效果請在"另一張圖"的欄位上留下空白')
+									hoverFeatures = true
+									$('[type="spanSrc"]').show()
+									$('body').off('keyup', whichButton)
+								}
+							}
 							var isBlankGIF = big_parent.find('img[src="img/blank.gif"]').length;
 							if(isBlankGIF === 0){
 								console.log('異動圖片SRC')
@@ -145,24 +171,41 @@ $(function() {
 							}else{
 								console.log('異動圖片背景')
 								$('[type="src"]').hide()
-								$('[type="BGsrc"]').show()	
+								$('[type="BGsrc"]').show()
 							}
+							
+
 
 							$('#sim-edit-image').fadeIn(500);
 							$('#sim-edit-image .sim-edit-box').slideDown(500);
 
 							$('#sim-edit-image .image').val(big_parent.find('img').attr('src'));
 							$('#sim-edit-image .imageBG').val(big_parent.find('img').css('background-image').split('"')[1]);
+
+							
 							$('#sim-edit-image .link').val(big_parent.find('a.imglink').attr('href'));
 							$('#sim-edit-image .target').val(big_parent.find('a.imglink').attr('target'));
 							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
 
 							$('#sim-edit-image .align').val(big_parent.css('text-align'));
-								if(big_parent.closest('[decode="absolute-box"]').length ===1){
+							if(big_parent.closest('[decode="absolute-box"]').length ===1){
 									$('#sim-edit-image .left').val(big_parent.closest('.absolute-contrnt').css('left'));
 									$('#sim-edit-image .top').val(big_parent.closest('.absolute-contrnt').css('top'));
 								}
+							
+							if (spanSrcis === 0) {
+								//如果Span不存在 開始偵聽有沒有輸入密技
+								$('body').on('keyup', whichButton)
+								$('[type="spanSrc"]').hide()
+								$('#sim-edit-image .spanSrc').val('')
+								console.log('如果Span不存在 開始偵聽有沒有輸入密技')
+							} 
 
+							if (spanSrcis === 1) { // 如果Span存在 那麼需要添加
+								hoverFeatures = false
+								$('body').off('keyup', whichButton)
+								$('#sim-edit-image .spanSrc').val(big_parent.find('span.bgspan').css('background').split('"')[1]);
+							}
 
 							$('#sim-edit-image .sim-edit-box-buttons-save').one('click', function(e) {
 								e.preventDefault();
@@ -174,9 +217,6 @@ $(function() {
 
 								$(this).parent().parent().parent().fadeOut(500)
 								$(this).parent().parent().slideUp(500)
-
-
-
 
 								//將該圖片的寬設置成最大寬度
 								//在JS中載入圖片並取得該寬度~
@@ -212,20 +252,44 @@ $(function() {
 								}
 
 
+
 								var style = $('#sim-edit-image .style').val(),
 										align = $('#sim-edit-image .align').val();
+
+								if ($('#sim-edit-image .spanSrc').val().length !== 0) {
+									
+									big_parent.find('img').addClass('hoverOpacity0').wrap('<span class="bgspan"></span>')
+									big_parent.find('span.bgspan').css('background', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
+								} else {
+									
+									big_parent.find('span.bgspan').find('img').unwrap('span')
+									console.log(big_parent.find('img'))
+									big_parent.find('img').removeClass('hoverOpacity0')
+									console.log('有開啟功能/但是沒有輸入 刪除＿hoverOpacity0')
+								}
+								
+
 								big_parent.find('img').removeClass().addClass(style);
 
 								if ($('#sim-edit-image .link').val().length != 0) {
 									//如果有A包住圖片 CLASS統一寫在圖片上
-									big_parent.find('img').wrap('<a class="imglink"></a>');
+									if (big_parent.find('span.bgspan').length != 0) {
+										// 如果說已經被上面的span包過了，就把a改包在Span上面
+										big_parent.find('span.bgspan').wrap('<a class="imglink"></a>')
+									} else {
+										big_parent.find('img').wrap('<a class="imglink"></a>')
+									}
 									big_parent.find('a.imglink').attr({
 										'href': $('#sim-edit-image .link').val(),
 										'target': $('#sim-edit-image .target').val()
 									})
 								} else {
 									//如果沒有A
-									big_parent.find('a.imglink').find('img').unwrap()
+									if (big_parent.find('span.bgspan').length != 0){
+										big_parent.find('a.imglink').find('span.bgspan').unwrap('a')
+									} else {
+										big_parent.find('a.imglink').find('img').unwrap('a')
+									}
 								};
 
 								if (!style) {
@@ -244,6 +308,7 @@ $(function() {
 
 
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+								$('body').off(whichButton)
 							});
 
 							$('#sim-edit-image .sim-edit-box-buttons-cancel').one('click',function(e) {
@@ -253,6 +318,7 @@ $(function() {
 								$(this).closest('.sim-edit-box').slideUp(500)
 								$('#sim-edit-image .sim-edit-box-buttons-save').off();
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+								$('body').off(whichButton)
 							});
 
 							if(big_parent.closest('.slick').length ===1 || big_parent.closest('.slick-Grouping').length ===1 || big_parent.closest('ul').hasClass('sideBySide') || big_parent.closest('[decode="absolute-box"]').length ===1){
@@ -269,6 +335,7 @@ $(function() {
 										$('#sim-edit-image .sim-edit-box-buttons-del').off();
 										$('#sim-edit-image .sim-edit-box-buttons-save').off();
 										$('#sim-edit-image .sim-edit-box-buttons-cancel').off();
+										$('body').off(whichButton)
 								})
 								$('#sim-edit-image .sim-edit-box-buttons-del').one('click', function(e) {
 									e.preventDefault();
@@ -288,6 +355,7 @@ $(function() {
 										$(this).parent().parent().parent().fadeOut(500);
 										$(this).parent().parent().slideUp(500);
 										$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
+										$('body').off(whichButton)
 									}
 								})
 								
@@ -673,7 +741,8 @@ $(function() {
 
 		$('.sim-row-changeColor').click(function() {
 
-			var isSlick = $(this).siblings('.slick').length === 1 //這個模塊要輪播嗎?
+			var isSlick = $(this).parent('.rightCtrl').siblings('.slick').length === 1 //這個模塊要輪播嗎?
+			
 			var moreOption = ''
 			if (isSlick) {moreOption = '輪播畫面出現幾張：<input class="slidestoshow" value="1" placeholder="請輸入數字" size="20";><br>輪播一次滑動幾張：<input class="slidestoscroll" value="1" placeholder="請輸入數字" size="20";><br>替換圖片漸變時間：<input class="speed" value="300" placeholder="請輸入數字(單位:毫秒)" size="20";><br>每次停留時間：<input class="autoplayspeed" value="2000" placeholder="請輸入數字(單位:毫秒)" size="20";><br>換圖方式：<select class="fade"><option value="true">圖片往左滑</option><option value="false">圖片淡入淡出</option></select><select class="arrows"><option value="false">沒有左右箭頭</option><option value="true">要有左右箭頭</option></select><select class="dots"><option value="false">沒有點點</option><option value="true">要有點點</option></select>'}
 
