@@ -137,9 +137,6 @@ $(function() {
 					$('.sim-row-edit-hover i').one('click', function(e) {
 						e.preventDefault();
 						e.stopPropagation();
-
-
-
 						big_parent = $(this).parent().parent();
 						//edit image
 						if (big_parent.attr('data-type') === 'image') {
@@ -271,6 +268,8 @@ $(function() {
 								
 								big_parent.find('img').removeClass().addClass(style)
 
+								console.log($('#sim-edit-image .link').val())
+
 								if ($('#sim-edit-image .link').val().length != 0) {
 									//如果有A包住圖片 CLASS統一寫在圖片上
 									if (big_parent.find('span.bgspan').length != 0) {
@@ -286,9 +285,9 @@ $(function() {
 								} else {
 									//如果沒有A
 									if (big_parent.find('span.bgspan').length != 0){
-										big_parent.find('a.imglink').find('span.bgspan').unwrap('a')
+										big_parent.find('a.imglink').find('span.bgspan').unwrap('a.imglink')
 									} else {
-										big_parent.find('a.imglink').find('img').unwrap('a')
+										big_parent.find('img').unwrap('a.imglink')
 									}
 								};
 
@@ -304,11 +303,8 @@ $(function() {
 									'top': newTop
 								})
 								}
-
-
-
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
-								$('body').off(whichButton)
+								$('body').off('keyup', whichButton)
 							});
 
 							$('#sim-edit-image .sim-edit-box-buttons-cancel').one('click',function(e) {
@@ -318,7 +314,7 @@ $(function() {
 								$(this).closest('.sim-edit-box').slideUp(500)
 								$('#sim-edit-image .sim-edit-box-buttons-save').off();
 								$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
-								$('body').off(whichButton)
+								$('body').off('keyup', whichButton)
 							});
 
 							if(big_parent.closest('.slick').length ===1 || big_parent.closest('.slick-Grouping').length ===1 || big_parent.closest('ul').hasClass('sideBySide') || big_parent.closest('[decode="absolute-box"]').length ===1){
@@ -335,7 +331,7 @@ $(function() {
 										$('#sim-edit-image .sim-edit-box-buttons-del').off();
 										$('#sim-edit-image .sim-edit-box-buttons-save').off();
 										$('#sim-edit-image .sim-edit-box-buttons-cancel').off();
-										$('body').off(whichButton)
+										$('body').off('keyup', whichButton)
 								})
 								$('#sim-edit-image .sim-edit-box-buttons-del').one('click', function(e) {
 									e.preventDefault();
@@ -355,7 +351,7 @@ $(function() {
 										$(this).parent().parent().parent().fadeOut(500);
 										$(this).parent().parent().slideUp(500);
 										$('.sim-row-edit-hover i,.sim-edit-box-buttons-del,.sim-edit-box-buttons-add,.sim-edit-box-buttons-cancel,.sim-edit-box-buttons-save').off('click')
-										$('body').off(whichButton)
+										$('body').off('keyup', whichButton)
 									}
 								})
 								
@@ -383,7 +379,7 @@ $(function() {
 							$('#sim-edit-text .color').val(big_parent.css('color'));
 							$('#sim-edit-text .size').val(big_parent.css('font-size'));
 							$('#sim-edit-text .weight').val(big_parent.css('font-weight'));
-							$('#sim-edit-text .bgcolor').val(big_parent.find('span').css('background-color'));
+							$('#sim-edit-text .bgcolor').val(big_parent.css('background-color'));
 							$('#sim-edit-text .align').val(big_parent.css('text-align'));
 							$('#sim-edit-text .highlight').val(big_parent.css('line-height'));
 							$('#sim-edit-text .letter-spacing').val(big_parent.css('letter-spacing'));
@@ -422,15 +418,10 @@ $(function() {
 									'font-weight': newWeight,
 									'padding-top': paddingTop,
 									'letter-spacing': newLetterSpacing,
-									'line-height': newHighlight
-								})
-								if (newBgcolor && big_parent.find('span').length == 0) {
-									big_parent.wrapInner('<span></span>');
-								}
-
-								big_parent.find('span').css({
+									'line-height': newHighlight,
 									'background-color': newBgcolor
 								})
+
 								$(this).off();
 								$('#sim-edit-text .sim-edit-box-buttons-add').off();
 								$('#sim-edit-text .sim-edit-box-buttons-del').off();
@@ -867,7 +858,19 @@ $(function() {
 			$newImportText = $(importText).addClass('new')
 
 			$('#rwd-builder-area-center-frame-content').append($newImportText)
-			
+			/* 這裡特別真對PZ的News做資料的調整 */
+			var $simRow51 = $('#rwd-builder-area-center-frame-content .sim-row[data-id="5-1"]')
+			console.log($simRow51)
+			console.log($simRow51.length)
+			if ($simRow51.length === 1) {
+				$simRow51.prepend('<p class="sim-row-edit" data-type="text" style="line-height: 1.6em;"></p>')
+				$simRow51.children('p').css({
+					'background-color':$simRow51.attr('data-titlebgcolor'),
+					'color':$simRow51.attr('data-titlecolor')
+				})
+				$simRow51.children('p').html($simRow51.attr('data-title')+'<br>'+$simRow51.attr('data-subtitle'))
+			}
+
 
 			$('#sim-edit-import .text').val('')
 			$(this).closest('.sim-edit-box').parent().fadeOut(500)
@@ -878,6 +881,8 @@ $(function() {
 			hover_edit_BG($('#rwd-builder-area-center-frame-content>.sim-row.new [edit_BG]'));
 			$('html, body').animate({scrollTop: $('.new').offset().top}, 300);
 			$('#rwd-builder-area-center-frame-content>.new').removeClass('new')
+
+			
 
 			
 			add_delete();
@@ -929,6 +934,17 @@ $(function() {
 		$('#rwd-preloaded-export .rightCtrl').remove();
 		$('#rwd-preloaded-export .sim-row').removeClass('ui-draggable');
 
+		/* 這裡特別真對PZ的News做資料的調整 */
+		var $simRow51 = $('#rwd-preloaded-export .sim-row[data-id="5-1"]')
+		console.log($simRow51.length)
+		if ($simRow51.length === 1) {
+			$simRow51.attr('data-title',$simRow51.children('p').html().split('<br>')[0])
+			$simRow51.attr('data-subtitle',$simRow51.children('p').html().split('<br>')[1]?$simRow51.children('p').html().split('<br>')[1]:'')
+			$simRow51.attr('data-titlebgcolor',$simRow51.children('p').css('background-color'))
+			$simRow51.attr('data-titlecolor',$simRow51.children('p').css('color'))
+			$simRow51.children('p').remove()
+		}
+		
 
 
 		var imglinkattr = $('#rwd-preloaded-export .sim-row').find('.imglink'),
