@@ -157,6 +157,7 @@ $(function() {
 									alert('你成功打開游標hover效果設定功能了，請在"另一張圖"的欄位放上你要呈現相同大小的另外一張圖 PS:如果你不想要這個效果請在"另一張圖"的欄位上留下空白')
 									hoverFeatures = true
 									$('[type="spanSrc"]').show()
+									$('#sim-edit-image .style').val($('#sim-edit-image .style').val() + ' hoverOpacity0');
 									$('body').off('keyup', whichButton)
 								}
 							}
@@ -257,8 +258,7 @@ $(function() {
 										align = $('#sim-edit-image .align').val();
 
 								if ($('#sim-edit-image .spanSrc').val().length !== 0) {
-									
-									big_parent.find('img').addClass('hoverOpacity0').wrap('<span class="bgspan"></span>')
+									big_parent.find('img').wrap('<span class="bgspan"></span>')
 									big_parent.find('span.bgspan').css('background', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
 								} else {
 									big_parent.find('span.bgspan').find('img').unwrap('span')

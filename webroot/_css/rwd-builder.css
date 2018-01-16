@@ -1155,3 +1155,11 @@ div[edit_bg]>a.full {
   position: static !important
 }
 
+#rwd-builder-area-center-frame-content .sim-row[data-id^="5"]{
+  position: relative !important;
+  left:auto;
+  bottom:auto;
+  top: auto;
+  right: top;
+}
+
