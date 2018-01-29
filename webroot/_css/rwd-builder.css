@@ -1151,7 +1151,7 @@ div[edit_bg]>a.full {
 
 /*在編輯器中不浮動*/
 
-.sim-row[data-id^="5"] > div[data-type="image"], .sim-row[data-id^="5"],.sim-row .fadin-up{
+.sim-row[data-id^="5"] > div[data-type="image"], .sim-row[data-id^="5"],.sim-row .fadin-up,div[data-id="1-2"] p.sim-row-edit{
   position: static !important
 }
 

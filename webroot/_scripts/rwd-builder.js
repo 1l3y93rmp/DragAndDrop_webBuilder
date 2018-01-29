@@ -31,7 +31,7 @@ $(function() {
 
 					//++鈕按下後 把模板內的東西複製加入到畫面當中(別把說明文字也複製了所以刪除!)
 
-					$('#rwd-builder-area-center-frame-content').append($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').removeAttr('ex').clone());
+					$('#rwd-builder-area-center-frame-content').append($('#rwd-preloaded-rows .sim-row[data-id="' + $(this).parent().attr('data-id') + '"]').clone().removeAttr('ex'));
 
 					$('html, body').animate({scrollTop: $('html, body').height()-window.innerHeight}, 300);
 
@@ -171,8 +171,6 @@ $(function() {
 								$('[type="src"]').hide()
 								$('[type="BGsrc"]').show()
 							}
-							
-
 
 							$('#sim-edit-image').fadeIn(500);
 							$('#sim-edit-image .sim-edit-box').slideDown(500);
@@ -196,13 +194,17 @@ $(function() {
 								$('body').on('keyup', whichButton)
 								$('[type="spanSrc"]').hide()
 								$('#sim-edit-image .spanSrc').val('')
-								console.log('如果Span不存在 開始偵聽有沒有輸入密技')
-							} 
+								console.log('Span不存在 開始偵聽有沒有輸入密技')
+							} else {
+								console.log('Span已存在')
+								$('[type="spanSrc"]').show()
+								$('#sim-edit-image .spanSrc').val(big_parent.find('span.bgspan').css('background-image').split('"')[1])
+							}
 
 							if (spanSrcis === 1) { // 如果Span存在 那麼需要添加
 								hoverFeatures = false
 								$('body').off('keyup', whichButton)
-								$('#sim-edit-image .spanSrc').val(big_parent.find('span.bgspan').css('background').split('"')[1]);
+								$('#sim-edit-image .spanSrc').val(big_parent.find('span.bgspan').css('background-image').split('"')[1]);
 							}
 
 							$('#sim-edit-image .sim-edit-box-buttons-save').one('click', function(e) {
@@ -259,7 +261,7 @@ $(function() {
 
 								if ($('#sim-edit-image .spanSrc').val().length !== 0) {
 									big_parent.find('img').wrap('<span class="bgspan"></span>')
-									big_parent.find('span.bgspan').css('background', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
+									big_parent.find('span.bgspan').css('background-image', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
 								} else {
 									big_parent.find('span.bgspan').find('img').unwrap('span')
 									big_parent.find('img').removeClass('hoverOpacity0')
@@ -735,7 +737,7 @@ $(function() {
 			var isSlick = $(this).parent('.rightCtrl').siblings('.slick').length === 1 //這個模塊要輪播嗎?
 			
 			var moreOption = ''
-			if (isSlick) {moreOption = '輪播畫面出現幾張：<input class="slidestoshow" value="1" placeholder="請輸入數字" size="20";><br>輪播一次滑動幾張：<input class="slidestoscroll" value="1" placeholder="請輸入數字" size="20";><br>替換圖片漸變時間：<input class="speed" value="300" placeholder="請輸入數字(單位:毫秒)" size="20";><br>每次停留時間：<input class="autoplayspeed" value="2000" placeholder="請輸入數字(單位:毫秒)" size="20";><br>換圖方式：<select class="fade"><option value="true">圖片往左滑</option><option value="false">圖片淡入淡出</option></select><select class="arrows"><option value="false">沒有左右箭頭</option><option value="true">要有左右箭頭</option></select><select class="dots"><option value="false">沒有點點</option><option value="true">要有點點</option></select>'}
+			if (isSlick) {moreOption = '輪播畫面出現幾張：<input class="slidestoshow" value="1" placeholder="請輸入數字" size="20";><br>輪播一次滑動幾張：<input class="slidestoscroll" value="1" placeholder="請輸入數字" size="20";><br>替換圖片漸變時間：<input class="speed" value="300" placeholder="請輸入數字(單位:毫秒)" size="20";><br>每次停留時間：<input class="autoplayspeed" value="2000" placeholder="請輸入數字(單位:毫秒)" size="20";><br>換圖方式：<select class="fade"><option value="false">圖片往左滑</option><option value="true">圖片淡入淡出</option></select><select class="arrows"><option value="false">沒有左右箭頭</option><option value="true">要有左右箭頭</option></select><select class="dots"><option value="false">沒有點點</option><option value="true">要有點點</option></select>'}
 
 			//藍色的按鈕
 			$(this).parent().append('<div class="changeColor-box"><div class="sim-edit-box-title">Edit Background</div>換背景色：<input class="changeColor-input-text" type="text" placeholder="請輸入#色碼" size="20";><br>換背景圖：<input class="changeImg-input-text" type="text" placeholder="請輸入url(網址...)" size="20";><br>背景是否固定：<select class="background-attachment"><option value="scroll">不固定(隨滾輪捲動)</option><option value="fixed">固定(不隨滾輪捲動)</option></select><br>限制最大寬度：<input class="maxWidth" placeholder="請輸入寬度px或%" size="20";><br>限制最小高度：<input class="minHeight" placeholder="請輸入高度px" size="20";><br>往下推：<input class="marginBottom" placeholder="註:螢幕寬小於400px失效" size="20";><br>加上特殊樣式：<input class="style" placeholder="多個樣式請用空白分開" size="20";><br>'+moreOption+'<button class="btnOK" id="btnOK">OK</button><button class="btnOK" id="btnCancel">Cancel</button></div>');
@@ -762,6 +764,7 @@ $(function() {
 					changeColorBox.find('.autoplayspeed').val($slick.attr('autoplayspeed'))
 					changeColorBox.find('.slidestoscroll').val($slick.attr('slidestoscroll'))
 					changeColorBox.find('.slidestoshow').val($slick.attr('slidestoshow'))
+					console.log($slick.attr('fade'))
 					changeColorBox.find('.fade').val($slick.attr('fade'))
 					changeColorBox.find('.dots').val($slick.attr('dots'))
 					changeColorBox.find('.arrows').val($slick.attr('arrows'))
@@ -785,6 +788,7 @@ $(function() {
 					$slick.attr('slidestoscroll', $(this).prevAll('.slidestoscroll').val())
 					$slick.attr('dots', $(this).prevAll('.dots').val())
 					$slick.attr('arrows', $(this).prevAll('.arrows').val())
+					console.log($(this).prevAll('.fade').val())
 					$slick.attr('fade', $(this).prevAll('.fade').val())
 					$slick.attr('autoplayspeed', $(this).prevAll('.autoplayspeed').val())
 					$slick.attr('speed', $(this).prevAll('.speed').val())
