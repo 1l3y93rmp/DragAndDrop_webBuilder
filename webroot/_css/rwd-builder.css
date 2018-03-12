@@ -1085,53 +1085,10 @@ div[edit_bg]>a.full {
 }
 
 
-/*GQ輪播預覽*/
-
-[Group] {
-  position: relative;
-}
-
-[Group]::after {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  color: #fff;
-  border-radius: 10px;
-  display: block;
-  line-height: 1.2em;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-}
-
-[Group="women"]::after {
-  content: "w";
-  background: pink;
-}
-
-[Group="men"]::after {
-  content: "m";
-  background: cornflowerblue;
-}
-
-[Group="kids"]::after {
-  content: "k";
-  background: darkorange;
-}
-
-.slick-Grouping>div {
-  display: inline-block;
-  width: auto;
-}
-
-.slick-Grouping img {
-  width: 150px;
-}
-
 
 /*PZ 輪播預覽*/
 
-[decode="slick-bgImg"] .slick img {
+[decode="slick-bgImg"] .slick img{
   width: 100%;
   height: 100vh;
   background: no-repeat center;
@@ -1157,9 +1114,11 @@ div[edit_bg]>a.full {
 
 #rwd-builder-area-center-frame-content .sim-row[data-id^="5"]{
   position: relative !important;
-  left:auto;
-  bottom:auto;
-  top: auto;
-  right: top;
+  left:auto !important;
+  bottom:auto !important;
+  top: auto !important;
+  right: auto !important;
+  z-index: 0 !important
 }
+
 

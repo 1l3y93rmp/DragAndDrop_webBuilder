@@ -161,7 +161,7 @@ $(function() {
 									$('body').off('keyup', whichButton)
 								}
 							}
-							var isBlankGIF = big_parent.find('img[src="img/blank.gif"]').length;
+							var isBlankGIF = big_parent.find('img[src^="img/blank"]').length;
 							if(isBlankGIF === 0){
 								console.log('異動圖片SRC')
 								$('[type="src"]').show()
@@ -518,7 +518,6 @@ $(function() {
 
 								if (!style) {
 									big_parent.find('video').removeAttr('class');
-									//big_parent.removeAttr('class').addClass('sim-row-header3-slider sim-row-edit');
 								}
 								//影片設置最大寬度只能在載入後才設置，使用setTimeout
 								setTimeout(function(){
