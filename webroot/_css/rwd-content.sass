@@ -191,27 +191,86 @@
     opacity: 0
 
 .hoverOpacity50
-  transition: all 0.3s
+  transition: opacity 0.3s
   &:hover
     opacity: 0.5
 
 .hoverOpacity100
-  transition: all 0.3s
+  transition: opacity 0.3s
   &:hover
     opacity: 0
 
 .hoverScale12
-  transition: all 0.5s
+  transition: transform 0.5s
   &:hover
     transform: scale(1.1)
 
 .hoverRotate7
-  transition: all 0.5s
+  transition: transform 0.5s
   &:hover
     transform: rotate(7deg)
 
+.hoverScaleX
+  transition: transform 0.5s
+  &:hover
+    transform: scaleX(-1)
+    
+.hoverTranslateX
+  overflow: hidden
+  >*
+    transition: transform 0.5s
+  &:hover
+    >*
+      transform: translateX(100%)
+
+@keyframes animation_ScaleX
+  0%
+    background-size: 100% 100%
+  50%
+    background-size: 0% 100%
+  100%
+    background-size: 100% 100%
+
+@keyframes animation_ScaleX_
+  0%
+    background-size: 100% 100%
+  50%
+    background-size: 0% 100%
+  100%
+    background-size: 100% 100%
+
+@keyframes animation_ScaleXImage
+  0%
+    transform: scaleX(1)
+  50%
+    transform: scaleX(0)
+  100%
+    transform: scaleX(0)
+
+@keyframes animation_ScaleXImage_
+  0%
+    transform: scaleX(0)
+  50%
+    transform: scaleX(0)
+  100%
+    transform: scaleX(1)
+
+.hoverScaleX_opacity
+
+  animation: animation_ScaleX_ 1s 1
+  background-position: center
+  background-repeat: no-repeat
+
+  >*
+    animation: animation_ScaleXImage_ 1s 1
+  &:hover
+    animation: animation_ScaleX 1s 1
+    >*
+      animation: animation_ScaleXImage 1s 1 forwards
+
+
 .animation_fade
-  animation: animation_fade  2s infinite ease-in-out
+  animation: animation_fade 2s infinite ease-in-out
 
 @keyframes animation_fade
   0%

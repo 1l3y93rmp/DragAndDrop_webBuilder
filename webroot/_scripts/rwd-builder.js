@@ -157,7 +157,6 @@ $(function() {
 									alert('你成功打開游標hover效果設定功能了，請在"另一張圖"的欄位放上你要呈現相同大小的另外一張圖 PS:如果你不想要這個效果請在"另一張圖"的欄位上留下空白')
 									hoverFeatures = true
 									$('[type="spanSrc"]').show()
-									$('#sim-edit-image .style').val($('#sim-edit-image .style').val() + ' hoverOpacity0');
 									$('body').off('keyup', whichButton)
 								}
 							}
@@ -182,6 +181,17 @@ $(function() {
 							$('#sim-edit-image .link').val(big_parent.find('a.imglink').attr('href'));
 							$('#sim-edit-image .target').val(big_parent.find('a.imglink').attr('target'));
 							$('#sim-edit-image .style').val(big_parent.find('img').attr('class'));
+							var effectVal
+							if (big_parent.find('.hoverOpacity0').length) {
+								effectVal = 'fadeIn'
+							} else if (big_parent.find('.hoverTranslateX').length) {
+								effectVal = 'slide'
+							} else if (big_parent.find('.hoverScaleX_opacity').length) {
+								effectVal = 'flop'
+							} 
+							$('#sim-edit-image .HoverEffect').val(effectVal?effectVal:'fadeIn')
+
+
 
 							$('#sim-edit-image .align').val(big_parent.css('text-align'));
 							if(big_parent.closest('[decode="absolute-box"]').length ===1){
@@ -259,16 +269,36 @@ $(function() {
 								var style = $('#sim-edit-image .style').val(),
 										align = $('#sim-edit-image .align').val();
 
+								big_parent.find('img').removeClass().addClass(style)
+								if (!style) {
+									big_parent.find('img').removeAttr('class');
+								}
+
 								if ($('#sim-edit-image .spanSrc').val().length !== 0) {
-									big_parent.find('img').wrap('<span class="bgspan"></span>')
-									big_parent.find('span.bgspan').css('background-image', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
+									if (big_parent.find('span.bgspan').length === 0) {
+										big_parent.find('img').wrap('<span class="bgspan"></span>')
+										big_parent.find('span.bgspan').css('background-image', 'url("'+$('#sim-edit-image .spanSrc').val()+'")')
+									}
+
+									var $HoverEffect = $('#sim-edit-image .HoverEffect').val()
+									console.log($HoverEffect)
+									big_parent.find('img').removeClass('hoverOpacity0')
+									big_parent.find('span.bgspan').removeClass('hoverTranslateX hoverScaleX_opacity')
+									if ($HoverEffect === 'fadeIn') {
+										big_parent.find('img').addClass('hoverOpacity0')
+									} else if ($HoverEffect === 'flop'){
+										big_parent.find('span.bgspan').addClass('hoverScaleX_opacity')
+									} else if ($HoverEffect === 'slide') {
+										big_parent.find('span.bgspan').addClass('hoverTranslateX')
+									}
+									
 								} else {
 									big_parent.find('span.bgspan').find('img').unwrap('span')
 									big_parent.find('img').removeClass('hoverOpacity0')
 									console.log('有開啟功能/但是沒有輸入 刪除＿hoverOpacity0')
 								}
 								
-								big_parent.find('img').removeClass().addClass(style)
+								
 
 								console.log($('#sim-edit-image .link').val())
 
@@ -293,9 +323,7 @@ $(function() {
 									}
 								};
 
-								if (!style) {
-									big_parent.find('img').removeAttr('class');
-								}
+
 
 								if(big_parent.closest('[decode="absolute-box"]').length ===1){
 									var newLeft = $('#sim-edit-image .left').val(),
